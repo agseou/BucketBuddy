@@ -22,6 +22,11 @@
 		E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C513F02BC7CE540021C172 /* BaseCollectionViewCell.swift */; };
 		E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C513F12BC7CE540021C172 /* BaseView.swift */; };
 		E2C513F52BC7CE540021C172 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C513F22BC7CE540021C172 /* BaseViewController.swift */; };
+		E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C513F72BC7CF290021C172 /* APIKey.swift */; };
+		E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C513F92BC7CF2E0021C172 /* UsersRouter.swift */; };
+		E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C513FB2BC7CF340021C172 /* TargetType.swift */; };
+		E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514642BCAE5F10021C172 /* HTTPHeader.swift */; };
+		E2C514672BCAEA2D0021C172 /* UserQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514662BCAEA2D0021C172 /* UserQueryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		E2C513F02BC7CE540021C172 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2C513F12BC7CE540021C172 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E2C513F22BC7CE540021C172 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E2C513F72BC7CF290021C172 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		E2C513F92BC7CF2E0021C172 /* UsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
+		E2C513FB2BC7CF340021C172 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		E2C514642BCAE5F10021C172 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		E2C514662BCAEA2D0021C172 /* UserQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQueryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,7 @@
 				E2C513E22BC7CDCE0021C172 /* App */,
 				E2C513EF2BC7CE440021C172 /* Base */,
 				E2C513EE2BC7CE150021C172 /* Views */,
+				E2C513F62BC7CEBC0021C172 /* Network */,
 				E2C513D22BC7CD520021C172 /* Assets.xcassets */,
 				E2C513D72BC7CD520021C172 /* Info.plist */,
 			);
@@ -111,6 +122,18 @@
 				E2C513F02BC7CE540021C172 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		E2C513F62BC7CEBC0021C172 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E2C513F72BC7CF290021C172 /* APIKey.swift */,
+				E2C514662BCAEA2D0021C172 /* UserQueryModel.swift */,
+				E2C514642BCAE5F10021C172 /* HTTPHeader.swift */,
+				E2C513F92BC7CF2E0021C172 /* UsersRouter.swift */,
+				E2C513FB2BC7CF340021C172 /* TargetType.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,8 +221,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
 				E2C513CE2BC7CD510021C172 /* ViewController.swift in Sources */,
+				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
+				E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */,
+				E2C514672BCAEA2D0021C172 /* UserQueryModel.swift in Sources */,
+				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
