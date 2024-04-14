@@ -7,17 +7,25 @@
 
 import Foundation
 
+// MARK: - Join
 struct joinQuery: Encodable {
     let email: String
     let password: String
     let nick: String
 }
 
+// MARK: - ValidationEmail
 struct validationEmailQuery: Encodable {
     let email: String
 }
 
+// MARK: - Login
 struct LoginQuery: Encodable {
     let email: String
     let password: String
+}
+
+struct LoginModel: Decodable {
+    let accessToken: String
+    let refreshToken: String
 }

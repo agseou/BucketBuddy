@@ -24,11 +24,11 @@ extension UsersRouter: TargetType {
     
     var method: HTTPMethod {
         switch self {
-        case .join(let query):
+        case .join:
                 .post
-        case .validationEmail(let query):
+        case .validationEmail:
                 .post
-        case .login(let query):
+        case .login:
                 .post
         case .refreshToken:
                 .get
@@ -39,11 +39,11 @@ extension UsersRouter: TargetType {
     
     var path: String {
         switch self {
-        case .join(let query):
+        case .join:
             "users/join"
-        case .validationEmail(let query):
+        case .validationEmail:
             "validatoin/email"
-        case .login(let query):
+        case .login:
             "users/login"
         case .refreshToken:
             "auth/refresh"
