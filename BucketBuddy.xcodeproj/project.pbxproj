@@ -35,6 +35,7 @@
 		E2C5147B2BCBFDA00021C172 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5147A2BCBFDA00021C172 /* NetworkManager.swift */; };
 		E2C5147D2BCC04590021C172 /* RegularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5147C2BCC04590021C172 /* RegularButton.swift */; };
 		E2C514BE2BCEC8100021C172 /* SetUpNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */; };
+		E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		E2C5147A2BCBFDA00021C172 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E2C5147C2BCC04590021C172 /* RegularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularButton.swift; sourceTree = "<group>"; };
 		E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNicknameViewModel.swift; sourceTree = "<group>"; };
+		E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				E2C513F92BC7CF2E0021C172 /* UsersRouter.swift */,
 				E2C513FB2BC7CF340021C172 /* TargetType.swift */,
 				E2C5147A2BCBFDA00021C172 /* NetworkManager.swift */,
+				E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
+				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
 				E2C513F52BC7CE540021C172 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
