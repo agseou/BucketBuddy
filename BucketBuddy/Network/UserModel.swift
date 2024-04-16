@@ -8,7 +8,13 @@
 import Foundation
 
 // MARK: - Join
-struct joinQuery: Encodable {
+struct JoinQuery: Encodable {
+    let email: String
+    let password: String
+    let nick: String
+}
+
+struct JoinModel: Decodable {
     let email: String
     let password: String
     let nick: String

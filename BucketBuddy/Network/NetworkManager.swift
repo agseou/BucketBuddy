@@ -34,4 +34,25 @@ struct NetworkManager {
         }
     }
     
+    static func createJoin(query: JoinQuery) -> Single<JoinModel> {
+        return Single<JoinModel>.create { single in
+            do {
+                let urlRequest = try UsersRouter.join(query: query).asURLRequest()
+                AF.request(urlRequest)
+                    .validate(statusCode: 200..<300)
+                    .responseDecodable(of: JoinModel.self) { response in
+                        switch response.result {
+                        case .success(let join):
+                            single(.success(join))
+                        case .failure(let error):
+                            print(error)
+                            single(.failure(error))
+                        }
+                    }
+            } catch {
+                single(.failure(error))
+            }
+            return Disposables.create()
+        }
+    }
 }

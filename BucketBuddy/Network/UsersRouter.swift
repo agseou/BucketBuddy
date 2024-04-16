@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum UsersRouter {
-    case join(query: joinQuery)
+    case join(query: JoinQuery)
     case validationEmail(query: validationEmailQuery)
     case login(query: LoginQuery)
     case refreshToken
