@@ -74,6 +74,7 @@ class LoginViewController: BaseViewController {
             password: passwordTextField.rx.text.orEmpty.asObservable(),
             loginTap: loginBtn.rx.tap.asObservable()
         )
+        print(input)
         
         let output = loginViewModel.transform(input: input)
         
@@ -91,14 +92,14 @@ class LoginViewController: BaseViewController {
                     TokenUDManager.shared.accessToken = success.accessToken
                     TokenUDManager.shared.refreshToken = success.refreshToken
                 case .failure(let error):
-                    print(error)
+                    owner.showAlert(title: "에러", message: "\(error)")
                 }
             }
             .disposed(by: disposeBag)
         
         signUpBtn.rx.tap
             .bind(with: self) { owner, _ in
-                let vc = SignUpViewController()
+                let vc = SetUpNicknameViewController()
                 owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)

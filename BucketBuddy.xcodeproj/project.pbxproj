@@ -37,6 +37,7 @@
 		E2C514BE2BCEC8100021C172 /* SetUpNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */; };
 		E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */; };
 		E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */; };
+		E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514FC2BD14DFA0021C172 /* HandleError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNicknameViewModel.swift; sourceTree = "<group>"; };
 		E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
 		E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		E2C514FC2BD14DFA0021C172 /* HandleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				E2C513F92BC7CF2E0021C172 /* UsersRouter.swift */,
 				E2C513FB2BC7CF340021C172 /* TargetType.swift */,
 				E2C5147A2BCBFDA00021C172 /* NetworkManager.swift */,
+				E2C514FC2BD14DFA0021C172 /* HandleError.swift */,
 				E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */,
 			);
 			path = Network;
@@ -315,6 +318,7 @@
 				E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */,
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
+				E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,

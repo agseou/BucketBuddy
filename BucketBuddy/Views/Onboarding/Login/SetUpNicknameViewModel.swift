@@ -31,6 +31,6 @@ class SetUpNicknameViewModel: CommonViewModel {
             }
             .disposed(by: disposeBag)
         
-        Output(nicknameVaildation: loginVaildation.asDriver())
+        return Output(nicknameVaildation: loginVaildation.asDriver())
     }
 }

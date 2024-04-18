@@ -17,14 +17,15 @@ struct NetworkManager {
             do {
                 let urlRequest = try UsersRouter.login(query: query).asURLRequest()
                 AF.request(urlRequest)
-                    .validate(statusCode: 200..<300)
                     .responseDecodable(of: LoginModel.self) { response in
                         switch response.result {
                         case .success(let login):
                             single(.success(login))
                         case .failure(let error):
-                            print(error)
-                            single(.failure(error))
+                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
+                                handleLoginStatusError(statusCode)
+                                single(.failure(error))
+                            }
                         }
                     }
             } catch {
@@ -45,7 +46,6 @@ struct NetworkManager {
                         case .success(let join):
                             single(.success(join))
                         case .failure(let error):
-                            print(error)
                             single(.failure(error))
                         }
                     }
