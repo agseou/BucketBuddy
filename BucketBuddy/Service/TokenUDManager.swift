@@ -7,25 +7,29 @@
 
 import Foundation
 
+@propertyWrapper
+struct UserDefault<T> {
+    let key: String
+    let defaultValue: T
+
+    var wrappedValue: T {
+        get { UserDefaults.standard.object(forKey: key) as? T ?? defaultValue }
+        set { UserDefaults.standard.set(newValue, forKey: key) }
+    }
+}
+
 class TokenUDManager {
     
     static let shared = TokenUDManager()
     
-    enum UDKey: String {
+    enum Key: String {
         case accessToken
         case refreshToken
     }
     
-    let ud = UserDefaults.standard
+    @UserDefault(key: Key.accessToken.rawValue, defaultValue: "")
+    var accessToken: String
     
-    var accessToken: String {
-        get { ud.string(forKey: UDKey.accessToken.rawValue) ?? "" }
-        set { ud.setValue(newValue, forKey: UDKey.accessToken.rawValue) }
-    }
-    
-    var refreshToken: String {
-        get { ud.string(forKey: UDKey.accessToken.rawValue) ?? "" }
-        set { ud.setValue(newValue, forKey: UDKey.accessToken.rawValue) }
-    }
-    
+    @UserDefault(key: Key.refreshToken.rawValue, defaultValue: "")
+    var refreshToken: String
 }
