@@ -10,14 +10,14 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol BaseViewProtocol {
+protocol BaseViewControllerProtocol {
     func setupDelegate() // - 델리게이트
     func configureHierarchy() // - 계층
     func configureView() // - 프로퍼티 ex) label
     func setConstraints() // - 레이아웃
 }
 
-class BaseViewController: UIViewController, BaseViewProtocol {
+class BaseViewController: UIViewController, BaseViewControllerProtocol {
     
     init() { // 코드로 UI를 구성하는 경우, 명시적으로 nib 파일을 사용하지 않겠다는 것을 표현
         super.init(nibName: nil, bundle: nil)

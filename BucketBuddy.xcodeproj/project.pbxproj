@@ -39,6 +39,8 @@
 		E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */; };
 		E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514FC2BD14DFA0021C172 /* HandleError.swift */; };
 		E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515222BD241570021C172 /* BaseTableViewCell.swift */; };
+		E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515252BD244340021C172 /* MyBucketViewController.swift */; };
+		E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E2C514FC2BD14DFA0021C172 /* HandleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleError.swift; sourceTree = "<group>"; };
 		E2C515222BD241570021C172 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		E2C515252BD244340021C172 /* MyBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucketViewController.swift; sourceTree = "<group>"; };
+		E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucketListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		E2C513EE2BC7CE150021C172 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2C515242BD2441F0021C172 /* MyBucket */,
 				E2C514BB2BCE7C440021C172 /* Onboarding */,
 			);
 			path = Views;
@@ -218,6 +223,23 @@
 				E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E2C515242BD2441F0021C172 /* MyBucket */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515292BD246720021C172 /* Cell */,
+				E2C515252BD244340021C172 /* MyBucketViewController.swift */,
+			);
+			path = MyBucket;
+			sourceTree = "<group>";
+		};
+		E2C515292BD246720021C172 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +337,7 @@
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
 				E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */,
+				E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */,
 				E2C5147D2BCC04590021C172 /* RegularButton.swift in Sources */,
 				E2C514732BCAF1470021C172 /* ViewModelType.swift in Sources */,
 				E2C514672BCAEA2D0021C172 /* UserModel.swift in Sources */,
@@ -322,6 +345,7 @@
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
 				E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
+				E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */,
 				E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
