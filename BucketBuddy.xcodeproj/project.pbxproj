@@ -41,6 +41,10 @@
 		E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515222BD241570021C172 /* BaseTableViewCell.swift */; };
 		E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515252BD244340021C172 /* MyBucketViewController.swift */; };
 		E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */; };
+		E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515302BD2651A0021C172 /* RealmRepository.swift */; };
+		E2C515332BD265200021C172 /* MyBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515322BD265200021C172 /* MyBucket.swift */; };
+		E2C515362BD265620021C172 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E2C515352BD265620021C172 /* Realm */; };
+		E2C515382BD265620021C172 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2C515372BD265620021C172 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,8 @@
 		E2C515222BD241570021C172 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		E2C515252BD244340021C172 /* MyBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucketViewController.swift; sourceTree = "<group>"; };
 		E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucketListTableViewCell.swift; sourceTree = "<group>"; };
+		E2C515302BD2651A0021C172 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		E2C515322BD265200021C172 /* MyBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C515362BD265620021C172 /* Realm in Frameworks */,
 				E2C513ED2BC7CE0A0021C172 /* Lottie in Frameworks */,
+				E2C515382BD265620021C172 /* RealmSwift in Frameworks */,
 				E2C513E82BC7CDF10021C172 /* RxCocoa in Frameworks */,
 				E2C513DF2BC7CD8D0021C172 /* SnapKit in Frameworks */,
 				E2C513EA2BC7CDF10021C172 /* RxSwift in Frameworks */,
@@ -116,6 +124,7 @@
 				E2C513E22BC7CDCE0021C172 /* App */,
 				E2C513EF2BC7CE440021C172 /* Base */,
 				E2C513EE2BC7CE150021C172 /* Views */,
+				E2C5152F2BD264FF0021C172 /* Realm */,
 				E2C513F62BC7CEBC0021C172 /* Network */,
 				E2C514772BCBF9B80021C172 /* Service */,
 				E2C514712BCAF11D0021C172 /* Protocol */,
@@ -242,6 +251,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E2C5152F2BD264FF0021C172 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515302BD2651A0021C172 /* RealmRepository.swift */,
+				E2C515322BD265200021C172 /* MyBucket.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +282,8 @@
 				E2C513E72BC7CDF10021C172 /* RxCocoa */,
 				E2C513E92BC7CDF10021C172 /* RxSwift */,
 				E2C513EC2BC7CE0A0021C172 /* Lottie */,
+				E2C515352BD265620021C172 /* Realm */,
+				E2C515372BD265620021C172 /* RealmSwift */,
 			);
 			productName = BucketBuddy;
 			productReference = E2C513C62BC7CD510021C172 /* BucketBuddy.app */;
@@ -298,6 +318,7 @@
 				E2C513E32BC7CDE40021C172 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E2C513E62BC7CDF10021C172 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				E2C513EB2BC7CE0A0021C172 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = E2C513C72BC7CD510021C172 /* Products */;
 			projectDirPath = "";
@@ -348,7 +369,9 @@
 				E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */,
 				E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
+				E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
+				E2C515332BD265200021C172 /* MyBucket.swift in Sources */,
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,
 				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
 				E2C513F52BC7CE540021C172 /* BaseViewController.swift in Sources */,
@@ -618,6 +641,14 @@
 				minimumVersion = 4.4.2;
 			};
 		};
+		E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -645,6 +676,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E2C513EB2BC7CE0A0021C172 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		E2C515352BD265620021C172 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E2C515372BD265620021C172 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
