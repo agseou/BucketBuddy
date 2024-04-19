@@ -12,6 +12,7 @@ protocol BaseViewProtocol {
     func configureHierarchy() // - 계층
     func configureView() // - 프로퍼티 ex) label
     func setConstraints() // - 레이아웃
+    func setBind()
 }
 
 class BaseView: UIView, BaseViewProtocol {
@@ -29,6 +30,7 @@ class BaseView: UIView, BaseViewProtocol {
     func configureHierarchy() { }
     func configureView() { }
     func setConstraints() { }
+    func setBind() { }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {

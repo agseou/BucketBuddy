@@ -1,8 +1,8 @@
 //
-//  BaseCollectionViewCell.swift
+//  BaseTableViewCell.swift
 //  BucketBuddy
 //
-//  Created by 은서우 on 4/10/24.
+//  Created by eunseou on 4/19/24.
 //
 
 import UIKit
@@ -10,12 +10,12 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class BaseCollectionViewCell: UICollectionViewCell, BaseViewProtocol {
+class BaseTableViewCell: UITableViewCell, BaseViewProtocol {
     
     var disposeBag = DisposeBag()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         configureHierarchy()
         configureView()
@@ -38,4 +38,5 @@ class BaseCollectionViewCell: UICollectionViewCell, BaseViewProtocol {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 }

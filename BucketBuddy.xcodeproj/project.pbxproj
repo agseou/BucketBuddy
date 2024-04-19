@@ -38,6 +38,7 @@
 		E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */; };
 		E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */; };
 		E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514FC2BD14DFA0021C172 /* HandleError.swift */; };
+		E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515222BD241570021C172 /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
 		E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E2C514FC2BD14DFA0021C172 /* HandleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleError.swift; sourceTree = "<group>"; };
+		E2C515222BD241570021C172 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				E2C513F12BC7CE540021C172 /* BaseView.swift */,
 				E2C513F22BC7CE540021C172 /* BaseViewController.swift */,
+				E2C515222BD241570021C172 /* BaseTableViewCell.swift */,
 				E2C513F02BC7CE540021C172 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
@@ -317,6 +320,7 @@
 				E2C514672BCAEA2D0021C172 /* UserModel.swift in Sources */,
 				E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */,
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
+				E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
 				E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
