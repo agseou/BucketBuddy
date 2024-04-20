@@ -46,6 +46,9 @@
 		E2C515362BD265620021C172 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E2C515352BD265620021C172 /* Realm */; };
 		E2C515382BD265620021C172 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2C515372BD265620021C172 /* RealmSwift */; };
 		E2C5153A2BD269E60021C172 /* CapsuleSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515392BD269E60021C172 /* CapsuleSegmentedControl.swift */; };
+		E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */; };
+		E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515412BD3AE820021C172 /* MyProfileView.swift */; };
+		E2C515442BD3AF670021C172 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515432BD3AF670021C172 /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,9 @@
 		E2C515302BD2651A0021C172 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		E2C515322BD265200021C172 /* MyBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucket.swift; sourceTree = "<group>"; };
 		E2C515392BD269E60021C172 /* CapsuleSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleSegmentedControl.swift; sourceTree = "<group>"; };
+		E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddNewBucketViewController.swift; path = BucketBuddy/Views/MyBucket/AddNewBucketViewController.swift; sourceTree = SOURCE_ROOT; };
+		E2C515412BD3AE820021C172 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		E2C515432BD3AF670021C172 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +207,7 @@
 				E2C5146D2BCAEE670021C172 /* LoginTextField.swift */,
 				E2C5147C2BCC04590021C172 /* RegularButton.swift */,
 				E2C515392BD269E60021C172 /* CapsuleSegmentedControl.swift */,
+				E2C515432BD3AF670021C172 /* ProfileImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -242,6 +249,8 @@
 			children = (
 				E2C515292BD246720021C172 /* Cell */,
 				E2C515252BD244340021C172 /* MyBucketViewController.swift */,
+				E2C515412BD3AE820021C172 /* MyProfileView.swift */,
+				E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */,
 			);
 			path = MyBucket;
 			sourceTree = "<group>";
@@ -353,6 +362,7 @@
 			files = (
 				E2C5147B2BCBFDA00021C172 /* NetworkManager.swift in Sources */,
 				E2C5146A2BCAEBFF0021C172 /* LoginViewController.swift in Sources */,
+				E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */,
 				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
 				E2C5146E2BCAEE670021C172 /* LoginTextField.swift in Sources */,
 				E2C514792BCBF9E70021C172 /* TokenUDManager.swift in Sources */,
@@ -360,6 +370,7 @@
 				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
+				E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */,
 				E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */,
 				E2C5153A2BD269E60021C172 /* CapsuleSegmentedControl.swift in Sources */,
 				E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */,
@@ -375,6 +386,7 @@
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
+				E2C515442BD3AF670021C172 /* ProfileImageView.swift in Sources */,
 				E2C515332BD265200021C172 /* MyBucket.swift in Sources */,
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,
 				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
@@ -530,6 +542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47VP7M3T34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BucketBuddy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "버킷버디";
@@ -563,6 +576,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 47VP7M3T34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BucketBuddy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "버킷버디";
