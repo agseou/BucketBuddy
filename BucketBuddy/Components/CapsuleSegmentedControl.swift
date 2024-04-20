@@ -50,7 +50,7 @@ final class CapsuleSegmentedControl: UISegmentedControl {
     }
     
     func configureCapsuleSegmentedControl() {
-        
+        selectedSegmentIndex = 0
         configureDivider()
     }
     

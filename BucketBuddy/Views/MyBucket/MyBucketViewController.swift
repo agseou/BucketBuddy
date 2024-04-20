@@ -12,6 +12,10 @@ import RxCocoa
 
 final class MyBucketViewController: BaseViewController {
 
+    private let segmentControl = {
+        let segment = CapsuleSegmentedControl(items: ["미완료", "완료🏆"])
+        return segment
+    }()
     lazy var myBucketListTableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -26,6 +30,7 @@ final class MyBucketViewController: BaseViewController {
     override func configureHierarchy() {
         super.configureHierarchy()
         
+        view.addSubview(segmentControl)
         view.addSubview(myBucketListTableView)
     }
     
@@ -38,8 +43,14 @@ final class MyBucketViewController: BaseViewController {
     override func setConstraints() {
         super.setConstraints()
         
+        segmentControl.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.height.equalTo(40)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(60)
+        }
         myBucketListTableView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(segmentControl.snp.bottom)
+            $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
