@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MyBucketListTableViewCell: BaseTableViewCell {
+final class MyBucketListTableViewCell: BaseCollectionViewCell {
 
     // MARK: - Components
     private let container = {
