@@ -49,6 +49,7 @@
 		E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */; };
 		E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515412BD3AE820021C172 /* MyProfileView.swift */; };
 		E2C515442BD3AF670021C172 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515432BD3AF670021C172 /* ProfileImageView.swift */; };
+		E2C515532BD633AB0021C172 /* SegmentControlCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515522BD633AB0021C172 /* SegmentControlCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddNewBucketViewController.swift; path = BucketBuddy/Views/MyBucket/AddNewBucketViewController.swift; sourceTree = SOURCE_ROOT; };
 		E2C515412BD3AE820021C172 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		E2C515432BD3AF670021C172 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		E2C515522BD633AB0021C172 /* SegmentControlCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,7 +251,6 @@
 			children = (
 				E2C515292BD246720021C172 /* Cell */,
 				E2C515252BD244340021C172 /* MyBucketViewController.swift */,
-				E2C515412BD3AE820021C172 /* MyProfileView.swift */,
 				E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */,
 			);
 			path = MyBucket;
@@ -259,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */,
+				E2C515412BD3AE820021C172 /* MyProfileView.swift */,
+				E2C515522BD633AB0021C172 /* SegmentControlCollectionReusableView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				E2C514672BCAEA2D0021C172 /* UserModel.swift in Sources */,
 				E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */,
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
+				E2C515532BD633AB0021C172 /* SegmentControlCollectionReusableView.swift in Sources */,
 				E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
 				E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */,

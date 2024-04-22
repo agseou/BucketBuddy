@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MyProfileView: BaseView {
+final class MyProfileView: BaseCollectionViewCell {
 
     private let profileImage = ProfileImageView(frame: .zero)
     private let userName = {

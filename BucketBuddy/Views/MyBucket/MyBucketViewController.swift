@@ -14,15 +14,17 @@ final class MyBucketViewController: BaseViewController {
     
     enum Section: Int, CaseIterable {
         case profile
-        case segment
-        case myBuckets
+        case myBuckets // header에 segment를 pinned
     }
     
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        view.register(MyProfileView.self, forCellWithReuseIdentifier: "profileImageView")
+        view.register(SegmentControlCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SegmentControlCollectionReusableView")
         view.register(MyBucketListTableViewCell.self, forCellWithReuseIdentifier: "MyBucketListTableViewCell")
         view.delegate = self
         view.dataSource = self
+        view.backgroundColor = .clear
         return view
     }()
     private let addBtn = {
@@ -78,32 +80,20 @@ extension MyBucketViewController {
     
     func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { [self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-                    guard let sectionKind = Section(rawValue: sectionIndex) else { return nil }
-                    switch sectionKind {
-                    case .profile:
-                        return createProfileLayout()
-                    case .segment:
-                        return createSegmentLayout()
-                    case .myBuckets:
-                        return createBucketListLayout()
-                    }
-                }
+            guard let sectionKind = Section(rawValue: sectionIndex) else { return nil }
+            switch sectionKind {
+            case .profile:
+                return createProfileLayout()
+            case .myBuckets:
+                return createBucketListLayout()
+            }
+        }
     }
     
     func createProfileLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(120))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-    }
-    
-    func createSegmentLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
@@ -111,22 +101,58 @@ extension MyBucketViewController {
     func createBucketListLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(90))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
         let section = NSCollectionLayoutSection(group: group)
+        
+        // 헤더 사이즈와 설정
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(80))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        header.pinToVisibleBounds = true
+        section.boundarySupplementaryItems = [header]
+        
         return section
     }
 }
 
 extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return Section.allCases.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return section == 0 ? 1 : 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyBucketListTableViewCell", for: indexPath) as! MyBucketListTableViewCell
+        switch Section(rawValue: indexPath.section) {
+        case .profile:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileImageView", for: indexPath) as! MyProfileView
+            // 프로필 셀 구성
+            return cell
+            
+        case .myBuckets:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyBucketListTableViewCell", for: indexPath) as! MyBucketListTableViewCell
+            // 버킷리스트 셀 구성
+            return cell
+        case .none:
+            return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
+        }
         
-        return cell
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SegmentControlCollectionReusableView", for: indexPath) as! SegmentControlCollectionReusableView
+        
+        return header
     }
     
 }
