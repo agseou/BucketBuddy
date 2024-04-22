@@ -160,6 +160,7 @@
 		E2C513EE2BC7CE150021C172 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2C515542BD645340021C172 /* Explore */,
 				E2C515242BD2441F0021C172 /* MyBucket */,
 				E2C514BB2BCE7C440021C172 /* Onboarding */,
 			);
@@ -273,6 +274,13 @@
 				E2C515322BD265200021C172 /* MyBucket.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		E2C515542BD645340021C172 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

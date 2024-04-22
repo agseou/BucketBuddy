@@ -11,12 +11,9 @@ import RxSwift
 import RxCocoa
 
 final class MyBucketViewController: BaseViewController {
+  
     
-    enum Section: Int, CaseIterable {
-        case profile
-        case myBuckets // header에 segment를 pinned
-    }
-    
+    // MARK: - Components
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         view.register(MyProfileView.self, forCellWithReuseIdentifier: "profileImageView")
@@ -36,19 +33,20 @@ final class MyBucketViewController: BaseViewController {
         return btn
     }()
     
+    // MARK: - Properties
+    enum Section: Int, CaseIterable {
+        case profile
+        case myBuckets // header에 segment를 pinned
+    }
+    
     private let disposeBag = DisposeBag()
     
+    // MARK: - Function
     override func configureHierarchy() {
         super.configureHierarchy()
         
         view.addSubview(collectionView)
         view.addSubview(addBtn)
-    }
-    
-    override func configureView() {
-        super.configureView()
-        
-        view.backgroundColor = .systemGray6
     }
     
     override func setConstraints() {
@@ -76,6 +74,7 @@ final class MyBucketViewController: BaseViewController {
     
 }
 
+// MARK: - CollectionView Layout
 extension MyBucketViewController {
     
     func createLayout() -> UICollectionViewLayout {
@@ -119,6 +118,7 @@ extension MyBucketViewController {
     }
 }
 
+// MARK: - CollectionView Delegate & DataSource
 extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

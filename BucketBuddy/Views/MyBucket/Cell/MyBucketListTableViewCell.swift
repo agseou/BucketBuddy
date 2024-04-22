@@ -13,16 +13,12 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
     private let container = {
         let view = UIView()
         view.layer.cornerRadius = 20
-        view.backgroundColor = .white
-        return view
-    }()
-    private let icon = {
-        let view = UIImageView()
-        view.image = UIImage(systemName: "heart")
+        view.backgroundColor = .systemGray6
         return view
     }()
     private let title = {
         let label = UILabel()
+        label.text = "test"
         return label
     }()
     private let deadline = {
@@ -45,7 +41,6 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
         super.configureHierarchy()
         
         contentView.addSubview(container)
-        container.addSubview(icon)
         container.addSubview(title)
         container.addSubview(deadline)
         container.addSubview(editBtn)
@@ -55,7 +50,6 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
     override func configureView() {
         super.configureView()
         
-        self.backgroundColor = .clear
     }
     
     override func setConstraints() {
@@ -65,16 +59,13 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
             $0.horizontalEdges.equalTo(self).inset(10)
             $0.verticalEdges.equalTo(self).inset(5)
         }
-        icon.snp.makeConstraints {
-            $0.top.leading.equalTo(container)
-        }
         title.snp.makeConstraints {
             $0.top.equalTo(container)
-            $0.leading.equalTo(icon.snp.trailing)
+            $0.leading.equalTo(container).offset(10)
         }
         deadline.snp.makeConstraints {
             $0.top.equalTo(title.snp.bottom)
-            $0.leading.equalTo(icon.snp.trailing)
+            $0.leading.equalTo(title.snp.trailing)
         }
         editBtn.snp.makeConstraints {
             $0.top.trailing.equalTo(container)
@@ -85,7 +76,6 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
     }
     
     func configureCell(icon: String, title: String, deadline: String){
-        self.icon.image = UIImage(named: icon)
         self.title.text = title
         self.deadline.text = deadline
     }
