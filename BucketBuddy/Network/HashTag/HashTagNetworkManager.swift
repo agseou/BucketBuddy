@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import RxSwift
+import Alamofire
+
+
+struct HashTagNetworkManager {
+    
+    
+    
+}

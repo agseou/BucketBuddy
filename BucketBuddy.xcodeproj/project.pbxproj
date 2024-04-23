@@ -58,6 +58,20 @@
 		E2C515752BD7914F0021C172 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515742BD7914F0021C172 /* PostRouter.swift */; };
 		E2C5157A2BD792F30021C172 /* PostNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515792BD792F30021C172 /* PostNetworkManager.swift */; };
 		E2C5157C2BD7931D0021C172 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5157B2BD7931D0021C172 /* PostModel.swift */; };
+		E2C515822BD79DB40021C172 /* CommentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515812BD79DB40021C172 /* CommentsModel.swift */; };
+		E2C515842BD79DBF0021C172 /* LikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515832BD79DBF0021C172 /* LikeModel.swift */; };
+		E2C515862BD79DCA0021C172 /* FollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515852BD79DCA0021C172 /* FollowModel.swift */; };
+		E2C515892BD79DD50021C172 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515882BD79DD50021C172 /* ProfileModel.swift */; };
+		E2C5158D2BD79ECB0021C172 /* CommentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5158C2BD79ECB0021C172 /* CommentsRouter.swift */; };
+		E2C5158F2BD7A21D0021C172 /* CommentNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5158E2BD7A21D0021C172 /* CommentNetworkManager.swift */; };
+		E2C515912BD7A33B0021C172 /* LikeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515902BD7A33B0021C172 /* LikeRouter.swift */; };
+		E2C515932BD7A3440021C172 /* LikeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515922BD7A3440021C172 /* LikeNetworkManager.swift */; };
+		E2C515952BD7A3580021C172 /* FollowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515942BD7A3580021C172 /* FollowRouter.swift */; };
+		E2C515972BD7A3620021C172 /* FollowNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515962BD7A3620021C172 /* FollowNetworkManager.swift */; };
+		E2C515992BD7A36C0021C172 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515982BD7A36C0021C172 /* ProfileRouter.swift */; };
+		E2C5159B2BD7A3750021C172 /* ProfileNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5159A2BD7A3750021C172 /* ProfileNetworkManager.swift */; };
+		E2C5159D2BD7A3810021C172 /* HashtagRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5159C2BD7A3810021C172 /* HashtagRouter.swift */; };
+		E2C5159F2BD7A38A0021C172 /* HashTagNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5159E2BD7A38A0021C172 /* HashTagNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +121,20 @@
 		E2C515742BD7914F0021C172 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
 		E2C515792BD792F30021C172 /* PostNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkManager.swift; sourceTree = "<group>"; };
 		E2C5157B2BD7931D0021C172 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		E2C515812BD79DB40021C172 /* CommentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsModel.swift; sourceTree = "<group>"; };
+		E2C515832BD79DBF0021C172 /* LikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeModel.swift; sourceTree = "<group>"; };
+		E2C515852BD79DCA0021C172 /* FollowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowModel.swift; sourceTree = "<group>"; };
+		E2C515882BD79DD50021C172 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		E2C5158C2BD79ECB0021C172 /* CommentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRouter.swift; sourceTree = "<group>"; };
+		E2C5158E2BD7A21D0021C172 /* CommentNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentNetworkManager.swift; sourceTree = "<group>"; };
+		E2C515902BD7A33B0021C172 /* LikeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRouter.swift; sourceTree = "<group>"; };
+		E2C515922BD7A3440021C172 /* LikeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeNetworkManager.swift; sourceTree = "<group>"; };
+		E2C515942BD7A3580021C172 /* FollowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowRouter.swift; sourceTree = "<group>"; };
+		E2C515962BD7A3620021C172 /* FollowNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowNetworkManager.swift; sourceTree = "<group>"; };
+		E2C515982BD7A36C0021C172 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		E2C5159A2BD7A3750021C172 /* ProfileNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkManager.swift; sourceTree = "<group>"; };
+		E2C5159C2BD7A3810021C172 /* HashtagRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagRouter.swift; sourceTree = "<group>"; };
+		E2C5159E2BD7A38A0021C172 /* HashTagNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +228,11 @@
 				E2C515782BD792BF0021C172 /* Error */,
 				E2C515772BD792B30021C172 /* Post */,
 				E2C515762BD7929C0021C172 /* User */,
+				E2C5157D2BD79D770021C172 /* Comments */,
+				E2C5157E2BD79D7E0021C172 /* Like */,
+				E2C5157F2BD79D870021C172 /* Follow */,
+				E2C515872BD79DCB0021C172 /* Profile */,
+				E2C515802BD79D960021C172 /* HashTag */,
 				E2C513F72BC7CF290021C172 /* APIKey.swift */,
 				E2C514642BCAE5F10021C172 /* HTTPHeader.swift */,
 				E2C513FB2BC7CF340021C172 /* TargetType.swift */,
@@ -331,6 +364,55 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		E2C5157D2BD79D770021C172 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				E2C5158E2BD7A21D0021C172 /* CommentNetworkManager.swift */,
+				E2C515812BD79DB40021C172 /* CommentsModel.swift */,
+				E2C5158C2BD79ECB0021C172 /* CommentsRouter.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		E2C5157E2BD79D7E0021C172 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515922BD7A3440021C172 /* LikeNetworkManager.swift */,
+				E2C515832BD79DBF0021C172 /* LikeModel.swift */,
+				E2C515902BD7A33B0021C172 /* LikeRouter.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		E2C5157F2BD79D870021C172 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515962BD7A3620021C172 /* FollowNetworkManager.swift */,
+				E2C515852BD79DCA0021C172 /* FollowModel.swift */,
+				E2C515942BD7A3580021C172 /* FollowRouter.swift */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		E2C515802BD79D960021C172 /* HashTag */ = {
+			isa = PBXGroup;
+			children = (
+				E2C5159E2BD7A38A0021C172 /* HashTagNetworkManager.swift */,
+				E2C5159C2BD7A3810021C172 /* HashtagRouter.swift */,
+			);
+			path = HashTag;
+			sourceTree = "<group>";
+		};
+		E2C515872BD79DCB0021C172 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515882BD79DD50021C172 /* ProfileModel.swift */,
+				E2C515982BD7A36C0021C172 /* ProfileRouter.swift */,
+				E2C5159A2BD7A3750021C172 /* ProfileNetworkManager.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -420,7 +502,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C5147B2BCBFDA00021C172 /* UserNetworkManager.swift in Sources */,
+				E2C5158F2BD7A21D0021C172 /* CommentNetworkManager.swift in Sources */,
 				E2C5157C2BD7931D0021C172 /* PostModel.swift in Sources */,
+				E2C515862BD79DCA0021C172 /* FollowModel.swift in Sources */,
+				E2C515892BD79DD50021C172 /* ProfileModel.swift in Sources */,
 				E2C5146A2BCAEBFF0021C172 /* LoginViewController.swift in Sources */,
 				E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */,
 				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
@@ -431,6 +516,9 @@
 				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
+				E2C515842BD79DBF0021C172 /* LikeModel.swift in Sources */,
+				E2C5159F2BD7A38A0021C172 /* HashTagNetworkManager.swift in Sources */,
+				E2C515912BD7A33B0021C172 /* LikeRouter.swift in Sources */,
 				E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */,
 				E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */,
 				E2C5153A2BD269E60021C172 /* CapsuleSegmentedControl.swift in Sources */,
@@ -440,18 +528,25 @@
 				E2C5147D2BCC04590021C172 /* RegularButton.swift in Sources */,
 				E2C514732BCAF1470021C172 /* ViewModelType.swift in Sources */,
 				E2C514672BCAEA2D0021C172 /* UserModel.swift in Sources */,
+				E2C5159D2BD7A3810021C172 /* HashtagRouter.swift in Sources */,
 				E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */,
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
 				E2C515532BD633AB0021C172 /* SegmentControlCollectionReusableView.swift in Sources */,
 				E2C515672BD768EB0021C172 /* UserDefaultsWrapper.swift in Sources */,
 				E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */,
+				E2C5158D2BD79ECB0021C172 /* CommentsRouter.swift in Sources */,
+				E2C515952BD7A3580021C172 /* FollowRouter.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
 				E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */,
 				E2C515652BD766140021C172 /* ExploreViewController.swift in Sources */,
+				E2C515822BD79DB40021C172 /* CommentsModel.swift in Sources */,
 				E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
+				E2C515992BD7A36C0021C172 /* ProfileRouter.swift in Sources */,
 				E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */,
+				E2C515932BD7A3440021C172 /* LikeNetworkManager.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
+				E2C515972BD7A3620021C172 /* FollowNetworkManager.swift in Sources */,
 				E2C5157A2BD792F30021C172 /* PostNetworkManager.swift in Sources */,
 				E2C515752BD7914F0021C172 /* PostRouter.swift in Sources */,
 				E2C515442BD3AF670021C172 /* ProfileImageView.swift in Sources */,
@@ -459,6 +554,7 @@
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,
 				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
 				E2C513F52BC7CE540021C172 /* BaseViewController.swift in Sources */,
+				E2C5159B2BD7A3750021C172 /* ProfileNetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
