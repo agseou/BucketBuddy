@@ -35,6 +35,31 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
         setConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NetworkStatusManager.shared.startMonitoring()
+        
+        if !NetworkStatusManager.shared.isConnected {
+            showAlert(title: "네트워크 연결을 확인해주세요", message: "와이파이 또는 셀룰러가 연결되지 않았습니다.", buttonTitle: "설정") {
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)") 
+                    })
+                }
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NetworkStatusManager.shared.stopMonitoring()
+    }
+    
     func setupDelegate() { }
     func setupBind() { }
     func configureHierarchy() { }
