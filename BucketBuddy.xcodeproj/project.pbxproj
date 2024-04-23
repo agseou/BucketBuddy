@@ -52,6 +52,8 @@
 		E2C515532BD633AB0021C172 /* SegmentControlCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515522BD633AB0021C172 /* SegmentControlCollectionReusableView.swift */; };
 		E2C515632BD764810021C172 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515622BD764810021C172 /* TabBarViewController.swift */; };
 		E2C515652BD766140021C172 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515642BD766140021C172 /* ExploreViewController.swift */; };
+		E2C515672BD768EB0021C172 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515662BD768EA0021C172 /* UserDefaultsWrapper.swift */; };
+		E2C515692BD7698C0021C172 /* DefaultUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515682BD7698C0021C172 /* DefaultUDManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		E2C515522BD633AB0021C172 /* SegmentControlCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlCollectionReusableView.swift; sourceTree = "<group>"; };
 		E2C515622BD764810021C172 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E2C515642BD766140021C172 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		E2C515662BD768EA0021C172 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		E2C515682BD7698C0021C172 /* DefaultUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUDManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				E2C514782BCBF9E70021C172 /* TokenUDManager.swift */,
+				E2C515682BD7698C0021C172 /* DefaultUDManager.swift */,
+				E2C515662BD768EA0021C172 /* UserDefaultsWrapper.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
 				E2C5146E2BCAEE670021C172 /* LoginTextField.swift in Sources */,
 				E2C514792BCBF9E70021C172 /* TokenUDManager.swift in Sources */,
+				E2C515692BD7698C0021C172 /* DefaultUDManager.swift in Sources */,
 				E2C514BE2BCEC8100021C172 /* SetUpNicknameViewModel.swift in Sources */,
 				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
@@ -398,6 +405,7 @@
 				E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */,
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
 				E2C515532BD633AB0021C172 /* SegmentControlCollectionReusableView.swift in Sources */,
+				E2C515672BD768EB0021C172 /* UserDefaultsWrapper.swift in Sources */,
 				E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
 				E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */,
