@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import Alamofire
 
-struct NetworkManager {
+struct UserNetworkManager {
     
     // Login Model
     static func createLogin(query: LoginQuery) -> Single<LoginModel> {

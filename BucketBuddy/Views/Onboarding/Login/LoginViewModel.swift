@@ -46,7 +46,7 @@ class LoginViewModel: CommonViewModel {
         let loginResult = input.loginTap
             .withLatestFrom(loginObservable)
             .flatMapLatest { query in
-                NetworkManager.createLogin(query: query)
+                UserNetworkManager.createLogin(query: query)
                     .map { result in
                         TokenUDManager.shared.accessToken = result.accessToken
                         TokenUDManager.shared.refreshToken = result.refreshToken

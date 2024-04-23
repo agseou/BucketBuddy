@@ -97,6 +97,13 @@ class LoginViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        loginBtn.rx.tap
+            .bind(with: self) { owner, _ in
+//                let vc = TabBarViewController()
+//                owner.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
         signUpBtn.rx.tap
             .bind(with: self) { owner, _ in
                 let vc = SetUpNicknameViewController()

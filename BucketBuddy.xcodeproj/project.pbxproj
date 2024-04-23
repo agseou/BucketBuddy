@@ -32,7 +32,7 @@
 		E2C514732BCAF1470021C172 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514722BCAF1470021C172 /* ViewModelType.swift */; };
 		E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514752BCAF68F0021C172 /* SetUpNicknameViewController.swift */; };
 		E2C514792BCBF9E70021C172 /* TokenUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514782BCBF9E70021C172 /* TokenUDManager.swift */; };
-		E2C5147B2BCBFDA00021C172 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5147A2BCBFDA00021C172 /* NetworkManager.swift */; };
+		E2C5147B2BCBFDA00021C172 /* UserNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5147A2BCBFDA00021C172 /* UserNetworkManager.swift */; };
 		E2C5147D2BCC04590021C172 /* RegularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5147C2BCC04590021C172 /* RegularButton.swift */; };
 		E2C514BE2BCEC8100021C172 /* SetUpNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */; };
 		E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */; };
@@ -54,6 +54,10 @@
 		E2C515652BD766140021C172 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515642BD766140021C172 /* ExploreViewController.swift */; };
 		E2C515672BD768EB0021C172 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515662BD768EA0021C172 /* UserDefaultsWrapper.swift */; };
 		E2C515692BD7698C0021C172 /* DefaultUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515682BD7698C0021C172 /* DefaultUDManager.swift */; };
+		E2C515732BD789720021C172 /* AddNewBucketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */; };
+		E2C515752BD7914F0021C172 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515742BD7914F0021C172 /* PostRouter.swift */; };
+		E2C5157A2BD792F30021C172 /* PostNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515792BD792F30021C172 /* PostNetworkManager.swift */; };
+		E2C5157C2BD7931D0021C172 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5157B2BD7931D0021C172 /* PostModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +83,7 @@
 		E2C514722BCAF1470021C172 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		E2C514752BCAF68F0021C172 /* SetUpNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNicknameViewController.swift; sourceTree = "<group>"; };
 		E2C514782BCBF9E70021C172 /* TokenUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUDManager.swift; sourceTree = "<group>"; };
-		E2C5147A2BCBFDA00021C172 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E2C5147A2BCBFDA00021C172 /* UserNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkManager.swift; sourceTree = "<group>"; };
 		E2C5147C2BCC04590021C172 /* RegularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularButton.swift; sourceTree = "<group>"; };
 		E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpNicknameViewModel.swift; sourceTree = "<group>"; };
 		E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
@@ -99,6 +103,10 @@
 		E2C515642BD766140021C172 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		E2C515662BD768EA0021C172 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		E2C515682BD7698C0021C172 /* DefaultUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUDManager.swift; sourceTree = "<group>"; };
+		E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBucketViewModel.swift; sourceTree = "<group>"; };
+		E2C515742BD7914F0021C172 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		E2C515792BD792F30021C172 /* PostNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkManager.swift; sourceTree = "<group>"; };
+		E2C5157B2BD7931D0021C172 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,13 +197,12 @@
 		E2C513F62BC7CEBC0021C172 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E2C515782BD792BF0021C172 /* Error */,
+				E2C515772BD792B30021C172 /* Post */,
+				E2C515762BD7929C0021C172 /* User */,
 				E2C513F72BC7CF290021C172 /* APIKey.swift */,
-				E2C514662BCAEA2D0021C172 /* UserModel.swift */,
 				E2C514642BCAE5F10021C172 /* HTTPHeader.swift */,
-				E2C513F92BC7CF2E0021C172 /* UsersRouter.swift */,
 				E2C513FB2BC7CF340021C172 /* TargetType.swift */,
-				E2C5147A2BCBFDA00021C172 /* NetworkManager.swift */,
-				E2C514FC2BD14DFA0021C172 /* HandleError.swift */,
 				E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */,
 			);
 			path = Network;
@@ -235,9 +242,9 @@
 		E2C514772BCBF9B80021C172 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E2C515662BD768EA0021C172 /* UserDefaultsWrapper.swift */,
 				E2C514782BCBF9E70021C172 /* TokenUDManager.swift */,
 				E2C515682BD7698C0021C172 /* DefaultUDManager.swift */,
-				E2C515662BD768EA0021C172 /* UserDefaultsWrapper.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -264,6 +271,7 @@
 				E2C515292BD246720021C172 /* Cell */,
 				E2C515252BD244340021C172 /* MyBucketViewController.swift */,
 				E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */,
+				E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */,
 			);
 			path = MyBucket;
 			sourceTree = "<group>";
@@ -293,6 +301,34 @@
 				E2C515642BD766140021C172 /* ExploreViewController.swift */,
 			);
 			path = Explore;
+			sourceTree = "<group>";
+		};
+		E2C515762BD7929C0021C172 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E2C5147A2BCBFDA00021C172 /* UserNetworkManager.swift */,
+				E2C513F92BC7CF2E0021C172 /* UsersRouter.swift */,
+				E2C514662BCAEA2D0021C172 /* UserModel.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		E2C515772BD792B30021C172 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515792BD792F30021C172 /* PostNetworkManager.swift */,
+				E2C515742BD7914F0021C172 /* PostRouter.swift */,
+				E2C5157B2BD7931D0021C172 /* PostModel.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		E2C515782BD792BF0021C172 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E2C514FC2BD14DFA0021C172 /* HandleError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +419,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C5147B2BCBFDA00021C172 /* NetworkManager.swift in Sources */,
+				E2C5147B2BCBFDA00021C172 /* UserNetworkManager.swift in Sources */,
+				E2C5157C2BD7931D0021C172 /* PostModel.swift in Sources */,
 				E2C5146A2BCAEBFF0021C172 /* LoginViewController.swift in Sources */,
 				E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */,
 				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
@@ -397,6 +434,7 @@
 				E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */,
 				E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */,
 				E2C5153A2BD269E60021C172 /* CapsuleSegmentedControl.swift in Sources */,
+				E2C515732BD789720021C172 /* AddNewBucketViewModel.swift in Sources */,
 				E2C515632BD764810021C172 /* TabBarViewController.swift in Sources */,
 				E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */,
 				E2C5147D2BCC04590021C172 /* RegularButton.swift in Sources */,
@@ -414,6 +452,8 @@
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
+				E2C5157A2BD792F30021C172 /* PostNetworkManager.swift in Sources */,
+				E2C515752BD7914F0021C172 /* PostRouter.swift in Sources */,
 				E2C515442BD3AF670021C172 /* ProfileImageView.swift in Sources */,
 				E2C515332BD265200021C172 /* MyBucket.swift in Sources */,
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,

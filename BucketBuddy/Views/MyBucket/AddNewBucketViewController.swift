@@ -19,14 +19,15 @@ final class AddNewBucketViewController: BaseViewController {
         view.borderStyle = .roundedRect
         return view
     }()
-    private let memoTextField =  {
-        let view = UITextField()
-        view.placeholder = "memo"
-        view.borderStyle = .roundedRect
+    private lazy var memoTextField =  {
+        let view = UITextView()
+        view.delegate = self
+        view.textColor = .gray
+        view.text = "메모를 입력해주세요"
         return view
     }()
     private let submitBtn = RegularButton(text: "완료")
-   
+    
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -69,6 +70,17 @@ final class AddNewBucketViewController: BaseViewController {
             $0.left.right.equalToSuperview().inset(20)
             $0.height.equalTo(50)
         }
+    }
+    
+}
+
+// MARK: - UITextViewDelegate 
+extension AddNewBucketViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        guard textView.textColor == .secondaryLabel else { return }
+        textView.text = nil
+        textView.textColor = .label
     }
     
 }
