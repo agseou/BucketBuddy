@@ -22,10 +22,8 @@ struct CommentNetworkManager {
                         case .success(let comments):
                             single(.success(comments))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {
@@ -46,10 +44,8 @@ struct CommentNetworkManager {
                         case .success(let comments):
                             single(.success(comments))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {
@@ -71,10 +67,8 @@ struct CommentNetworkManager {
                         case .success(let comments):
                             single(.success(comments))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {

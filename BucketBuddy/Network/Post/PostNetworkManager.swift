@@ -23,10 +23,8 @@ struct PostNetworkManager {
                         case .success(let images):
                             single(.success(images))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {
@@ -47,10 +45,8 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {
@@ -71,10 +67,8 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {
@@ -96,10 +90,8 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {
@@ -120,10 +112,8 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {
@@ -145,10 +135,8 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {

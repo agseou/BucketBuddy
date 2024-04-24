@@ -19,7 +19,8 @@ class LoginViewModel: CommonViewModel {
     
     struct Output {
         let loginVaildation: Driver<Bool> // 로그인 문자열 유효성 검증
-        let loginResult: Driver<Result<LoginModel, Error>> // 로그인 결과
+        let loginSuccess: Driver<Void>
+        let errorMessage: Driver<String?>
     }
     
     var disposeBag = DisposeBag()
@@ -27,6 +28,8 @@ class LoginViewModel: CommonViewModel {
     func transform(input: Input) -> Output {
         
         let loginVaildation = BehaviorRelay<Bool>(value: false)
+        let loginSuccess = PublishRelay<Void>()
+        let errorMessage = PublishRelay<String?>()
         
         let loginObservable = Observable.combineLatest(input.email, input.password)
             .map { (email, password) in
@@ -35,7 +38,7 @@ class LoginViewModel: CommonViewModel {
         
         loginObservable
             .bind(with: self) { owner, login in
-                if login.email.contains("@") && login.password.count > 5 {
+                if login.email.contains("@") && login.password.count > 4 {
                     loginVaildation.accept(true)
                 } else {
                     loginVaildation.accept(false)
@@ -43,20 +46,31 @@ class LoginViewModel: CommonViewModel {
             }
             .disposed(by: disposeBag)
         
-        let loginResult = input.loginTap
+        input.loginTap
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(loginObservable)
             .flatMapLatest { query in
                 UserNetworkManager.createLogin(query: query)
-                    .map { result in
-                        TokenUDManager.shared.accessToken = result.accessToken
-                        TokenUDManager.shared.refreshToken = result.refreshToken
-                        return Result.success(result)
-                    }
-                    .catch { error in
-                        Single.just(Result.failure(error))
-                    }
-            }.asDriver(onErrorDriveWith: Driver.empty()) // 아무것도 방출X
+            }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let loginModel):
+                    TokenUDManager.shared.accessToken = loginModel.accessToken
+                    TokenUDManager.shared.refreshToken = loginModel.refreshToken
+                    loginSuccess.accept(())
+                case .badRequest:
+                    errorMessage.accept("")
+                case .unauthorized:
+                    errorMessage.accept("계정을 확인해주세요!")
+                case .error(let error):
+                    print("에러 발생: \(error.localizedDescription)")
+                }
+            }
+            .disposed(by: disposeBag)
         
-        return Output(loginVaildation: loginVaildation.asDriver(), loginResult: loginResult)
+        return Output(loginVaildation: loginVaildation.asDriver(),
+                      loginSuccess: loginSuccess.asDriver(onErrorDriveWith: .empty()),
+                      errorMessage: errorMessage.asDriver(onErrorJustReturn: nil))
     }
 }
+

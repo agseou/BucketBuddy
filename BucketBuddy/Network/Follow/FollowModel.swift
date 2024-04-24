@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FollowModel {
+struct FollowModel: Decodable {
     let nick: String
     let opponent_nick: String
     let following_status: Bool

@@ -1,8 +1,8 @@
 //
-//  SignUpViewController.swift
+//  SetupEmailViewController.swift
 //  BucketBuddy
 //
-//  Created by eunseou on 4/14/24.
+//  Created by eunseou on 4/23/24.
 //
 
 import UIKit
@@ -10,20 +10,21 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class SetUpNicknameViewController: BaseViewController {
-
+final class SetupEmailViewController: BaseViewController {
+    
     // MARK: - Components
-    let titleL = {
+    private let titleL = {
         let label = UILabel()
-        label.text = "이름을 입력해주세요!"
+        label.text = "이메일을 입력해주세요!"
         return label
     }()
-    let emailTextField = LoginTextField(placeholderText: "email")
-    let nextBtn = RegularButton(text: "다음")
-    
+    private let emailTextField = LoginTextField(placeholderText: "email")
+    private let nextBtn = RegularButton(text: "다음")
+
     // MARK: - Properties
-    let nicknameViewmodel = SetUpNicknameViewModel()
-    let disposeBag = DisposeBag()
+    private var joinViewModel = JoinViewModel()
+    private let setUpEmailViewModel = SetUpEmailViewModel()
+    private let disposeBag = DisposeBag()
     
     // MARK: - Functions
     override func configureHierarchy() {
@@ -59,9 +60,21 @@ class SetUpNicknameViewController: BaseViewController {
         nextBtn.rx.tap
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(with: self) { owner, _ in
-                //
+                owner.joinViewModel.emailRelay.accept(owner.emailTextField.text)
+                let vc = SetupPasswordViewController(joinViewModel: owner.joinViewModel)
+                owner.navigationController?.pushViewController(vc, animated: false)
             }
             .disposed(by: disposeBag)
-            
+        
+        let emailInput = SetUpEmailViewModel.Input(
+            email: emailTextField.rx.text.orEmpty.asObservable())
+        let emailOutput = setUpEmailViewModel.transform(input: emailInput)
+        
+        emailOutput.emailVaildation
+            .drive(with: self) { owner, isEnabled in
+                owner.nextBtn.isEnabled = isEnabled
+            }
+            .disposed(by: disposeBag)
+        
     }
 }

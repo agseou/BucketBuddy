@@ -12,21 +12,19 @@ import Alamofire
 
 struct ProfileNetworkManager {
     
-    // 좋아요 쓰기
-    static func writeComments(query: LikeModel, id: String) -> Single<LikeModel> {
-        return Single<LikeModel>.create { single in
+    // 내프로필조회
+    static func fetchMyProfile() -> Single<ProfileModel> {
+        return Single<ProfileModel>.create { single in
             do {
-                let urlRequest = try LikeRouter.toggleLike(query: query, id: id).asURLRequest()
+                let urlRequest = try ProfileRouter.fetchMyProfile.asURLRequest()
                 AF.request(urlRequest)
-                    .responseDecodable(of: LikeModel.self) { response in
+                    .responseDecodable(of: ProfileModel.self) { response in
                         switch response.result {
-                        case .success(let likes):
-                            single(.success(likes))
+                        case .success(let profile):
+                            single(.success(profile))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {

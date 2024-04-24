@@ -15,14 +15,18 @@ struct JoinQuery: Encodable {
 }
 
 struct JoinModel: Decodable {
+    let user_id: String
     let email: String
-    let password: String
     let nick: String
 }
 
 // MARK: - ValidationEmail
 struct validationEmailQuery: Encodable {
     let email: String
+}
+
+struct validationModel: Decodable {
+    let message: String
 }
 
 // MARK: - Login

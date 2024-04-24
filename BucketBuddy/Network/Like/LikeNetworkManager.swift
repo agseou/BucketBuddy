@@ -23,10 +23,8 @@ struct LikeNetworkManager {
                         case .success(let likes):
                             single(.success(likes))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {

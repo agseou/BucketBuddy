@@ -23,10 +23,7 @@ struct FollowNetworkManager {
                         case .success(let follow):
                             single(.success(follow))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
-                                single(.failure(error))
-                            }
+                            single(.failure(error))
                         }
                     }
             } catch {
@@ -47,10 +44,8 @@ struct FollowNetworkManager {
                         case .success(let follow):
                             single(.success(follow))
                         case .failure(let error):
-                            if let statusCode = response.response?.statusCode, !handleCommonErrors(statusCode) {
-                                handleLoginStatusError(statusCode)
                                 single(.failure(error))
-                            }
+                            
                         }
                     }
             } catch {

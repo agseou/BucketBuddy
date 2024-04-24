@@ -10,27 +10,30 @@ import RxSwift
 import RxCocoa
 
 class SetUpNicknameViewModel: CommonViewModel {
-    
+ 
     struct Input {
         let nickname: Observable<String>
     }
     
     struct Output {
-        let nicknameVaildation: Driver<Bool> // 로그인 문자열 유효성 검증
+        let nicknameVaildation: Driver<Bool>
     }
     
     var disposeBag = DisposeBag()
-    
+
     func transform(input: Input) -> Output {
         
-        let loginVaildation = BehaviorRelay<Bool>(value: false)
+        let nicknameVaildation = BehaviorRelay<Bool>(value: false)
         
         input.nickname
-            .bind(with: self) { owner, nickname in
-                loginVaildation.accept(true)
+            .subscribe(with: self) { owner, nickname in
+                if nickname.count > 1 && nickname.count < 11 {
+                    nicknameVaildation.accept(true)
+                }
             }
             .disposed(by: disposeBag)
         
-        return Output(nicknameVaildation: loginVaildation.asDriver())
+        return Output(nicknameVaildation: nicknameVaildation.asDriver())
     }
+    
 }
