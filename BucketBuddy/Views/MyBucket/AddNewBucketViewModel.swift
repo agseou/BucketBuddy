@@ -26,9 +26,7 @@ class AddNewBucketViewModel: CommonViewModel {
     func transform(input: Input) -> Output {
         
         let summitVaildation = BehaviorRelay<Bool>(value: false)
-        
-        
-        
+       
         return Output(summitVaildation: summitVaildation.asDriver())
     }
 }

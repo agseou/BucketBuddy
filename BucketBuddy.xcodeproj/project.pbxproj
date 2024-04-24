@@ -84,6 +84,7 @@
 		E2C515B92BD7B6050021C172 /* SetupEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */; };
 		E2C515BB2BD7B6130021C172 /* SetupPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */; };
 		E2C515C12BD84E180021C172 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C02BD84E180021C172 /* JoinViewModel.swift */; };
+		E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +160,7 @@
 		E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEmailViewModel.swift; sourceTree = "<group>"; };
 		E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewModel.swift; sourceTree = "<group>"; };
 		E2C515C02BD84E180021C172 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
+		E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemBtn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 				E2C515392BD269E60021C172 /* CapsuleSegmentedControl.swift */,
 				E2C515432BD3AF670021C172 /* ProfileImageView.swift */,
 				E2C515622BD764810021C172 /* TabBarViewController.swift */,
+				E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				E2C515652BD766140021C172 /* ExploreViewController.swift in Sources */,
 				E2C515822BD79DB40021C172 /* CommentsModel.swift in Sources */,
 				E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */,
+				E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C515992BD7A36C0021C172 /* ProfileRouter.swift in Sources */,
 				E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */,

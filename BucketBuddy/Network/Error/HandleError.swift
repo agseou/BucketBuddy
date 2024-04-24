@@ -29,3 +29,11 @@ enum JoinResult {
     case conflict
     case error(CommonError)
 }
+
+enum profileResult {
+    case success(ProfileModel)
+    case unauthorized
+    case forbidden
+    case expiredToken
+    case error(CommonError)
+}

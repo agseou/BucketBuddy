@@ -9,7 +9,7 @@ import UIKit
 
 class SegmentControlCollectionReusableView: UICollectionReusableView {
         
-    private let segmentControl = CapsuleSegmentedControl(items: ["미완료", "완료"])
+    private let segmentControl = CapsuleSegmentedControl(items: ["전체", "미완료", "완료"])
     
     override init(frame: CGRect) {
         super.init(frame: frame)
