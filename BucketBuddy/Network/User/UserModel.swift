@@ -29,6 +29,11 @@ struct validationModel: Decodable {
     let message: String
 }
 
+// MARK: - RefreshToken
+struct RefreshTokenModel: Decodable {
+    let accessToken: String
+}
+
 // MARK: - Login
 struct LoginQuery: Encodable {
     let email: String

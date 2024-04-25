@@ -16,6 +16,7 @@ enum CommonError: Int, Error {
     case unknown = 999
 }
 
+// MARK: - User
 enum LoginResult {
     case success(LoginModel)
     case badRequest
@@ -30,6 +31,15 @@ enum JoinResult {
     case error(CommonError)
 }
 
+enum RefreshTokenResult {
+    case success(RefreshTokenModel)
+    case unauthorized
+    case forbidden
+    case ReLogin
+    case error(CommonError)
+}
+
+// MARK: - Profile
 enum profileResult {
     case success(ProfileModel)
     case unauthorized

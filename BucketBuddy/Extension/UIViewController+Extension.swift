@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 extension UIViewController {
     
@@ -45,4 +46,59 @@ extension UIViewController {
     func hideLoadingIndicator() {
         self.view.subviews.filter { $0 is UIActivityIndicatorView }.forEach { $0.removeFromSuperview() }
     }
+    
+    func unauthorized() {
+        
+        let disposeBag = DisposeBag()
+        
+        UserNetworkManager.refreshAcessToken()
+            .subscribe(with: self) { [weak self] _, result in
+                switch result {
+                case .success(let success):
+                    TokenUDManager.shared.accessToken = success.accessToken
+                case .unauthorized:
+                    print("401: 유효하지 않은 토큰입니다.")
+                case .forbidden:
+                    print("403: 접근권한이 없습니다")
+                case .ReLogin:
+                    DispatchQueue.main.async {
+                        self?.showReLoginAlert()
+                    }
+                case .error(let error):
+                    print("에러 발생: \(error.localizedDescription)")
+                }
+            }
+            .disposed(by: disposeBag)
+        
+    }
+    
+    func showReLoginAlert() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        guard let window = windowScene.windows.first(where: { $0.isKeyWindow }) else {
+            return
+        }
+
+        let alert = UIAlertController(title: "재로그인 필요", message: "세션이 만료되었습니다. 다시 로그인해주세요.", preferredStyle: .alert)
+        let reLoginAction = UIAlertAction(title: "재로그인", style: .default) { [weak self] _ in
+            self?.switchToLoginViewController()
+        }
+        alert.addAction(reLoginAction)
+        window.rootViewController?.present(alert, animated: true)
+    }
+
+    func switchToLoginViewController() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        guard let window = windowScene.windows.first(where: { $0.isKeyWindow }) else {
+            return
+        }
+
+        let vc = LoginViewController()
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+    }
+    
 }

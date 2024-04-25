@@ -11,7 +11,7 @@ import Alamofire
 
 struct UserNetworkManager {
     
-    // Login Model
+    // Login
     static func createLogin(query: LoginQuery) -> Single<LoginResult> {
         return Single<LoginResult>.create { single in
             do {
@@ -39,6 +39,7 @@ struct UserNetworkManager {
         }
     }
     
+    // Join
     static func createJoin(query: JoinQuery) -> Single<JoinResult> {
         return Single<JoinResult>.create { single in
             do {
@@ -54,6 +55,36 @@ struct UserNetworkManager {
                                 single(.success(.badRequest))
                             case 409:
                                 single(.success(.conflict))
+                            default:
+                                single(.success(.error(.unknown)))
+                            }
+                        }
+                    }
+            } catch {
+                single(.failure(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    // Refresh
+    static func refreshAcessToken() -> Single<RefreshTokenResult> {
+        return Single<RefreshTokenResult>.create { single in
+            do {
+                let urlRequest = try UsersRouter.refreshToken.asURLRequest()
+                AF.request(urlRequest)
+                    .responseDecodable(of: RefreshTokenModel.self) { response in
+                        switch response.result {
+                        case .success(let refresh):
+                            single(.success(.success(refresh)))
+                        case .failure(_):
+                            switch response.response?.statusCode {
+                            case 401:
+                                single(.success(.unauthorized))
+                            case 403:
+                                single(.success(.forbidden))
+                            case 418:
+                                single(.success(.ReLogin))
                             default:
                                 single(.success(.error(.unknown)))
                             }
