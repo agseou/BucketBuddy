@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum PostRouter {
-    case uploadImage(query: uploadIamgeQuery, id: String)
+    case uploadImage(query: uploadIamgeQuery)
     case createPost(query: WritePostQuery)
     case fetchPost(query: FetchPostQuery)
     case fetchPostDetail(id: String)
@@ -39,8 +39,8 @@ extension PostRouter: TargetType {
     
     var path: String {
         switch self {
-        case .uploadImage(let query, let id):
-            return "posts/users/\(id)"
+        case .uploadImage(let query):
+            return "posts/files"
         case .createPost(let query):
             return "posts"
         case .fetchPost(let query):
@@ -83,7 +83,7 @@ extension PostRouter: TargetType {
     
     var body: Data? {
         switch self {
-        case .uploadImage(let query, let id):
+        case .uploadImage(let query):
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)

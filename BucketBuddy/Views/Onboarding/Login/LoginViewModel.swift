@@ -59,7 +59,7 @@ class LoginViewModel: CommonViewModel {
                     TokenUDManager.shared.refreshToken = loginModel.refreshToken
                     loginSuccess.accept(())
                 case .badRequest:
-                    errorMessage.accept("")
+                    errorMessage.accept("") 
                 case .unauthorized:
                     errorMessage.accept("계정을 확인해주세요!")
                 case .error(let error):

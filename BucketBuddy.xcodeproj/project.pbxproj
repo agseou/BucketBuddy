@@ -85,6 +85,8 @@
 		E2C515BB2BD7B6130021C172 /* SetupPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */; };
 		E2C515C12BD84E180021C172 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C02BD84E180021C172 /* JoinViewModel.swift */; };
 		E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */; };
+		E2C515C82BD9EB340021C172 /* UploadImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */; };
+		E2C515CA2BDA0C300021C172 /* AuthenticationInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* AuthenticationInterceptor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +163,8 @@
 		E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewModel.swift; sourceTree = "<group>"; };
 		E2C515C02BD84E180021C172 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
 		E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemBtn.swift; sourceTree = "<group>"; };
+		E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesViewModel.swift; sourceTree = "<group>"; };
+		E2C515C92BDA0C300021C172 /* AuthenticationInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInterceptor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +267,7 @@
 				E2C513F72BC7CF290021C172 /* APIKey.swift */,
 				E2C514642BCAE5F10021C172 /* HTTPHeader.swift */,
 				E2C513FB2BC7CF340021C172 /* TargetType.swift */,
+				E2C515C92BDA0C300021C172 /* AuthenticationInterceptor.swift */,
 				E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */,
 			);
 			path = Network;
@@ -467,6 +472,7 @@
 			children = (
 				E2C515A52BD7AAF60021C172 /* DetailPostViewController.swift */,
 				E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */,
+				E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -596,11 +602,13 @@
 				E2C515692BD7698C0021C172 /* DefaultUDManager.swift in Sources */,
 				E2C514BE2BCEC8100021C172 /* SetUpNicknameViewModel.swift in Sources */,
 				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
+				E2C515CA2BDA0C300021C172 /* AuthenticationInterceptor.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
 				E2C515842BD79DBF0021C172 /* LikeModel.swift in Sources */,
 				E2C5159F2BD7A38A0021C172 /* HashTagNetworkManager.swift in Sources */,
 				E2C515912BD7A33B0021C172 /* LikeRouter.swift in Sources */,
+				E2C515C82BD9EB340021C172 /* UploadImagesViewModel.swift in Sources */,
 				E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */,
 				E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */,
 				E2C5153A2BD269E60021C172 /* CapsuleSegmentedControl.swift in Sources */,

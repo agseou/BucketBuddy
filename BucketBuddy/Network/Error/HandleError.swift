@@ -39,6 +39,26 @@ enum RefreshTokenResult {
     case error(CommonError)
 }
 
+// MARK: - Post
+
+enum UploadImageResult{
+    case success(uploadIamgeModel)
+    case badRequest
+    case unauthorized
+    case forbidden
+    case expiredAccessToken
+    case error(CommonError)
+}
+
+enum CreatePostResult{
+    case success(WritePostModel)
+    case unauthorized
+    case forbidden
+    case nonePost
+    case expiredAccessToken
+    case error(CommonError)
+}
+
 // MARK: - Profile
 enum profileResult {
     case success(ProfileModel)
@@ -47,3 +67,4 @@ enum profileResult {
     case expiredToken
     case error(CommonError)
 }
+
