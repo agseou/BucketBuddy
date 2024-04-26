@@ -13,12 +13,12 @@ class DefaultUDManager {
     
     enum Key: String {
         case isAccessed
-        case nickname
+        case userID
     }
     
     @UserDefault(key: Key.isAccessed.rawValue, defaultValue: false)
     var isAccessed: Bool
     
-    @UserDefault(key: Key.nickname.rawValue, defaultValue: "끼끼")
-    var nickname: String
+    @UserDefault(key: Key.userID.rawValue, defaultValue: "")
+    var userID: String
 }

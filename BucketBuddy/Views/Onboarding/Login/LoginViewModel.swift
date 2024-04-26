@@ -47,7 +47,7 @@ class LoginViewModel: CommonViewModel {
             .disposed(by: disposeBag)
         
         input.loginTap
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance) 
             .withLatestFrom(loginObservable)
             .flatMapLatest { query in
                 UserNetworkManager.createLogin(query: query)
@@ -57,6 +57,7 @@ class LoginViewModel: CommonViewModel {
                 case .success(let loginModel):
                     TokenUDManager.shared.accessToken = loginModel.accessToken
                     TokenUDManager.shared.refreshToken = loginModel.refreshToken
+                    DefaultUDManager.shared.userID = loginModel.user_id
                     loginSuccess.accept(())
                 case .badRequest:
                     errorMessage.accept("") 

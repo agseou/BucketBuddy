@@ -75,7 +75,7 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
         }
     }
     
-    func configureCell(icon: String, title: String, deadline: String){
+    func configureCell(title: String, deadline: String){
         self.title.text = title
         self.deadline.text = deadline
     }

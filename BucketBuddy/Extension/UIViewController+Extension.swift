@@ -35,18 +35,6 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
     
-    // 로딩 인디케이터
-    func showLoadingIndicator() {
-        let spinner = UIActivityIndicatorView(style: .large)
-        spinner.center = self.view.center
-        spinner.startAnimating()
-        self.view.addSubview(spinner)
-    }
-    
-    func hideLoadingIndicator() {
-        self.view.subviews.filter { $0 is UIActivityIndicatorView }.forEach { $0.removeFromSuperview() }
-    }
-    
     func unauthorized() {
         
         let disposeBag = DisposeBag()

@@ -86,7 +86,8 @@
 		E2C515C12BD84E180021C172 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C02BD84E180021C172 /* JoinViewModel.swift */; };
 		E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */; };
 		E2C515C82BD9EB340021C172 /* UploadImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */; };
-		E2C515CA2BDA0C300021C172 /* AuthenticationInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* AuthenticationInterceptor.swift */; };
+		E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */; };
+		E2F7FF592BDAA6B9003A79B1 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,7 +165,8 @@
 		E2C515C02BD84E180021C172 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
 		E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemBtn.swift; sourceTree = "<group>"; };
 		E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesViewModel.swift; sourceTree = "<group>"; };
-		E2C515C92BDA0C300021C172 /* AuthenticationInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInterceptor.swift; sourceTree = "<group>"; };
+		E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestInterceptor.swift; sourceTree = "<group>"; };
+		E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +216,7 @@
 				E2C514712BCAF11D0021C172 /* Protocol */,
 				E2C514C12BCED9270021C172 /* Extension */,
 				E2C5146C2BCAEE4D0021C172 /* Components */,
-				E2C513D22BC7CD520021C172 /* Assets.xcassets */,
+				E2F7FF572BDAA682003A79B1 /* Resource */,
 				E2C513D72BC7CD520021C172 /* Info.plist */,
 			);
 			path = BucketBuddy;
@@ -267,7 +269,7 @@
 				E2C513F72BC7CF290021C172 /* APIKey.swift */,
 				E2C514642BCAE5F10021C172 /* HTTPHeader.swift */,
 				E2C513FB2BC7CF340021C172 /* TargetType.swift */,
-				E2C515C92BDA0C300021C172 /* AuthenticationInterceptor.swift */,
+				E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */,
 				E2C514BF2BCED1E80021C172 /* NetworkStatusManager.swift */,
 			);
 			path = Network;
@@ -498,6 +500,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E2F7FF572BDAA682003A79B1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7FF602BDB6559003A79B1 /* Lotties */,
+				E2C513D22BC7CD520021C172 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E2F7FF602BDB6559003A79B1 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -574,6 +593,7 @@
 			files = (
 				E2C513E12BC7CDA60021C172 /* .gitignore in Resources */,
 				E2C513D32BC7CD520021C172 /* Assets.xcassets in Resources */,
+				E2F7FF592BDAA6B9003A79B1 /* LoadingAnimation.json in Resources */,
 				E2C513D62BC7CD520021C172 /* Base in Resources */,
 				E2C513D12BC7CD510021C172 /* Base in Resources */,
 			);
@@ -602,7 +622,7 @@
 				E2C515692BD7698C0021C172 /* DefaultUDManager.swift in Sources */,
 				E2C514BE2BCEC8100021C172 /* SetUpNicknameViewModel.swift in Sources */,
 				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
-				E2C515CA2BDA0C300021C172 /* AuthenticationInterceptor.swift in Sources */,
+				E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
 				E2C515842BD79DBF0021C172 /* LikeModel.swift in Sources */,

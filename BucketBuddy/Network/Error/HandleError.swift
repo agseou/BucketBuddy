@@ -60,7 +60,7 @@ enum CreatePostResult{
 }
 
 // MARK: - Profile
-enum profileResult {
+enum ProfileResult {
     case success(ProfileModel)
     case unauthorized
     case forbidden
@@ -68,3 +68,11 @@ enum profileResult {
     case error(CommonError)
 }
 
+enum UserProfileResult {
+    case success(FetchPostModel)
+    case badRequest
+    case unauthorized
+    case forbidden
+    case expiredAccessToken
+    case error(CommonError)
+}

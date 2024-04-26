@@ -145,18 +145,28 @@ struct PostNetworkManager {
     
     
     // 이용자별 포스트 조회
-    static func fetchUserPost(query: FetchPostQuery, userID: String) -> Single<FetchPostModel> {
-        return Single<FetchPostModel>.create { single in
+    static func fetchUserPost(query: FetchPostQuery, userID: String) -> Single<UserProfileResult> {
+        return Single<UserProfileResult>.create { single in
             do {
                 let urlRequest = try PostRouter.fetchUserPost(query: query, id: userID).asURLRequest()
                 AF.request(urlRequest)
                     .responseDecodable(of: FetchPostModel.self) { response in
                         switch response.result {
                         case .success(let post):
-                            single(.success(post))
-                        case .failure(let error):
-                                single(.failure(error))
-                            
+                            single(.success(.success(post)))
+                        case .failure(_):
+                            switch response.response?.statusCode {
+                            case 400:
+                                single(.success(.badRequest))
+                            case 401:
+                                single(.success(.unauthorized))
+                            case 403:
+                                single(.success(.forbidden))
+                            case 419:
+                                single(.success(.expiredAccessToken))
+                            default:
+                                single(.success(.error(.unknown)))
+                            }
                         }
                     }
             } catch {

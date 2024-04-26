@@ -76,8 +76,7 @@ final class AddNewBucketViewController: BaseViewController {
 
 extension AddNewBucketViewController: MyProfileViewDelegate {
     func didTapFollowerViewBtn() {
-        let vc = LoginViewController()
-        navigationController?.pushViewController(vc, animated: true)
+      
     }
     
     func didTapFollowingBtn() {

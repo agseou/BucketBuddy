@@ -39,19 +39,19 @@ extension PostRouter: TargetType {
     
     var path: String {
         switch self {
-        case .uploadImage(let query):
+        case .uploadImage:
             return "posts/files"
-        case .createPost(let query):
+        case .createPost:
             return "posts"
-        case .fetchPost(let query):
+        case .fetchPost:
             return "posts"
         case .fetchPostDetail(let id):
             return "posts/\(id)"
-        case .editPost(let query, let id):
+        case .editPost(_, let id):
             return "posts/\(id)"
         case .deletePost(let id):
             return "posts/\(id)"
-        case .fetchUserPost(let query, let id):
+        case .fetchUserPost(_, let id):
             return "posts/users/\(id)"
         }
     }
@@ -78,7 +78,18 @@ extension PostRouter: TargetType {
     }
     
     var queryItems: [URLQueryItem]? {
-        nil
+        switch self {
+        case .fetchPost(let query):
+            [URLQueryItem(name: "next", value: query.next),
+             URLQueryItem(name: "limit", value: query.limit),
+             URLQueryItem(name: "product_id", value: query.product_id)]
+        case .fetchUserPost(let query, _):
+            [URLQueryItem(name: "next", value: query.next),
+             URLQueryItem(name: "limit", value: query.limit),
+             URLQueryItem(name: "product_id", value: query.product_id)]
+        default:
+            nil
+        }
     }
     
     var body: Data? {
@@ -97,13 +108,13 @@ extension PostRouter: TargetType {
             return try? encoder.encode(query)
         case .fetchPostDetail:
             return nil
-        case .editPost(let query, let id):
+        case .editPost(let query, _):
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
         case .deletePost:
             return nil
-        case .fetchUserPost(let query, let id):
+        case .fetchUserPost(let query, _):
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)

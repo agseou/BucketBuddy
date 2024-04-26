@@ -26,10 +26,10 @@ class FetchMyProfileViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         
-        var nickname = PublishRelay<String>()
-        var profileImage = PublishRelay<String>()
-        var followerCnt = PublishRelay<Int>()
-        var followingCnt = PublishRelay<Int>()
+        let nickname = PublishRelay<String>()
+        let profileImage = PublishRelay<String>()
+        let followerCnt = PublishRelay<Int>()
+        let followingCnt = PublishRelay<Int>()
             
         input.fetchTrigger
             .flatMapLatest { _ in

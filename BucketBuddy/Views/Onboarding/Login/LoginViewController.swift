@@ -85,8 +85,11 @@ class LoginViewController: BaseViewController {
         
         output.loginSuccess
             .drive(with: self) { owner, _ in
-                let vc = TabBarViewController()
-                owner.navigationController?.pushViewController(vc, animated: true)
+                guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                      let sceneDelegate = scene.delegate as? SceneDelegate else { return }
+                let vc = UINavigationController(rootViewController: TabBarViewController())
+                sceneDelegate.window?.rootViewController = vc
+                sceneDelegate.window?.makeKeyAndVisible()
             }
             .disposed(by: disposeBag)
         

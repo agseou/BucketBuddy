@@ -39,7 +39,10 @@ final class MyBucketViewController: BaseViewController {
         case myBuckets // header에 segment를 pinned
     }
     
+    private let fetchMyBucketViewModel = FetchMyBucketListViewModel()
     private let disposeBag = DisposeBag()
+    
+    var postList: [PostModel] = []
     
     // MARK: - Function
     override func configureHierarchy() {
@@ -64,10 +67,22 @@ final class MyBucketViewController: BaseViewController {
     override func setupBind() {
         super.setupBind()
         
+        let fetchTrigger = PublishSubject<Void>()
+        let input = FetchMyBucketListViewModel.Input(fetchTrigger: fetchTrigger.asObservable())
+        let output = fetchMyBucketViewModel.transform(input: input)
+        
+        
+        output.postResult
+            .drive(with: self) { owner, fetchPostModel in
+                owner.postList = fetchPostModel.data
+            }
+            .disposed(by: disposeBag)
+            
+        
         addBtn.rx.tap
             .bind(with: self) { owner, _ in
                 let vc = AddNewBucketViewController()
-                owner.navigationController?.pushViewController(vc, animated: true)
+                owner.present(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -126,7 +141,7 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 10
+        return section == 0 ? 1 : postList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -138,7 +153,10 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
             
         case .myBuckets:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyBucketListTableViewCell", for: indexPath) as! MyBucketListTableViewCell
-            // 버킷리스트 셀 구성
+            
+            let item = postList[indexPath.row]
+            cell.configureCell(title: item.title, deadline: item.createdAt)
+            
             return cell
         case .none:
             return UICollectionViewCell()

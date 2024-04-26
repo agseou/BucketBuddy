@@ -13,8 +13,8 @@ import Alamofire
 struct ProfileNetworkManager {
     
     // 내프로필조회
-    static func fetchMyProfile() -> Single<profileResult> {
-        return Single<profileResult>.create { single in
+    static func fetchMyProfile() -> Single<ProfileResult> {
+        return Single<ProfileResult>.create { single in
             do {
                 let urlRequest = try ProfileRouter.fetchMyProfile.asURLRequest()
                 AF.request(urlRequest)

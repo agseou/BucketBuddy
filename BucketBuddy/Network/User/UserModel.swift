@@ -41,6 +41,7 @@ struct LoginQuery: Encodable {
 }
 
 struct LoginModel: Decodable {
+    let user_id: String
     let accessToken: String
     let refreshToken: String
 }
