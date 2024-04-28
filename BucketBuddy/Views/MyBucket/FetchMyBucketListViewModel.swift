@@ -27,7 +27,7 @@ class FetchMyBucketListViewModel: CommonViewModel {
         
         input.fetchTrigger
             .flatMapLatest { _ in
-                PostNetworkManager.fetchUserPost(query: FetchPostQuery(next: nil, limit: nil, product_id: ""), userID: DefaultUDManager.shared.userID)
+               return PostNetworkManager.fetchUserPost(query: FetchPostQuery(next: nil, limit: nil, product_id: ""), userID: DefaultUDManager.shared.userID)
             }
             .subscribe(with: self) { owner, result in
                 switch result {

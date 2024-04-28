@@ -13,6 +13,7 @@ import RxCocoa
 final class MyBucketViewController: BaseViewController {
   
     
+    
     // MARK: - Components
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
@@ -39,10 +40,13 @@ final class MyBucketViewController: BaseViewController {
         case myBuckets // header에 segment를 pinned
     }
     
+    let fetchTrigger = PublishSubject<Void>()
     private let fetchMyBucketViewModel = FetchMyBucketListViewModel()
     private let disposeBag = DisposeBag()
     
-    var postList: [PostModel] = []
+    var postList: [PostModel] = [] {
+        didSet { collectionView.reloadData() }
+    }
     
     // MARK: - Function
     override func configureHierarchy() {
@@ -67,17 +71,18 @@ final class MyBucketViewController: BaseViewController {
     override func setupBind() {
         super.setupBind()
         
-        let fetchTrigger = PublishSubject<Void>()
         let input = FetchMyBucketListViewModel.Input(fetchTrigger: fetchTrigger.asObservable())
         let output = fetchMyBucketViewModel.transform(input: input)
         
         
         output.postResult
             .drive(with: self) { owner, fetchPostModel in
+                dump(fetchPostModel)
                 owner.postList = fetchPostModel.data
             }
             .disposed(by: disposeBag)
             
+        fetchTrigger.onNext(())
         
         addBtn.rx.tap
             .bind(with: self) { owner, _ in
@@ -154,8 +159,9 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
         case .myBuckets:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyBucketListTableViewCell", for: indexPath) as! MyBucketListTableViewCell
             
+            cell.delegate = self
             let item = postList[indexPath.row]
-            cell.configureCell(title: item.title, deadline: item.createdAt)
+            cell.configureCell(title: item.title ?? "none", deadline: item.createdAt, postID: item.post_id)
             
             return cell
         case .none:
@@ -173,4 +179,10 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
         return header
     }
     
+}
+
+extension MyBucketViewController: MyBucketListTableViewCellDelegate {
+    func reloadTableView() {
+        fetchTrigger.onNext(())
+    }
 }

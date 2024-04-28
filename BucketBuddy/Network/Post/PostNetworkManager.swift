@@ -144,6 +144,37 @@ struct PostNetworkManager {
     }
     
     
+    // 포스트 삭제
+    static func deletePost(postID: String) -> Single<DeletePostResult> {
+        return Single<DeletePostResult>.create { single in
+            do {
+                let urlRequest = try PostRouter.deletePost(id: postID).asURLRequest()
+                AF.request(urlRequest).response { response in
+                        switch response.result {
+                        case .success(_):
+                            single(.success(.success(())))
+                        case .failure(let error):
+                            switch response.response?.statusCode {
+                            case 401:
+                                single(.success(.unauthorized))
+                            case 403:
+                                single(.success(.forbidden))
+                            case 410:
+                                single(.success(.nonePost))
+                            case 419:
+                                single(.success(.expiredAccessToken))
+                            default:
+                                single(.success(.error(.unknown)))
+                            }
+                        }
+                    }
+            } catch {
+                single(.failure(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
     // 이용자별 포스트 조회
     static func fetchUserPost(query: FetchPostQuery, userID: String) -> Single<UserProfileResult> {
         return Single<UserProfileResult>.create { single in
@@ -154,7 +185,7 @@ struct PostNetworkManager {
                         switch response.result {
                         case .success(let post):
                             single(.success(.success(post)))
-                        case .failure(_):
+                        case .failure(let error):
                             switch response.response?.statusCode {
                             case 400:
                                 single(.success(.badRequest))

@@ -33,7 +33,7 @@ class FetchMyProfileViewModel: CommonViewModel {
             
         input.fetchTrigger
             .flatMapLatest { _ in
-                ProfileNetworkManager.fetchMyProfile()
+                return ProfileNetworkManager.fetchMyProfile()
             }
             .subscribe(with: self) { owner, result in
                 switch result {
@@ -49,7 +49,7 @@ class FetchMyProfileViewModel: CommonViewModel {
                 case .expiredToken:
                     print("에러 발생: 토큰 만료")
                 case .error(let error):
-                    print("!!!에러 발생: \(error.localizedDescription)")
+                    print("에러 발생: \(error.localizedDescription)")
                 }
             }
             .disposed(by: disposeBag)

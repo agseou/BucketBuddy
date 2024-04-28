@@ -59,6 +59,15 @@ enum CreatePostResult{
     case error(CommonError)
 }
 
+enum DeletePostResult{
+    case success(Void)
+    case unauthorized
+    case forbidden
+    case nonePost
+    case expiredAccessToken
+    case error(CommonError)
+}
+
 // MARK: - Profile
 enum ProfileResult {
     case success(ProfileModel)

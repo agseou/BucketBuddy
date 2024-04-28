@@ -60,11 +60,11 @@ extension PostRouter: TargetType {
         switch self {
         case .uploadImage:
             [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,
-            HTTPHeader.contentType.rawValue: HTTPHeader.multifart.rawValue,
+             HTTPHeader.contentType.rawValue: HTTPHeader.multifart.rawValue,
              HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
         case .createPost, .editPost:
             [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,
-            HTTPHeader.contentType.rawValue: HTTPHeader.json.rawValue,
+             HTTPHeader.contentType.rawValue: HTTPHeader.json.rawValue,
              HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
         case .fetchPost, .fetchPostDetail, .fetchUserPost, .deletePost:
             [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,

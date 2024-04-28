@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
+protocol MyBucketListTableViewCellDelegate: AnyObject {
+    func reloadTableView()
+}
 
 final class MyBucketListTableViewCell: BaseCollectionViewCell {
-
+    
     // MARK: - Components
     private let container = {
         let view = UIView()
@@ -36,7 +42,14 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
         return btn
     }()
     
+    var postID: String! = nil
+    weak var delegate: MyBucketListTableViewCellDelegate?
+    
     // MARK: - Functions
+    override func prepareForReuse() {
+        disposeBag = DisposeBag()
+    }
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         
@@ -75,9 +88,50 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
         }
     }
     
-    func configureCell(title: String, deadline: String){
+    override func setBind() {
+        super.setBind()
+        
+        editBtn.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.showEditMenu()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func configureCell(title: String, deadline: String, postID: String){
         self.title.text = title
         self.deadline.text = deadline
+        self.postID = postID
     }
-
+    
+    func showEditMenu() {
+        let editAction = UIAction(title: "수정", image: UIImage(systemName: "pencil")) { action in
+            // 수정 관련 로직
+        }
+        let deleteAction = UIAction(title: "삭제", image: UIImage(systemName: "trash"), attributes: .destructive) { action in
+            PostNetworkManager.deletePost(postID: self.postID)
+                .subscribe(with: self) { owner, result in
+                    switch result {
+                    case .success():
+                        owner.delegate?.reloadTableView()
+                    case .unauthorized:
+                        print("유효하지 않은 액세스 토큰")
+                    case .forbidden:
+                        print("접근권한 없음")
+                    case .nonePost:
+                        print("이미 삭제된 포스트 입니다.")
+                    case .expiredAccessToken:
+                        print("에러 발생: 엑세스 토큰 만료")
+                    case .error(let error):
+                        print("에러 발생: \(error.localizedDescription)")
+                    }
+                }
+                .disposed(by: self.disposeBag)
+        }
+        
+        let menu = UIMenu(title: "", children: [editAction, deleteAction])
+        editBtn.showsMenuAsPrimaryAction = true
+        editBtn.menu = menu
+    }
+    
 }
