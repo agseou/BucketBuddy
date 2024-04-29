@@ -78,7 +78,6 @@
 		E2C515AD2BD7AB8C0021C172 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515AC2BD7AB8B0021C172 /* EditProfileViewController.swift */; };
 		E2C515AF2BD7AC590021C172 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */; };
 		E2C515B12BD7AED50021C172 /* FetchMyBucketListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */; };
-		E2C515B32BD7AF4B0021C172 /* FetchMyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B22BD7AF4B0021C172 /* FetchMyProfileViewModel.swift */; };
 		E2C515B52BD7B4C20021C172 /* SetupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B42BD7B4C20021C172 /* SetupPasswordViewController.swift */; };
 		E2C515B72BD7B4CB0021C172 /* SetupEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B62BD7B4CB0021C172 /* SetupEmailViewController.swift */; };
 		E2C515B92BD7B6050021C172 /* SetupEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */; };
@@ -164,7 +163,6 @@
 		E2C515AC2BD7AB8B0021C172 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyBucketListViewModel.swift; sourceTree = "<group>"; };
-		E2C515B22BD7AF4B0021C172 /* FetchMyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyProfileViewModel.swift; sourceTree = "<group>"; };
 		E2C515B42BD7B4C20021C172 /* SetupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewController.swift; sourceTree = "<group>"; };
 		E2C515B62BD7B4CB0021C172 /* SetupEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEmailViewController.swift; sourceTree = "<group>"; };
 		E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEmailViewModel.swift; sourceTree = "<group>"; };
@@ -350,12 +348,10 @@
 		E2C515242BD2441F0021C172 /* MyBucket */ = {
 			isa = PBXGroup;
 			children = (
+				E2F700122BE0137B003A79B1 /* ViewModel */,
 				E2C515292BD246720021C172 /* Cell */,
 				E2C515252BD244340021C172 /* MyBucketViewController.swift */,
-				E2C515B22BD7AF4B0021C172 /* FetchMyProfileViewModel.swift */,
-				E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */,
 				E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */,
-				E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */,
 			);
 			path = MyBucket;
 			sourceTree = "<group>";
@@ -529,9 +525,25 @@
 			children = (
 				E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */,
 				E2F7FF6A2BDE3114003A79B1 /* PagingCollectionViewCell.swift */,
-				E2F7FF682BDE30D2003A79B1 /* PagingView.swift */,
 			);
 			path = PagingView;
+			sourceTree = "<group>";
+		};
+		E2F700112BE0136D003A79B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E2F700122BE0137B003A79B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */,
+				E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E2F7FF572BDAA682003A79B1 /* Resource */ = {
@@ -554,8 +566,9 @@
 		E2F7FF612BDE2E07003A79B1 /* Follow */ = {
 			isa = PBXGroup;
 			children = (
+				E2F700112BE0136D003A79B1 /* ViewModel */,
 				E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */,
-				E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */,
+				E2F7FF682BDE30D2003A79B1 /* PagingView.swift */,
 				E2F7000D2BE005C1003A79B1 /* PagingTabBar */,
 				E2F7000E2BE005CF003A79B1 /* PagingView */,
 			);
@@ -721,7 +734,6 @@
 				E2C515B92BD7B6050021C172 /* SetupEmailViewModel.swift in Sources */,
 				E2C515332BD265200021C172 /* MyBucket.swift in Sources */,
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,
-				E2C515B32BD7AF4B0021C172 /* FetchMyProfileViewModel.swift in Sources */,
 				E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */,
 				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
 				E2C513F52BC7CE540021C172 /* BaseViewController.swift in Sources */,

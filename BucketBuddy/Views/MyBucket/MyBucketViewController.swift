@@ -50,6 +50,11 @@ final class MyBucketViewController: BaseViewController {
     }
     
     // MARK: - Function
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchTrigger.onNext(())
+    }
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         
@@ -88,7 +93,7 @@ final class MyBucketViewController: BaseViewController {
         addBtn.rx.tap
             .bind(with: self) { owner, _ in
                 let vc = AddNewBucketViewController()
-                owner.present(vc, animated: true)
+                owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }

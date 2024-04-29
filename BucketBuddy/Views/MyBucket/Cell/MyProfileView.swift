@@ -28,7 +28,6 @@ final class MyProfileView: BaseCollectionViewCell {
     private let followingBtn = ProfileItemBtn(number: 0, description: "팔로잉")
     
     weak var delegate: MyProfileViewDelegate?
-    let fetchMyProfileViewModel = FetchMyProfileViewModel()
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -89,43 +88,24 @@ final class MyProfileView: BaseCollectionViewCell {
     override func setBind() {
         super.setBind()
         
-        let fetchTrigger = PublishSubject<Void>()
-        
-        let input = FetchMyProfileViewModel.Input(fetchTrigger: fetchTrigger.asObservable())
-        let output = fetchMyProfileViewModel.transform(input: input)
-        
-        output.nickname
-            .drive(userName.rx.text)
-            .disposed(by: disposeBag)
-        
-        
-        output.followerCnt
-            .drive(with: self) { owner, value in
-                owner.followerBtn.update(number: value, description: "팔로워")
+        ProfileNetworkManager.fetchMyProfile()
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let success):
+                    owner.userName.text = success.nick
+                    owner.followerBtn.update(number: success.followers.count, description: "팔로워")
+                    owner.followingBtn.update(number: success.following.count, description: "팔로워")
+                case .unauthorized:
+                    print("유효하지 않은 액세스 토큰")
+                case .forbidden:
+                    print("접근권한 없음")
+                case .expiredToken:
+                    print("에러 발생: 토큰 만료")
+                case .error(let error):
+                    print("에러 발생: \(error.localizedDescription)")
+                }
             }
             .disposed(by: disposeBag)
-        
-        output.followingCnt
-            .drive(with: self) { owner, value in
-                owner.followingBtn.update(number: value, description: "팔로워")
-            }
-            .disposed(by: disposeBag)
-        
-        // rxswift로 되지 않는 문제 발생
-//        followerBtn.rx.tap
-//               .subscribe(with: self) { owner, _ in
-//                   print("tap")
-//                   owner.delegate?.didTapFollowViewBtn()
-//               }
-//               .disposed(by: disposeBag)
-//
-//        followingBtn.rx.tap
-//               .subscribe(with: self) { owner, _ in
-//                   print("tap")
-//                   owner.delegate?.didTapFollowViewBtn()
-//               }
-//               .disposed(by: disposeBag)
-        
     }
 }
 
