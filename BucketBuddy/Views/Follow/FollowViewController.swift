@@ -9,36 +9,33 @@ import UIKit
 import SnapKit
 
 class FollowViewController: BaseViewController {
-
+    
     private let categoryTitleList = [ "팔로워", "팔로잉" ]
-        
+    
     private lazy var pagingTabBar = PagingTabBar(categoryTitleList: categoryTitleList)
     private lazy var pagingView = PagingView(categoryTitleList: categoryTitleList, pagingTabBar: pagingTabBar)
-        
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupLayout()
-    }
-}
-
-private extension FollowViewController {
-    func setupLayout() {
-        [
-            pagingTabBar,
-            pagingView
+    
+    override func configureHierarchy() {
+        super.configureHierarchy()
+        [  pagingTabBar,
+           pagingView
         ].forEach { view.addSubview($0) }
         
-        pagingTabBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(pagingTabBar.cellHeight)
+    }
+    
+    override func setConstraints() {
+        super.setConstraints()
+        
+        pagingTabBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(pagingTabBar.cellHeight)
         }
-        pagingView.snp.makeConstraints { make in
-            make.top.equalTo(pagingTabBar.snp.bottom)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        pagingView.snp.makeConstraints {
+            $0.top.equalTo(pagingTabBar.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }

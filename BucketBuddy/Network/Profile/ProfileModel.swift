@@ -12,8 +12,8 @@ struct ProfileModel: Decodable {
     let email: String
     let nick: String
     let profileImage: String?
-    let followers: [UserModel?]
-    let following: [UserModel?]
+    let followers: [UserModel]
+    let following: [UserModel]
     let posts: [String]
 }
 

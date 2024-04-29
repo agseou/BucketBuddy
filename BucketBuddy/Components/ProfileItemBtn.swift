@@ -12,7 +12,6 @@ class ProfileItemBtn: UIButton {
     
     private let stackView = {
         let view = UIStackView()
-        view.backgroundColor = .yellow
         view.spacing = 0
         view.axis = .vertical
         view.distribution = .fill

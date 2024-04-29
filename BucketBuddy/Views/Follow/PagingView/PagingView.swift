@@ -7,40 +7,75 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class PagingView: BaseView {
-
+    
     private let categoryTitleList: [String]
+    
+    private let pagingTabBar: PagingTabBar
+    
+    private var followerList: [UserModel] = []
+    private var follwingList: [UserModel] = []
+    private let disposeBag = DisposeBag()
+    private let fetchFollowerViewModel = FetchFollowerViewModel()
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         
-        private let pagingTabBar: PagingTabBar
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
         
-        private lazy var collectionView: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .horizontal
-            
-            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.isPagingEnabled = true
-            
-            collectionView.delegate = self
-            collectionView.dataSource = self
-            collectionView.register(PagingCollectionViewCell.self, forCellWithReuseIdentifier: PagingCollectionViewCell.identifier)
-            
-            return collectionView
-        }()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(PagingCollectionViewCell.self, forCellWithReuseIdentifier: PagingCollectionViewCell.identifier)
         
-        init(categoryTitleList: [String], pagingTabBar: PagingTabBar) {
-            self.categoryTitleList = categoryTitleList
-            self.pagingTabBar = pagingTabBar
-            super.init(frame: .zero)
-            setupLayout()
-            pagingTabBar.delegate = self
+        return collectionView
+    }()
+    
+    init(categoryTitleList: [String], pagingTabBar: PagingTabBar) {
+        self.categoryTitleList = categoryTitleList
+        self.pagingTabBar = pagingTabBar
+        super.init(frame: .zero)
+        pagingTabBar.delegate = self
+    }
+    
+    override func configureHierarchy() {
+        super.configureHierarchy()
+        
+        addSubview(collectionView)
+    }
+    
+    override func setConstraints() {
+        super.setConstraints()
+        
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
+    }
+    
+    override func setBind() {
+        super.setBind()
+        let fetchTrigger = PublishSubject<Void>()
+        let input = FetchFollowerViewModel.Input(fetchTrigger: fetchTrigger)
+        let output = fetchFollowerViewModel.transform(input: input)
         
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-
+        output.followers
+            .drive(with: self) { owner, result in
+                owner.followerList = result
+            }
+            .disposed(by: disposeBag)
+        
+        output.followings
+            .drive(with: self) { owner, result in
+                owner.follwingList = result
+            }
+            .disposed(by: disposeBag)
+    }
+    
 }
 
 extension PagingView: UICollectionViewDelegateFlowLayout {
@@ -70,7 +105,10 @@ extension PagingView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PagingCollectionViewCell.identifier, for: indexPath) as? PagingCollectionViewCell else { return UICollectionViewCell() }
-        cell.setupView(title: categoryTitleList[indexPath.row])
+        
+        cell.followerList = self.followerList
+        cell.follwingList = self.follwingList
+        
         return cell
     }
 }
@@ -78,14 +116,5 @@ extension PagingView: UICollectionViewDataSource {
 extension PagingView: PagingDelegate {
     func didTapPagingTabBarCell(scrollTo indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-    }
-}
-
-private extension PagingView {
-    func setupLayout() {
-        addSubview(collectionView)
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
 }

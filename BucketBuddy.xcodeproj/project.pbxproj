@@ -87,6 +87,8 @@
 		E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */; };
 		E2C515C82BD9EB340021C172 /* UploadImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */; };
 		E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */; };
+		E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */; };
+		E2F700102BE00627003A79B1 /* FetchFollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */; };
 		E2F7FF592BDAA6B9003A79B1 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */; };
 		E2F7FF632BDE2E2A003A79B1 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */; };
 		E2F7FF652BDE3038003A79B1 /* PagingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */; };
@@ -171,6 +173,8 @@
 		E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemBtn.swift; sourceTree = "<group>"; };
 		E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesViewModel.swift; sourceTree = "<group>"; };
 		E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestInterceptor.swift; sourceTree = "<group>"; };
+		E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListTableViewCell.swift; sourceTree = "<group>"; };
+		E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFollowerViewModel.swift; sourceTree = "<group>"; };
 		E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 		E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBar.swift; sourceTree = "<group>"; };
@@ -511,6 +515,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E2F7000D2BE005C1003A79B1 /* PagingTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */,
+				E2F7FF662BDE3090003A79B1 /* PagingTabBarCell.swift */,
+			);
+			path = PagingTabBar;
+			sourceTree = "<group>";
+		};
+		E2F7000E2BE005CF003A79B1 /* PagingView */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */,
+				E2F7FF6A2BDE3114003A79B1 /* PagingCollectionViewCell.swift */,
+				E2F7FF682BDE30D2003A79B1 /* PagingView.swift */,
+			);
+			path = PagingView;
+			sourceTree = "<group>";
+		};
 		E2F7FF572BDAA682003A79B1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,10 +555,9 @@
 			isa = PBXGroup;
 			children = (
 				E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */,
-				E2F7FF682BDE30D2003A79B1 /* PagingView.swift */,
-				E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */,
-				E2F7FF662BDE3090003A79B1 /* PagingTabBarCell.swift */,
-				E2F7FF6A2BDE3114003A79B1 /* PagingCollectionViewCell.swift */,
+				E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */,
+				E2F7000D2BE005C1003A79B1 /* PagingTabBar */,
+				E2F7000E2BE005CF003A79B1 /* PagingView */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -632,6 +654,7 @@
 				E2C515AD2BD7AB8C0021C172 /* EditProfileViewController.swift in Sources */,
 				E2C5147B2BCBFDA00021C172 /* UserNetworkManager.swift in Sources */,
 				E2C515A62BD7AAF60021C172 /* DetailPostViewController.swift in Sources */,
+				E2F700102BE00627003A79B1 /* FetchFollowerViewModel.swift in Sources */,
 				E2C5158F2BD7A21D0021C172 /* CommentNetworkManager.swift in Sources */,
 				E2C5157C2BD7931D0021C172 /* PostModel.swift in Sources */,
 				E2C515862BD79DCA0021C172 /* FollowModel.swift in Sources */,
@@ -699,6 +722,7 @@
 				E2C515332BD265200021C172 /* MyBucket.swift in Sources */,
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,
 				E2C515B32BD7AF4B0021C172 /* FetchMyProfileViewModel.swift in Sources */,
+				E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */,
 				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
 				E2C513F52BC7CE540021C172 /* BaseViewController.swift in Sources */,
 				E2C515BB2BD7B6130021C172 /* SetupPasswordViewModel.swift in Sources */,
