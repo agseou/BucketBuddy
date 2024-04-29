@@ -23,6 +23,7 @@ final class MyBucketViewController: BaseViewController {
         view.delegate = self
         view.dataSource = self
         view.backgroundColor = .clear
+        view.isUserInteractionEnabled = true
         return view
     }()
     private let addBtn = {
@@ -153,7 +154,8 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
         switch Section(rawValue: indexPath.section) {
         case .profile:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileImageView", for: indexPath) as! MyProfileView
-            // 프로필 셀 구성
+            cell.delegate = self
+            
             return cell
             
         case .myBuckets:
@@ -185,4 +187,17 @@ extension MyBucketViewController: MyBucketListTableViewCellDelegate {
     func reloadTableView() {
         fetchTrigger.onNext(())
     }
+}
+
+
+extension MyBucketViewController: MyProfileViewDelegate {
+    func didTapFollowViewBtn() {
+           let vc = FollowViewController()
+           navigationController?.pushViewController(vc, animated: true)
+       }
+
+       func didTapFollowingViewBtn() {
+           let vc = FollowViewController()
+           navigationController?.pushViewController(vc, animated: true)
+       }
 }

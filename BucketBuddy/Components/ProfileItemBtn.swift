@@ -6,9 +6,19 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileItemBtn: UIButton {
     
+    private let stackView = {
+        let view = UIStackView()
+        view.backgroundColor = .yellow
+        view.spacing = 0
+        view.axis = .vertical
+        view.distribution = .fill
+        view.alignment = .center
+        return view
+    }()
     private let numberLabel = UILabel()
     private let descriptionLabel = UILabel()
     
@@ -24,18 +34,18 @@ class ProfileItemBtn: UIButton {
         numberLabel.font = .boldSystemFont(ofSize: 16)
         descriptionLabel.font = .systemFont(ofSize: 14)
         
-        addSubview(numberLabel)
-        addSubview(descriptionLabel)
+        stackView.isUserInteractionEnabled = false
+        numberLabel.isUserInteractionEnabled = false
+        descriptionLabel.isUserInteractionEnabled = false
+        
+        addSubview(stackView)
+        stackView.addArrangedSubview(numberLabel)
+        stackView.addArrangedSubview(descriptionLabel)
     }
     
     private func setupConstraints() {
-        numberLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(10)
-        }
-        descriptionLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(numberLabel.snp.bottom).offset(5)
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     

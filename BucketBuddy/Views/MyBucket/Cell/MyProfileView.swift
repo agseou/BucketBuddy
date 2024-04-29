@@ -18,14 +18,6 @@ final class MyProfileView: BaseCollectionViewCell {
         label.text = "끼끼"
         return label
     }()
-    private let stackView = {
-        let view = UIStackView()
-        view.axis = .horizontal
-        view.alignment = .center
-        view.distribution = .fill
-        view.spacing = 10
-        return view
-    }()
     private let followUserBtn = {
         let btn = UIButton()
         btn.setTitle("팔로우", for: .normal)
@@ -38,20 +30,31 @@ final class MyProfileView: BaseCollectionViewCell {
     weak var delegate: MyProfileViewDelegate?
     let fetchMyProfileViewModel = FetchMyProfileViewModel()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        disposeBag = DisposeBag()
+    }
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         
         addSubview(profileImage)
         addSubview(userName)
-        addSubview(stackView)
         addSubview(followUserBtn)
-        stackView.addArrangedSubview(followerBtn)
-        stackView.addArrangedSubview(followingBtn)
+        addSubview(followerBtn)
+        addSubview(followingBtn)
     }
     
     override func configureView() {
         super.configureView()
         
+        followerBtn.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+        followingBtn.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+    }
+    
+    @objc func tapButton() {
+        delegate?.didTapFollowViewBtn()
     }
     
     override func setConstraints() {
@@ -71,8 +74,13 @@ final class MyProfileView: BaseCollectionViewCell {
             $0.left.equalTo(userName.snp.right).offset(10)
             $0.top.equalTo(profileImage.snp.top).offset(10)
         }
-        stackView.snp.makeConstraints {
-            $0.width.greaterThanOrEqualTo(100)
+        followerBtn.snp.makeConstraints {
+            $0.width.greaterThanOrEqualTo(50)
+            $0.right.equalTo(followingBtn.snp.left)
+            $0.centerY.equalTo(profileImage)
+        }
+        followingBtn.snp.makeConstraints {
+            $0.width.greaterThanOrEqualTo(50)
             $0.right.equalToSuperview().inset(40) // 여백 조절
             $0.centerY.equalTo(profileImage)
         }
@@ -103,21 +111,24 @@ final class MyProfileView: BaseCollectionViewCell {
             }
             .disposed(by: disposeBag)
         
-        Observable.merge(
-            followerBtn.rx.tap.asObservable(),
-            followingBtn.rx.tap.asObservable()
-        )
-        .subscribe(with: self) { owner, _ in
-            owner.delegate?.didTapFollowerViewBtn()
-        }
-        .disposed(by: disposeBag)
-        
-        fetchTrigger.onNext(())
+        // rxswift로 되지 않는 문제 발생
+//        followerBtn.rx.tap
+//               .subscribe(with: self) { owner, _ in
+//                   print("tap")
+//                   owner.delegate?.didTapFollowViewBtn()
+//               }
+//               .disposed(by: disposeBag)
+//
+//        followingBtn.rx.tap
+//               .subscribe(with: self) { owner, _ in
+//                   print("tap")
+//                   owner.delegate?.didTapFollowViewBtn()
+//               }
+//               .disposed(by: disposeBag)
         
     }
 }
 
 protocol MyProfileViewDelegate: AnyObject {
-    func didTapFollowerViewBtn()
-    func didTapFollowingBtn()
+    func didTapFollowViewBtn()
 }

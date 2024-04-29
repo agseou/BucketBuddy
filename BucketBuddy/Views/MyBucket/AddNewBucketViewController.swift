@@ -74,15 +74,6 @@ final class AddNewBucketViewController: BaseViewController {
     
 }
 
-extension AddNewBucketViewController: MyProfileViewDelegate {
-    func didTapFollowerViewBtn() {
-      
-    }
-    
-    func didTapFollowingBtn() {
-        
-    }
-}
 
 // MARK: - UITextViewDelegate 
 extension AddNewBucketViewController: UITextViewDelegate {

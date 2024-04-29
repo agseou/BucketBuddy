@@ -88,6 +88,11 @@
 		E2C515C82BD9EB340021C172 /* UploadImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */; };
 		E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */; };
 		E2F7FF592BDAA6B9003A79B1 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */; };
+		E2F7FF632BDE2E2A003A79B1 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */; };
+		E2F7FF652BDE3038003A79B1 /* PagingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */; };
+		E2F7FF672BDE3090003A79B1 /* PagingTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF662BDE3090003A79B1 /* PagingTabBarCell.swift */; };
+		E2F7FF692BDE30D2003A79B1 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF682BDE30D2003A79B1 /* PagingView.swift */; };
+		E2F7FF6B2BDE3114003A79B1 /* PagingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF6A2BDE3114003A79B1 /* PagingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +172,11 @@
 		E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImagesViewModel.swift; sourceTree = "<group>"; };
 		E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestInterceptor.swift; sourceTree = "<group>"; };
 		E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
+		E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
+		E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBar.swift; sourceTree = "<group>"; };
+		E2F7FF662BDE3090003A79B1 /* PagingTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBarCell.swift; sourceTree = "<group>"; };
+		E2F7FF682BDE30D2003A79B1 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
+		E2F7FF6A2BDE3114003A79B1 /* PagingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +246,7 @@
 		E2C513EE2BC7CE150021C172 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2F7FF612BDE2E07003A79B1 /* Follow */,
 				E2C515A22BD7AAA60021C172 /* Setting */,
 				E2C515542BD645340021C172 /* Explore */,
 				E2C515242BD2441F0021C172 /* MyBucket */,
@@ -517,6 +528,18 @@
 			path = Lotties;
 			sourceTree = "<group>";
 		};
+		E2F7FF612BDE2E07003A79B1 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */,
+				E2F7FF682BDE30D2003A79B1 /* PagingView.swift */,
+				E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */,
+				E2F7FF662BDE3090003A79B1 /* PagingTabBarCell.swift */,
+				E2F7FF6A2BDE3114003A79B1 /* PagingCollectionViewCell.swift */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -617,6 +640,7 @@
 				E2C515C12BD84E180021C172 /* JoinViewModel.swift in Sources */,
 				E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */,
 				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
+				E2F7FF672BDE3090003A79B1 /* PagingTabBarCell.swift in Sources */,
 				E2C5146E2BCAEE670021C172 /* LoginTextField.swift in Sources */,
 				E2C514792BCBF9E70021C172 /* TokenUDManager.swift in Sources */,
 				E2C515692BD7698C0021C172 /* DefaultUDManager.swift in Sources */,
@@ -632,8 +656,12 @@
 				E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */,
 				E2C513FC2BC7CF340021C172 /* TargetType.swift in Sources */,
 				E2C5153A2BD269E60021C172 /* CapsuleSegmentedControl.swift in Sources */,
+				E2F7FF652BDE3038003A79B1 /* PagingTabBar.swift in Sources */,
 				E2C515732BD789720021C172 /* AddNewBucketViewModel.swift in Sources */,
+				E2F7FF632BDE2E2A003A79B1 /* FollowViewController.swift in Sources */,
+				E2F7FF692BDE30D2003A79B1 /* PagingView.swift in Sources */,
 				E2C515632BD764810021C172 /* TabBarViewController.swift in Sources */,
+				E2F7FF6B2BDE3114003A79B1 /* PagingCollectionViewCell.swift in Sources */,
 				E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */,
 				E2C5147D2BCC04590021C172 /* RegularButton.swift in Sources */,
 				E2C514732BCAF1470021C172 /* ViewModelType.swift in Sources */,
