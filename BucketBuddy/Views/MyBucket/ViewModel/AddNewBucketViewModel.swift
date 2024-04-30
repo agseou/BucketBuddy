@@ -15,6 +15,7 @@ class AddNewBucketViewModel: CommonViewModel {
         let title: Observable<String>
         let tags: Observable<String>
         let memo: Observable<String>
+    //    let
         let summitTap: Observable<Void>
     }
     

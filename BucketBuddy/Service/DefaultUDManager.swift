@@ -16,7 +16,7 @@ class DefaultUDManager {
         case userID
     }
     
-    @UserDefault(key: Key.isAccessed.rawValue, defaultValue: false)
+    @UserDefault(key: Key.isAccessed.rawValue, defaultValue: true)
     var isAccessed: Bool
     
     @UserDefault(key: Key.userID.rawValue, defaultValue: "")

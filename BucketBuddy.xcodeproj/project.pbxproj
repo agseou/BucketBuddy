@@ -88,6 +88,12 @@
 		E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */; };
 		E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */; };
 		E2F700102BE00627003A79B1 /* FetchFollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */; };
+		E2F700192BE07C2B003A79B1 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */; };
+		E2F700272BE08D48003A79B1 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700262BE08D48003A79B1 /* TitleCollectionViewCell.swift */; };
+		E2F700292BE08ECC003A79B1 /* SubmitBtnCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700282BE08ECC003A79B1 /* SubmitBtnCollectionViewCell.swift */; };
+		E2F7002D2BE090F3003A79B1 /* MemoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7002C2BE090F3003A79B1 /* MemoCollectionViewCell.swift */; };
+		E2F7002F2BE095B8003A79B1 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7002E2BE095B8003A79B1 /* DateCollectionViewCell.swift */; };
+		E2F700312BE09B86003A79B1 /* DatePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700302BE09B86003A79B1 /* DatePickerCollectionViewCell.swift */; };
 		E2F7FF592BDAA6B9003A79B1 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */; };
 		E2F7FF632BDE2E2A003A79B1 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */; };
 		E2F7FF652BDE3038003A79B1 /* PagingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */; };
@@ -173,6 +179,12 @@
 		E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestInterceptor.swift; sourceTree = "<group>"; };
 		E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListTableViewCell.swift; sourceTree = "<group>"; };
 		E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFollowerViewModel.swift; sourceTree = "<group>"; };
+		E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		E2F700262BE08D48003A79B1 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		E2F700282BE08ECC003A79B1 /* SubmitBtnCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitBtnCollectionViewCell.swift; sourceTree = "<group>"; };
+		E2F7002C2BE090F3003A79B1 /* MemoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E2F7002E2BE095B8003A79B1 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		E2F700302BE09B86003A79B1 /* DatePickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 		E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBar.swift; sourceTree = "<group>"; };
@@ -362,6 +374,12 @@
 				E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */,
 				E2C515412BD3AE820021C172 /* MyProfileView.swift */,
 				E2C515522BD633AB0021C172 /* SegmentControlCollectionReusableView.swift */,
+				E2F700262BE08D48003A79B1 /* TitleCollectionViewCell.swift */,
+				E2F7002C2BE090F3003A79B1 /* MemoCollectionViewCell.swift */,
+				E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */,
+				E2F700282BE08ECC003A79B1 /* SubmitBtnCollectionViewCell.swift */,
+				E2F7002E2BE095B8003A79B1 /* DateCollectionViewCell.swift */,
+				E2F700302BE09B86003A79B1 /* DatePickerCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -668,10 +686,12 @@
 				E2C5147B2BCBFDA00021C172 /* UserNetworkManager.swift in Sources */,
 				E2C515A62BD7AAF60021C172 /* DetailPostViewController.swift in Sources */,
 				E2F700102BE00627003A79B1 /* FetchFollowerViewModel.swift in Sources */,
+				E2F700292BE08ECC003A79B1 /* SubmitBtnCollectionViewCell.swift in Sources */,
 				E2C5158F2BD7A21D0021C172 /* CommentNetworkManager.swift in Sources */,
 				E2C5157C2BD7931D0021C172 /* PostModel.swift in Sources */,
 				E2C515862BD79DCA0021C172 /* FollowModel.swift in Sources */,
 				E2C515892BD79DD50021C172 /* ProfileModel.swift in Sources */,
+				E2F700272BE08D48003A79B1 /* TitleCollectionViewCell.swift in Sources */,
 				E2C5146A2BCAEBFF0021C172 /* LoginViewController.swift in Sources */,
 				E2C515C12BD84E180021C172 /* JoinViewModel.swift in Sources */,
 				E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */,
@@ -684,7 +704,9 @@
 				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
 				E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
+				E2F700312BE09B86003A79B1 /* DatePickerCollectionViewCell.swift in Sources */,
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
+				E2F7002D2BE090F3003A79B1 /* MemoCollectionViewCell.swift in Sources */,
 				E2C515842BD79DBF0021C172 /* LikeModel.swift in Sources */,
 				E2C5159F2BD7A38A0021C172 /* HashTagNetworkManager.swift in Sources */,
 				E2C515912BD7A33B0021C172 /* LikeRouter.swift in Sources */,
@@ -705,6 +727,7 @@
 				E2C5159D2BD7A3810021C172 /* HashtagRouter.swift in Sources */,
 				E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */,
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
+				E2F7002F2BE095B8003A79B1 /* DateCollectionViewCell.swift in Sources */,
 				E2C515AB2BD7AB7A0021C172 /* WithDrawViewController.swift in Sources */,
 				E2C515532BD633AB0021C172 /* SegmentControlCollectionReusableView.swift in Sources */,
 				E2C515672BD768EB0021C172 /* UserDefaultsWrapper.swift in Sources */,
@@ -728,6 +751,7 @@
 				E2C515B72BD7B4CB0021C172 /* SetupEmailViewController.swift in Sources */,
 				E2C515972BD7A3620021C172 /* FollowNetworkManager.swift in Sources */,
 				E2C5157A2BD792F30021C172 /* PostNetworkManager.swift in Sources */,
+				E2F700192BE07C2B003A79B1 /* AddTagCollectionViewCell.swift in Sources */,
 				E2C515752BD7914F0021C172 /* PostRouter.swift in Sources */,
 				E2C515AF2BD7AC590021C172 /* CommentsTableViewCell.swift in Sources */,
 				E2C515442BD3AF670021C172 /* ProfileImageView.swift in Sources */,
