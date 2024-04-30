@@ -51,6 +51,7 @@ struct PostNetworkManager {
                 let urlRequest = try PostRouter.createPost(query: query).asURLRequest()
                 AF.request(urlRequest)
                     .responseDecodable(of: WritePostModel.self) { response in
+                        print(response)
                         switch response.result {
                         case .success(let post):
                             single(.success(.success(post)))

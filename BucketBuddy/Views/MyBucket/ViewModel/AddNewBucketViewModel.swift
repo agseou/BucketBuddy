@@ -31,9 +31,9 @@ class AddNewBucketViewModel: CommonViewModel {
         let summitResult = PublishRelay<Void>()
         let errorMessage = PublishRelay<String>()
         
-        let postObservable = Observable.combineLatest(input.title, input.tags, input.memo)
-            .map { (title, tags, memo) in
-                return WritePostQuery(title: title, content: tags, content1: memo, content2: nil, content3: nil, content4: nil, content5: nil, product_id: "bucket", files: nil)
+        let postObservable = Observable.combineLatest(input.title, input.tags, input.memo, input.date)
+            .map { (title, tags, memo, date) in
+                return WritePostQuery(title: title, content: tags, content1: memo, content2: date, product_id: "bucket", files: nil)
             }
         
         input.summitTap
@@ -44,7 +44,7 @@ class AddNewBucketViewModel: CommonViewModel {
             }
             .subscribe(with: self) { owner, result in
                 switch result {
-                case .success(let success):
+                case .success(let _):
                     summitResult.accept(())
                 case .unauthorized:
                     print("유효하지 않은 액세스 토큰 입니다.")

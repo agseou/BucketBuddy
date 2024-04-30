@@ -52,6 +52,8 @@ final class MyBucketViewController: BaseViewController {
     // MARK: - Function
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print(#function)
+        
         fetchTrigger.onNext(())
     }
     
@@ -79,7 +81,6 @@ final class MyBucketViewController: BaseViewController {
         
         let input = FetchMyBucketListViewModel.Input(fetchTrigger: fetchTrigger.asObservable())
         let output = fetchMyBucketViewModel.transform(input: input)
-        
         
         output.postResult
             .drive(with: self) { owner, fetchPostModel in

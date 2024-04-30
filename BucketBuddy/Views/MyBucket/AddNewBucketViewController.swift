@@ -87,7 +87,7 @@ final class AddNewBucketViewController: BaseViewController {
             switch section {
             case .title:
                 let cell = collectionView.dequeueConfiguredReusableCell(using: titleCellRegisteration, for: indexPath, item: itemIdentifier)
-                
+               
                 return cell
             case .memo:
                 let cell = collectionView.dequeueConfiguredReusableCell(using: memoCellRegisteration, for: indexPath, item: itemIdentifier)
@@ -168,6 +168,7 @@ extension AddNewBucketViewController {
     private func TitleCellRegisteration() -> UICollectionView.CellRegistration<TitleCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<TitleCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
+            cell.titleTextField.text = self.titleRelay.value
             cell.titleTextField.rx.text.orEmpty
                 .bind(to: self.titleRelay)
                 .disposed(by: cell.disposeBag)
@@ -177,6 +178,7 @@ extension AddNewBucketViewController {
     private func MemoCellRegisteration() -> UICollectionView.CellRegistration<MemoCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<MemoCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
+            cell.textView.text = self.memoRelay.value
             cell.textView.rx.text.orEmpty
                 .bind(to: self.memoRelay)
                 .disposed(by: cell.disposeBag)
@@ -193,6 +195,7 @@ extension AddNewBucketViewController {
     private func TagCellRegisteration() -> UICollectionView.CellRegistration<AddTagCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<AddTagCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
+            cell.tagTextField.text = self.tagRelay.value
             cell.tagTextField.rx.text.orEmpty
                 .bind(to: self.tagRelay)
                 .disposed(by: cell.disposeBag)
@@ -219,7 +222,6 @@ extension AddNewBucketViewController {
     }
     
     @objc func tapSubmitBtn() {
-        
         
         submitTrigger.onNext(())
         let input = AddNewBucketViewModel.Input(title: titleRelay.asObservable(), tags: tagRelay.asObservable(), memo: memoRelay.asObservable(), date: dateRelay.asObservable(), summitTap: submitTrigger.asObservable())
