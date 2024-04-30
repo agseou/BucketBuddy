@@ -9,7 +9,7 @@ import UIKit
 
 class MemoCollectionViewCell: BaseCollectionViewCell {
     
-    private lazy var textView: UITextView = {
+    lazy var textView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.backgroundColor = .white

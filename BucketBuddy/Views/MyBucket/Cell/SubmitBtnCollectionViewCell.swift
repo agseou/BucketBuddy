@@ -9,7 +9,7 @@ import UIKit
 
 class SubmitBtnCollectionViewCell: BaseCollectionViewCell {
     
-    private let submitBtn = RegularButton(text: "완료")
+    let submitBtn = RegularButton(text: "완료")
     
     
     override func configureHierarchy() {

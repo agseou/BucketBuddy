@@ -19,6 +19,14 @@ final class AddNewBucketViewController: BaseViewController {
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     var dataSource: UICollectionViewDiffableDataSource<Section, UUID>!
     private var isDatePickerVisible = false
+    private var titleRelay = BehaviorRelay<String>(value: "")
+    private var memoRelay = BehaviorRelay<String>(value: "")
+    private var tagRelay = BehaviorRelay<String>(value: "")
+    private var dateRelay = BehaviorRelay<String>(value: "")
+    
+    let viewModel = AddNewBucketViewModel()
+    let disposeBag = DisposeBag()
+    private let submitTrigger = PublishSubject<Void>()
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -41,20 +49,25 @@ final class AddNewBucketViewController: BaseViewController {
         }
     }
     
+    override func setupBind() {
+        super.setupBind()
+        
+        
+    }
+    
     private func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, UUID>()
         snapshot.appendSections(Section.allCases)
         for section in Section.allCases {
-                switch section {
-                case .datePicker:
-                    // isDatePickerVisible이 true일 때만 datePicker 섹션에 아이템 추가
-                    if isDatePickerVisible {
-                        snapshot.appendItems([UUID()], toSection: .datePicker)
-                    }
-                default:
-                    snapshot.appendItems([UUID()], toSection: section)
+            switch section {
+            case .datePicker:
+                if isDatePickerVisible {
+                    snapshot.appendItems([UUID()], toSection: .datePicker)
                 }
+            default:
+                snapshot.appendItems([UUID()], toSection: section)
             }
+        }
         dataSource.apply(snapshot)
     }
     
@@ -120,7 +133,7 @@ extension AddNewBucketViewController {
             case Section.memo.rawValue:
                 height = 120 // 메모 섹션의 높이
             case Section.tag.rawValue:
-                height = 150 // 태그 섹션의 높이
+                height = 80 // 태그 섹션의 높이
             case Section.date.rawValue:
                 height = 50 // 날짜 및 날짜 선택기 섹션의 높이
             case Section.datePicker.rawValue:
@@ -155,28 +168,34 @@ extension AddNewBucketViewController {
     private func TitleCellRegisteration() -> UICollectionView.CellRegistration<TitleCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<TitleCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
-           
+            cell.titleTextField.rx.text.orEmpty
+                .bind(to: self.titleRelay)
+                .disposed(by: cell.disposeBag)
         }
     }
     
     private func MemoCellRegisteration() -> UICollectionView.CellRegistration<MemoCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<MemoCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
-            
+            cell.textView.rx.text.orEmpty
+                .bind(to: self.memoRelay)
+                .disposed(by: cell.disposeBag)
         }
     }
     
     private func SubmitBtnCellRegisteration() -> UICollectionView.CellRegistration<SubmitBtnCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<SubmitBtnCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
-            
+            cell.submitBtn.addTarget(self, action: #selector(self.tapSubmitBtn), for: .touchUpInside)
         }
     }
     
     private func TagCellRegisteration() -> UICollectionView.CellRegistration<AddTagCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<AddTagCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
-            
+            cell.tagTextField.rx.text.orEmpty
+                .bind(to: self.tagRelay)
+                .disposed(by: cell.disposeBag)
         }
     }
     
@@ -192,8 +211,32 @@ extension AddNewBucketViewController {
     private func DatePickerCellRegisteration() -> UICollectionView.CellRegistration<DatePickerCollectionViewCell, UUID> {
         
         UICollectionView.CellRegistration<DatePickerCollectionViewCell, UUID> { cell, indexPath, itemIdentifier in
-           
+            cell.datePicker.rx.date
+                .map { $0.ISO8601Format() }
+                .bind(to: self.dateRelay)
+                .disposed(by: cell.disposeBag)
         }
+    }
+    
+    @objc func tapSubmitBtn() {
+        
+        
+        submitTrigger.onNext(())
+        let input = AddNewBucketViewModel.Input(title: titleRelay.asObservable(), tags: tagRelay.asObservable(), memo: memoRelay.asObservable(), date: dateRelay.asObservable(), summitTap: submitTrigger.asObservable())
+        let output = viewModel.transform(input: input)
+        
+        output.summitResult
+            .drive(with: self) { owner, _ in
+                owner.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.errorMessage
+            .drive(with: self) { owner, text in
+                owner.showAlert(title: "오류 발생", message: text)
+            }
+            .disposed(by: disposeBag)
+        
     }
     
     @objc func toggleChanged(_ sender: UISwitch) {

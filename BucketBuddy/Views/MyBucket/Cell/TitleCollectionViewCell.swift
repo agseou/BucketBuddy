@@ -9,7 +9,7 @@ import UIKit
 
 class TitleCollectionViewCell: BaseCollectionViewCell {
     
-    private let titleTextField =  {
+    let titleTextField =  {
         let view = UITextField()
         view.placeholder = "title"
         view.borderStyle = .roundedRect
