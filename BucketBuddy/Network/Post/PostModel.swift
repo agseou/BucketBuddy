@@ -48,6 +48,11 @@ struct WritePostModel: Decodable {
   //  let coments: Array<String>
 }
 
+
+struct CompleteToggleQuery: Encodable {
+    let product_id: String
+}
+
 // MARK: - FetchPost
 struct FetchPostQuery: Encodable {
     let next: String?

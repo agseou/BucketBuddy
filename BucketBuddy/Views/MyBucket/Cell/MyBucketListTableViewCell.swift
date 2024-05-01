@@ -11,6 +11,7 @@ import RxCocoa
 
 protocol MyBucketListTableViewCellDelegate: AnyObject {
     func reloadTableView()
+    func displayErrorMessage(_ message: String)
 }
 
 final class MyBucketListTableViewCell: BaseCollectionViewCell {
@@ -24,11 +25,17 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
     }()
     private let title = {
         let label = UILabel()
-        label.text = "test"
+        label.font = .systemFont(ofSize: 17)
         return label
     }()
     private let deadline = {
         let label = UILabel()
+        label.backgroundColor = .systemBlue
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.layer.cornerRadius = 4
+        label.clipsToBounds = true
         return label
     }()
     private let editBtn = {
@@ -43,11 +50,16 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
     }()
     
     var postID: String! = nil
+    var productID: String! = nil
+    
+    let completeToggleViewModel = CompleteToggleViewModel()
+    
     weak var delegate: MyBucketListTableViewCellDelegate?
     
     // MARK: - Functions
     override func prepareForReuse() {
         disposeBag = DisposeBag()
+        
     }
     
     override func configureHierarchy() {
@@ -62,7 +74,7 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
     
     override func configureView() {
         super.configureView()
-        
+        showEditMenu()
     }
     
     override func setConstraints() {
@@ -73,18 +85,20 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
             $0.verticalEdges.equalTo(self).inset(5)
         }
         title.snp.makeConstraints {
-            $0.top.equalTo(container)
+            $0.centerY.equalTo(container).offset(-10)
             $0.leading.equalTo(container).offset(10)
         }
         deadline.snp.makeConstraints {
-            $0.top.equalTo(title.snp.bottom)
-            $0.leading.equalTo(title.snp.trailing)
+            $0.top.equalTo(title.snp.bottom).offset(5)
+            $0.leading.equalTo(container).offset(10)
         }
         editBtn.snp.makeConstraints {
-            $0.top.trailing.equalTo(container)
+            $0.top.trailing.equalTo(container).offset(10)
+            $0.trailing.equalTo(container).inset(10)
         }
         checkBtn.snp.makeConstraints {
-            $0.bottom.trailing.equalTo(container)
+            $0.bottom.equalTo(container).inset(10)
+            $0.trailing.equalTo(container).inset(10)
         }
     }
     
@@ -96,17 +110,44 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
                 owner.showEditMenu()
             }
             .disposed(by: disposeBag)
+        
+        checkBtn.rx.tap
+            .subscribe(with: self) { owner, _ in
+                owner.tapCheckBtn()
+            }
+            .disposed(by: disposeBag)
     }
     
-    func configureCell(title: String, deadline: String, postID: String){
+    func tapCheckBtn() {
+        
+        let triggerObservable = Observable.just((productID!, postID!))
+        
+        let input = CompleteToggleViewModel.Input(trigger: triggerObservable)
+        let output = completeToggleViewModel.transform(input: input)
+        
+        output.successSignal
+            .drive(with: self) { owner, _ in
+                owner.delegate?.reloadTableView()
+            }
+            .disposed(by: disposeBag)
+            
+        output.errorMessage
+            .drive(with: self) { owner, message in
+                owner.delegate?.displayErrorMessage(message)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func configureCell(title: String, deadline: String, postID: String, productID: String){
         self.title.text = title
-        self.deadline.text = deadline
+        self.deadline.text = deadline.Ddays()
         self.postID = postID
+        self.productID = productID
     }
     
     func showEditMenu() {
         let editAction = UIAction(title: "수정", image: UIImage(systemName: "pencil")) { action in
-            // 수정 관련 로직
+            
         }
         let deleteAction = UIAction(title: "삭제", image: UIImage(systemName: "trash"), attributes: .destructive) { action in
             PostNetworkManager.deletePost(postID: self.postID)

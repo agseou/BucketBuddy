@@ -44,7 +44,7 @@ class AddNewBucketViewModel: CommonViewModel {
             }
             .subscribe(with: self) { owner, result in
                 switch result {
-                case .success(let _):
+                case .success( _):
                     summitResult.accept(())
                 case .unauthorized:
                     print("유효하지 않은 액세스 토큰 입니다.")

@@ -122,6 +122,39 @@ struct PostNetworkManager {
         }
     }
     
+    // 포스트 완료 / 미완료
+    static func completeTogglePost(query: CompleteToggleQuery, id: String) -> Single<CompleteTogglePostResult> {
+        return Single<CompleteTogglePostResult>.create { single in
+            do {
+                let urlRequest = try PostRouter.completeTogglePost(query: query, id: id).asURLRequest()
+                AF.request(urlRequest)
+                    .responseDecodable(of: WritePostModel.self) { response in
+                        switch response.result {
+                        case .success(let post):
+                            single(.success(.success(post)))
+                        case .failure(_):
+                            switch response.response?.statusCode {
+                            case 403:
+                                single(.success(.forbidden))
+                            case 410:
+                                single(.success(.nonePost))
+                            case 419:
+                                single(.success(.expiredAccessToken))
+                            case 445:
+                                single(.success(.noPermission))
+                            default:
+                                single(.success(.error(.unknown)))
+                            }
+                        }
+                    }
+            } catch {
+                single(.failure(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    
     // 특정 포스트 조회
     static func fetchUserPost(id: String) -> Single<FetchPostModel> {
         return Single<FetchPostModel>.create { single in

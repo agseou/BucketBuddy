@@ -53,8 +53,13 @@ extension UsersRouter: TargetType {
     }
     
     var header: [String : String] {
-        [HTTPHeader.contentType.rawValue: HTTPHeader.json.rawValue,
-         HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
+        switch self {
+        case .withdraw :
+            [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,
+                 HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
+        default: [HTTPHeader.contentType.rawValue: HTTPHeader.json.rawValue,
+             HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
+        }
     }
     
     var parameters: String? {

@@ -14,6 +14,7 @@ enum PostRouter {
     case fetchPost(query: FetchPostQuery)
     case fetchPostDetail(id: String)
     case editPost(query: WritePostQuery, id: String)
+    case completeTogglePost(query: CompleteToggleQuery, id: String)
     case deletePost(id: String)
     case fetchUserPost(query: FetchPostQuery, id: String)
 }
@@ -30,7 +31,7 @@ extension PostRouter: TargetType {
                 .post
         case .fetchPost, .fetchPostDetail, .fetchUserPost:
                 .get
-        case .editPost:
+        case .editPost, .completeTogglePost:
                 .put
         case .deletePost:
                 .delete
@@ -47,7 +48,7 @@ extension PostRouter: TargetType {
             return "posts"
         case .fetchPostDetail(let id):
             return "posts/\(id)"
-        case .editPost(_, let id):
+        case .editPost(_, let id), .completeTogglePost(_, let id):
             return "posts/\(id)"
         case .deletePost(let id):
             return "posts/\(id)"
@@ -62,7 +63,7 @@ extension PostRouter: TargetType {
             [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,
              HTTPHeader.contentType.rawValue: HTTPHeader.multifart.rawValue,
              HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
-        case .createPost, .editPost:
+        case .createPost, .editPost, .completeTogglePost:
             [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,
              HTTPHeader.contentType.rawValue: HTTPHeader.json.rawValue,
              HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
@@ -109,6 +110,10 @@ extension PostRouter: TargetType {
         case .fetchPostDetail:
             return nil
         case .editPost(let query, _):
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            return try? encoder.encode(query)
+        case .completeTogglePost(let query,_):
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)

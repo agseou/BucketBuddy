@@ -68,6 +68,16 @@ enum DeletePostResult{
     case error(CommonError)
 }
 
+enum CompleteTogglePostResult{
+    case success(WritePostModel)
+    case forbidden
+    case nonePost
+    case expiredAccessToken
+    case noPermission
+    case error(CommonError)
+}
+
+
 // MARK: - Profile
 enum ProfileResult {
     case success(ProfileModel)

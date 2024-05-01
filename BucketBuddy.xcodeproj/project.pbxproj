@@ -41,10 +41,6 @@
 		E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515222BD241570021C172 /* BaseTableViewCell.swift */; };
 		E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515252BD244340021C172 /* MyBucketViewController.swift */; };
 		E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */; };
-		E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515302BD2651A0021C172 /* RealmRepository.swift */; };
-		E2C515332BD265200021C172 /* MyBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515322BD265200021C172 /* MyBucket.swift */; };
-		E2C515362BD265620021C172 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E2C515352BD265620021C172 /* Realm */; };
-		E2C515382BD265620021C172 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2C515372BD265620021C172 /* RealmSwift */; };
 		E2C5153A2BD269E60021C172 /* CapsuleSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515392BD269E60021C172 /* CapsuleSegmentedControl.swift */; };
 		E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */; };
 		E2C515422BD3AE820021C172 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515412BD3AE820021C172 /* MyProfileView.swift */; };
@@ -74,7 +70,6 @@
 		E2C5159F2BD7A38A0021C172 /* HashTagNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5159E2BD7A38A0021C172 /* HashTagNetworkManager.swift */; };
 		E2C515A42BD7AAAE0021C172 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515A32BD7AAAE0021C172 /* SettingViewController.swift */; };
 		E2C515A62BD7AAF60021C172 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515A52BD7AAF60021C172 /* DetailPostViewController.swift */; };
-		E2C515AB2BD7AB7A0021C172 /* WithDrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515AA2BD7AB7A0021C172 /* WithDrawViewController.swift */; };
 		E2C515AD2BD7AB8C0021C172 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515AC2BD7AB8B0021C172 /* EditProfileViewController.swift */; };
 		E2C515AF2BD7AC590021C172 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */; };
 		E2C515B12BD7AED50021C172 /* FetchMyBucketListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */; };
@@ -95,6 +90,7 @@
 		E2F7002F2BE095B8003A79B1 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7002E2BE095B8003A79B1 /* DateCollectionViewCell.swift */; };
 		E2F700312BE09B86003A79B1 /* DatePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700302BE09B86003A79B1 /* DatePickerCollectionViewCell.swift */; };
 		E2F7003F2BE0C773003A79B1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7003E2BE0C773003A79B1 /* String+Extension.swift */; };
+		E2F700432BE206B5003A79B1 /* CompleteToggleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */; };
 		E2F7FF592BDAA6B9003A79B1 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */; };
 		E2F7FF632BDE2E2A003A79B1 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */; };
 		E2F7FF652BDE3038003A79B1 /* PagingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */; };
@@ -135,8 +131,6 @@
 		E2C515222BD241570021C172 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		E2C515252BD244340021C172 /* MyBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucketViewController.swift; sourceTree = "<group>"; };
 		E2C515272BD244520021C172 /* MyBucketListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucketListTableViewCell.swift; sourceTree = "<group>"; };
-		E2C515302BD2651A0021C172 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
-		E2C515322BD265200021C172 /* MyBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBucket.swift; sourceTree = "<group>"; };
 		E2C515392BD269E60021C172 /* CapsuleSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleSegmentedControl.swift; sourceTree = "<group>"; };
 		E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddNewBucketViewController.swift; path = BucketBuddy/Views/MyBucket/AddNewBucketViewController.swift; sourceTree = SOURCE_ROOT; };
 		E2C515412BD3AE820021C172 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
@@ -166,7 +160,6 @@
 		E2C5159E2BD7A38A0021C172 /* HashTagNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagNetworkManager.swift; sourceTree = "<group>"; };
 		E2C515A32BD7AAAE0021C172 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E2C515A52BD7AAF60021C172 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
-		E2C515AA2BD7AB7A0021C172 /* WithDrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawViewController.swift; sourceTree = "<group>"; };
 		E2C515AC2BD7AB8B0021C172 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyBucketListViewModel.swift; sourceTree = "<group>"; };
@@ -187,6 +180,7 @@
 		E2F7002E2BE095B8003A79B1 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2F700302BE09B86003A79B1 /* DatePickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2F7003E2BE0C773003A79B1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToggleViewModel.swift; sourceTree = "<group>"; };
 		E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 		E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBar.swift; sourceTree = "<group>"; };
@@ -200,9 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C515362BD265620021C172 /* Realm in Frameworks */,
 				E2C513ED2BC7CE0A0021C172 /* Lottie in Frameworks */,
-				E2C515382BD265620021C172 /* RealmSwift in Frameworks */,
 				E2C513E82BC7CDF10021C172 /* RxCocoa in Frameworks */,
 				E2C513DF2BC7CD8D0021C172 /* SnapKit in Frameworks */,
 				E2C513EA2BC7CDF10021C172 /* RxSwift in Frameworks */,
@@ -236,7 +228,6 @@
 				E2C513E22BC7CDCE0021C172 /* App */,
 				E2C513EF2BC7CE440021C172 /* Base */,
 				E2C513EE2BC7CE150021C172 /* Views */,
-				E2C5152F2BD264FF0021C172 /* Realm */,
 				E2C513F62BC7CEBC0021C172 /* Network */,
 				E2C514772BCBF9B80021C172 /* Service */,
 				E2C514712BCAF11D0021C172 /* Protocol */,
@@ -387,15 +378,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		E2C5152F2BD264FF0021C172 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				E2C515302BD2651A0021C172 /* RealmRepository.swift */,
-				E2C515322BD265200021C172 /* MyBucket.swift */,
-			);
-			path = Realm;
-			sourceTree = "<group>";
-		};
 		E2C515542BD645340021C172 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,7 +468,6 @@
 			isa = PBXGroup;
 			children = (
 				E2C515A32BD7AAAE0021C172 /* SettingViewController.swift */,
-				E2C515AA2BD7AB7A0021C172 /* WithDrawViewController.swift */,
 				E2C515AC2BD7AB8B0021C172 /* EditProfileViewController.swift */,
 			);
 			path = Setting;
@@ -563,6 +544,7 @@
 			children = (
 				E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */,
 				E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */,
+				E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -618,8 +600,6 @@
 				E2C513E72BC7CDF10021C172 /* RxCocoa */,
 				E2C513E92BC7CDF10021C172 /* RxSwift */,
 				E2C513EC2BC7CE0A0021C172 /* Lottie */,
-				E2C515352BD265620021C172 /* Realm */,
-				E2C515372BD265620021C172 /* RealmSwift */,
 			);
 			productName = BucketBuddy;
 			productReference = E2C513C62BC7CD510021C172 /* BucketBuddy.app */;
@@ -654,7 +634,6 @@
 				E2C513E32BC7CDE40021C172 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E2C513E62BC7CDF10021C172 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				E2C513EB2BC7CE0A0021C172 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = E2C513C72BC7CD510021C172 /* Products */;
 			projectDirPath = "";
@@ -711,6 +690,7 @@
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
 				E2F7002D2BE090F3003A79B1 /* MemoCollectionViewCell.swift in Sources */,
 				E2C515842BD79DBF0021C172 /* LikeModel.swift in Sources */,
+				E2F700432BE206B5003A79B1 /* CompleteToggleViewModel.swift in Sources */,
 				E2C5159F2BD7A38A0021C172 /* HashTagNetworkManager.swift in Sources */,
 				E2C515912BD7A33B0021C172 /* LikeRouter.swift in Sources */,
 				E2C515C82BD9EB340021C172 /* UploadImagesViewModel.swift in Sources */,
@@ -732,7 +712,6 @@
 				E2C514762BCAF68F0021C172 /* SetUpNicknameViewController.swift in Sources */,
 				E2C513F82BC7CF290021C172 /* APIKey.swift in Sources */,
 				E2F7002F2BE095B8003A79B1 /* DateCollectionViewCell.swift in Sources */,
-				E2C515AB2BD7AB7A0021C172 /* WithDrawViewController.swift in Sources */,
 				E2C515532BD633AB0021C172 /* SegmentControlCollectionReusableView.swift in Sources */,
 				E2C515672BD768EB0021C172 /* UserDefaultsWrapper.swift in Sources */,
 				E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */,
@@ -746,7 +725,6 @@
 				E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C515992BD7A36C0021C172 /* ProfileRouter.swift in Sources */,
-				E2C515312BD2651A0021C172 /* RealmRepository.swift in Sources */,
 				E2C515B12BD7AED50021C172 /* FetchMyBucketListViewModel.swift in Sources */,
 				E2C515B52BD7B4C20021C172 /* SetupPasswordViewController.swift in Sources */,
 				E2C515932BD7A3440021C172 /* LikeNetworkManager.swift in Sources */,
@@ -760,7 +738,6 @@
 				E2C515AF2BD7AC590021C172 /* CommentsTableViewCell.swift in Sources */,
 				E2C515442BD3AF670021C172 /* ProfileImageView.swift in Sources */,
 				E2C515B92BD7B6050021C172 /* SetupEmailViewModel.swift in Sources */,
-				E2C515332BD265200021C172 /* MyBucket.swift in Sources */,
 				E2C514C32BCED9470021C172 /* UIViewController+Extension.swift in Sources */,
 				E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */,
 				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
@@ -1035,14 +1012,6 @@
 				minimumVersion = 4.4.2;
 			};
 		};
-		E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1070,16 +1039,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E2C513EB2BC7CE0A0021C172 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		E2C515352BD265620021C172 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		E2C515372BD265620021C172 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E2C515342BD265620021C172 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

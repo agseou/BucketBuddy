@@ -117,4 +117,25 @@ struct UserNetworkManager {
             return Disposables.create()
         }
     }
+    
+    static func withDraw() -> Single<Void> {
+        return Single<Void>.create { single in
+            do {
+                let urlRequest = try UsersRouter.withdraw.asURLRequest()
+                AF.request(urlRequest)
+                    .validate(statusCode: 200..<300)
+                    .responseDecodable(of: JoinModel.self) { response in
+                        switch response.result {
+                        case .success(_):
+                            single(.success(()))
+                        case .failure(let error):
+                            single(.failure(error))
+                        }
+                    }
+            } catch {
+                single(.failure(error))
+            }
+            return Disposables.create()
+        }
+    }
 }

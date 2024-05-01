@@ -62,6 +62,14 @@ final class MyBucketViewController: BaseViewController {
         
         view.addSubview(collectionView)
         view.addSubview(addBtn)
+        
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(didTapSettingsButton))
+        navigationItem.rightBarButtonItem = settingsButton
+    }
+    
+    @objc func didTapSettingsButton() {
+        let vc = SettingViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func setConstraints() {
@@ -162,6 +170,8 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileImageView", for: indexPath) as! MyProfileView
             cell.delegate = self
             
+            
+            
             return cell
             
         case .myBuckets:
@@ -169,7 +179,7 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
             
             cell.delegate = self
             let item = postList[indexPath.row]
-            cell.configureCell(title: item.title ?? "none", deadline: item.createdAt, postID: item.post_id)
+            cell.configureCell(title: item.title ?? "none", deadline: item.content2 ?? "없음", postID: item.post_id, productID: item.product_id!)
             
             return cell
         case .none:
@@ -190,6 +200,10 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
 }
 
 extension MyBucketViewController: MyBucketListTableViewCellDelegate {
+    func displayErrorMessage(_ message: String) {
+        showAlert(title: "에러발생", message: message)
+    }
+    
     func reloadTableView() {
         fetchTrigger.onNext(())
     }
