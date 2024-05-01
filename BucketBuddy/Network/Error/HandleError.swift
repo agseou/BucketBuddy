@@ -79,14 +79,6 @@ enum CompleteTogglePostResult{
 
 
 // MARK: - Profile
-enum ProfileResult {
-    case success(ProfileModel)
-    case unauthorized
-    case forbidden
-    case expiredToken
-    case error(CommonError)
-}
-
 enum UserProfileResult {
     case success(FetchPostModel)
     case badRequest

@@ -91,6 +91,8 @@
 		E2F700312BE09B86003A79B1 /* DatePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700302BE09B86003A79B1 /* DatePickerCollectionViewCell.swift */; };
 		E2F7003F2BE0C773003A79B1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7003E2BE0C773003A79B1 /* String+Extension.swift */; };
 		E2F700432BE206B5003A79B1 /* CompleteToggleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */; };
+		E2F700462BE22417003A79B1 /* FetchMyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700452BE22417003A79B1 /* FetchMyProfileViewModel.swift */; };
+		E2F700482BE22BC4003A79B1 /* EditMyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700472BE22BC4003A79B1 /* EditMyProfileViewModel.swift */; };
 		E2F7FF592BDAA6B9003A79B1 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */; };
 		E2F7FF632BDE2E2A003A79B1 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */; };
 		E2F7FF652BDE3038003A79B1 /* PagingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */; };
@@ -181,6 +183,8 @@
 		E2F700302BE09B86003A79B1 /* DatePickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2F7003E2BE0C773003A79B1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteToggleViewModel.swift; sourceTree = "<group>"; };
+		E2F700452BE22417003A79B1 /* FetchMyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyProfileViewModel.swift; sourceTree = "<group>"; };
+		E2F700472BE22BC4003A79B1 /* EditMyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyProfileViewModel.swift; sourceTree = "<group>"; };
 		E2F7FF582BDAA6B9003A79B1 /* LoadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 		E2F7FF622BDE2E2A003A79B1 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		E2F7FF642BDE3038003A79B1 /* PagingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBar.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 			children = (
 				E2C513E22BC7CDCE0021C172 /* App */,
 				E2C513EF2BC7CE440021C172 /* Base */,
+				E2F700442BE223DA003A79B1 /* ViewModels */,
 				E2C513EE2BC7CE150021C172 /* Views */,
 				E2C513F62BC7CEBC0021C172 /* Network */,
 				E2C514772BCBF9B80021C172 /* Service */,
@@ -354,7 +359,6 @@
 		E2C515242BD2441F0021C172 /* MyBucket */ = {
 			isa = PBXGroup;
 			children = (
-				E2F700122BE0137B003A79B1 /* ViewModel */,
 				E2C515292BD246720021C172 /* Cell */,
 				E2C515252BD244340021C172 /* MyBucketViewController.swift */,
 				E2C5153D2BD38E640021C172 /* AddNewBucketViewController.swift */,
@@ -476,8 +480,9 @@
 		E2C515A72BD7AB470021C172 /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				E2C515BD2BD7B6270021C172 /* Views */,
-				E2C515BC2BD7B61E0021C172 /* ViewModels */,
+				E2C515B62BD7B4CB0021C172 /* SetupEmailViewController.swift */,
+				E2C515B42BD7B4C20021C172 /* SetupPasswordViewController.swift */,
+				E2C514752BCAF68F0021C172 /* SetUpNicknameViewController.swift */,
 			);
 			path = Join;
 			sourceTree = "<group>";
@@ -490,27 +495,6 @@
 				E2C515C72BD9EB340021C172 /* UploadImagesViewModel.swift */,
 			);
 			path = Posts;
-			sourceTree = "<group>";
-		};
-		E2C515BC2BD7B61E0021C172 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */,
-				E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */,
-				E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */,
-				E2C515C02BD84E180021C172 /* JoinViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		E2C515BD2BD7B6270021C172 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E2C515B62BD7B4CB0021C172 /* SetupEmailViewController.swift */,
-				E2C515B42BD7B4C20021C172 /* SetupPasswordViewController.swift */,
-				E2C514752BCAF68F0021C172 /* SetUpNicknameViewController.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E2F7000D2BE005C1003A79B1 /* PagingTabBar */ = {
@@ -539,14 +523,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		E2F700122BE0137B003A79B1 /* ViewModel */ = {
+		E2F700442BE223DA003A79B1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */,
+				E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */,
+				E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */,
+				E2F700472BE22BC4003A79B1 /* EditMyProfileViewModel.swift */,
+				E2C515C02BD84E180021C172 /* JoinViewModel.swift */,
 				E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */,
 				E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */,
 				E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */,
+				E2F700452BE22417003A79B1 /* FetchMyProfileViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		E2F7FF572BDAA682003A79B1 /* Resource */ = {
@@ -676,6 +666,7 @@
 				E2F700272BE08D48003A79B1 /* TitleCollectionViewCell.swift in Sources */,
 				E2C5146A2BCAEBFF0021C172 /* LoginViewController.swift in Sources */,
 				E2C515C12BD84E180021C172 /* JoinViewModel.swift in Sources */,
+				E2F700482BE22BC4003A79B1 /* EditMyProfileViewModel.swift in Sources */,
 				E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */,
 				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
 				E2F7FF672BDE3090003A79B1 /* PagingTabBarCell.swift in Sources */,
@@ -732,6 +723,7 @@
 				E2C515A42BD7AAAE0021C172 /* SettingViewController.swift in Sources */,
 				E2C515B72BD7B4CB0021C172 /* SetupEmailViewController.swift in Sources */,
 				E2C515972BD7A3620021C172 /* FollowNetworkManager.swift in Sources */,
+				E2F700462BE22417003A79B1 /* FetchMyProfileViewModel.swift in Sources */,
 				E2C5157A2BD792F30021C172 /* PostNetworkManager.swift in Sources */,
 				E2F700192BE07C2B003A79B1 /* AddTagCollectionViewCell.swift in Sources */,
 				E2C515752BD7914F0021C172 /* PostRouter.swift in Sources */,

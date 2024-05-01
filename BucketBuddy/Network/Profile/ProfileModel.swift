@@ -23,3 +23,13 @@ struct UserModel: Decodable {
     let profileImage: String?
 }
 
+
+struct EditProfileQuery: Encodable {
+    let nick: String
+}
+
+extension ProfileModel {
+    static var defaultProfile: ProfileModel {
+        return ProfileModel(user_id: "", email: "", nick: "", profileImage: nil, followers: [], following: [], posts: [])
+    }
+}

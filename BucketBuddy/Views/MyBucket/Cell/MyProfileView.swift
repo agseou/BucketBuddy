@@ -24,10 +24,8 @@ final class MyProfileView: BaseCollectionViewCell {
         btn.backgroundColor = .black
         return btn
     }()
-    private let followerBtn = ProfileItemBtn(number: 0, description: "팔로워")
-    private let followingBtn = ProfileItemBtn(number: 0, description: "팔로잉")
-    
-    weak var delegate: MyProfileViewDelegate?
+    let followerBtn = ProfileItemBtn(number: 0, description: "팔로워")
+    let followingBtn = ProfileItemBtn(number: 0, description: "팔로잉")
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -43,17 +41,6 @@ final class MyProfileView: BaseCollectionViewCell {
         addSubview(followUserBtn)
         addSubview(followerBtn)
         addSubview(followingBtn)
-    }
-    
-    override func configureView() {
-        super.configureView()
-        
-        followerBtn.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
-        followingBtn.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
-    }
-    
-    @objc func tapButton() {
-        delegate?.didTapFollowViewBtn()
     }
     
     override func setConstraints() {
@@ -84,31 +71,10 @@ final class MyProfileView: BaseCollectionViewCell {
             $0.centerY.equalTo(profileImage)
         }
     }
-    
-    override func setBind() {
-        super.setBind()
-        
-        ProfileNetworkManager.fetchMyProfile()
-            .subscribe(with: self) { owner, result in
-                switch result {
-                case .success(let success):
-                    owner.userName.text = success.nick
-                    owner.followerBtn.update(number: success.followers.count, description: "팔로워")
-                    owner.followingBtn.update(number: success.following.count, description: "팔로워")
-                case .unauthorized:
-                    print("유효하지 않은 액세스 토큰")
-                case .forbidden:
-                    print("접근권한 없음")
-                case .expiredToken:
-                    print("에러 발생: 토큰 만료")
-                case .error(let error):
-                    print("에러 발생: \(error.localizedDescription)")
-                }
-            }
-            .disposed(by: disposeBag)
+   
+    func configureCell(nickname: String, followerCnt: Int, followingCnt: Int) {
+        userName.text = nickname
+        followerBtn.update(number: followingCnt, description: "팔로일")
+        followerBtn.update(number: followerCnt, description: "팔로워")
     }
-}
-
-protocol MyProfileViewDelegate: AnyObject {
-    func didTapFollowViewBtn()
 }

@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 
 final class MyBucketViewController: BaseViewController {
-  
-    
     
     // MARK: - Components
     private lazy var collectionView = {
@@ -41,10 +39,12 @@ final class MyBucketViewController: BaseViewController {
         case myBuckets // header에 segment를 pinned
     }
     
-    let fetchTrigger = PublishSubject<Void>()
+    private let fetchTrigger = PublishSubject<Void>()
     private let fetchMyBucketViewModel = FetchMyBucketListViewModel()
+    private let fetchMyProfileViewModel = FetchMyProfileViewModel()
+    private var nickname: String = DefaultUDManager.shared.nickname
+    private var followCnt: (Int, Int) = (0, 0)
     private let disposeBag = DisposeBag()
-    
     var postList: [PostModel] = [] {
         didSet { collectionView.reloadData() }
     }
@@ -87,16 +87,26 @@ final class MyBucketViewController: BaseViewController {
     override func setupBind() {
         super.setupBind()
         
-        let input = FetchMyBucketListViewModel.Input(fetchTrigger: fetchTrigger.asObservable())
-        let output = fetchMyBucketViewModel.transform(input: input)
+        let fetchBucketListInput = FetchMyBucketListViewModel.Input(fetchTrigger: fetchTrigger.asObservable())
+        let bucketListOutput = fetchMyBucketViewModel.transform(input: fetchBucketListInput)
         
-        output.postResult
+        bucketListOutput.postResult
             .drive(with: self) { owner, fetchPostModel in
                 dump(fetchPostModel)
                 owner.postList = fetchPostModel.data
             }
             .disposed(by: disposeBag)
             
+        let fetchMyProfileInput = FetchMyProfileViewModel.Input(fetchTrigger: fetchTrigger)
+        let fetchMyProfileOutput = fetchMyProfileViewModel.transform(input: fetchMyProfileInput)
+        
+        fetchMyProfileOutput.profileResult
+               .drive(with: self) { owner, profile in
+                   owner.nickname = profile.nick
+                   owner.followCnt = (profile.followers.count, profile.following.count)
+               }
+               .disposed(by: disposeBag)
+        
         fetchTrigger.onNext(())
         
         addBtn.rx.tap
@@ -168,9 +178,14 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
         switch Section(rawValue: indexPath.section) {
         case .profile:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileImageView", for: indexPath) as! MyProfileView
-            cell.delegate = self
             
-            
+            cell.configureCell(nickname: nickname, followerCnt: followCnt.0, followingCnt: followCnt.1)
+            Observable.merge( cell.followerBtn.rx.tap.asObservable(), cell.followingBtn.rx.tap.asObservable())
+            .subscribe(with: self) { owner, _ in
+                let vc = FollowViewController()
+                owner.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: cell.disposeBag)
             
             return cell
             
@@ -207,17 +222,4 @@ extension MyBucketViewController: MyBucketListTableViewCellDelegate {
     func reloadTableView() {
         fetchTrigger.onNext(())
     }
-}
-
-
-extension MyBucketViewController: MyProfileViewDelegate {
-    func didTapFollowViewBtn() {
-           let vc = FollowViewController()
-           navigationController?.pushViewController(vc, animated: true)
-       }
-
-       func didTapFollowingViewBtn() {
-           let vc = FollowViewController()
-           navigationController?.pushViewController(vc, animated: true)
-       }
 }
