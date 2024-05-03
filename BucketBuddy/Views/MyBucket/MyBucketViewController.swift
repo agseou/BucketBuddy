@@ -29,6 +29,7 @@ final class MyBucketViewController: BaseViewController {
         var config = UIButton.Configuration.filled()
         config.title = "새 버킷리스트 추가하기"
         config.cornerStyle = .capsule
+        config.baseBackgroundColor = .customBlue
         btn.configuration = config
         return btn
     }()
@@ -102,6 +103,8 @@ final class MyBucketViewController: BaseViewController {
         
         fetchMyProfileOutput.profileResult
                .drive(with: self) { owner, profile in
+                   DefaultUDManager.shared.nickname = profile.nick
+                   DefaultUDManager.shared.email = profile.email
                    owner.nickname = profile.nick
                    owner.followCnt = (profile.followers.count, profile.following.count)
                }

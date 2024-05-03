@@ -42,7 +42,7 @@ enum RefreshTokenResult {
 // MARK: - Post
 
 enum UploadImageResult{
-    case success(uploadIamgeModel)
+    case success(uploadImageModel)
     case badRequest
     case unauthorized
     case forbidden

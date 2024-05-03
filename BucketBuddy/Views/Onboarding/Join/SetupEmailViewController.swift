@@ -22,7 +22,6 @@ final class SetupEmailViewController: BaseViewController {
     private let nextBtn = RegularButton(text: "다음")
 
     // MARK: - Properties
-    private var joinViewModel = JoinViewModel()
     private let setUpEmailViewModel = SetUpEmailViewModel()
     private let disposeBag = DisposeBag()
     
@@ -60,7 +59,7 @@ final class SetupEmailViewController: BaseViewController {
         nextBtn.rx.tap
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(with: self) { owner, _ in
-                owner.joinViewModel.emailRelay.accept(owner.emailTextField.text)
+                DefaultUDManager.shared.email = owner.emailTextField.text ?? ""
                 let vc = SetupPasswordViewController(joinViewModel: owner.joinViewModel)
                 owner.navigationController?.pushViewController(vc, animated: false)
             }

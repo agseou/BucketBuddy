@@ -27,6 +27,14 @@ class LoginViewController: BaseViewController {
     let loginViewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DefaultUDManager.shared.nickname = ""
+        DefaultUDManager.shared.password = ""
+    }
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         

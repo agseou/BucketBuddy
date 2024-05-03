@@ -23,17 +23,11 @@ final class SetupPasswordViewController: BaseViewController {
     private let nextBtn = RegularButton(text: "다음")
 
     // MARK: - Properties
-    private var joinViewModel: JoinViewModel
     private var setupPasswordViewModel = SetupPasswordViewModel()
     private let disposeBag = DisposeBag()
 
     
-    // MARK: - Functions
-    init(joinViewModel: JoinViewModel) {
-        self.joinViewModel = joinViewModel
-        super.init()
-    }
-    
+    // MARK: - Functions    
     override func configureHierarchy() {
         super.configureHierarchy()
         
@@ -78,7 +72,7 @@ final class SetupPasswordViewController: BaseViewController {
         nextBtn.rx.tap
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .bind(with: self) { owner, _ in
-                owner.joinViewModel.passwordRelay.accept(owner.passwordTextField.text)
+                DefaultUDManager.shared.password = owner.passwordTextField.text ?? ""
                 let vc = SetUpNicknameViewController(joinViewModel: owner.joinViewModel)
                 owner.navigationController?.pushViewController(vc, animated: false)
             }

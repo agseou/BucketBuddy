@@ -26,6 +26,7 @@ struct UserModel: Decodable {
 
 struct EditProfileQuery: Encodable {
     let nick: String
+    let profileImage: String?
 }
 
 extension ProfileModel {

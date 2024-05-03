@@ -13,7 +13,7 @@ class RegularButton: UIButton {
         super.init(frame: .zero)
          var config = UIButton.Configuration.filled()
          config.title = text
-         config.baseBackgroundColor = .black
+         config.baseBackgroundColor = .customNavy
          config.baseForegroundColor = .white
          configuration = config
     }

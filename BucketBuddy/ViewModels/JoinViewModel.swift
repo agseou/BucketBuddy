@@ -11,11 +11,6 @@ import RxCocoa
 
 class JoinViewModel: CommonViewModel {
     
-    // Relay로 이메일, 비밀번호, 닉네임을 저장
-    var emailRelay = BehaviorRelay<String?>(value: nil)
-    var passwordRelay = BehaviorRelay<String?>(value: nil)
-    var nicknameRelay = BehaviorRelay<String?>(value: nil)
-    
     struct Input {
         let email: Observable<String?>
         let password: Observable<String?>

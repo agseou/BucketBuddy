@@ -16,6 +16,7 @@ class DefaultUDManager {
         case userID
         case nickname
         case email
+        case password
     }
     
     @UserDefault(key: Key.isAccessed.rawValue, defaultValue: false)
@@ -24,9 +25,12 @@ class DefaultUDManager {
     @UserDefault(key: Key.userID.rawValue, defaultValue: "")
     var userID: String
     
-    @UserDefault(key: Key.isAccessed.rawValue, defaultValue: "끼끼")
+    @UserDefault(key: Key.nickname.rawValue, defaultValue: "끼끼")
     var nickname: String
     
-    @UserDefault(key: Key.isAccessed.rawValue, defaultValue: "none")
+    @UserDefault(key: Key.email.rawValue, defaultValue: "")
     var email: String
+    
+    @UserDefault(key: Key.password.rawValue, defaultValue: "")
+    var password: String
 }

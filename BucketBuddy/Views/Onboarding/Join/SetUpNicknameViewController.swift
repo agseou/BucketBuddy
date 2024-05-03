@@ -22,15 +22,11 @@ final class SetUpNicknameViewController: BaseViewController {
     private let nextBtn = RegularButton(text: "다음")
     
     // MARK: - Properties
-    private var joinViewModel: JoinViewModel
+    private var joinViewModel = JoinViewModel()
     private var setUpNicknameViewModel = SetUpNicknameViewModel()
     private let disposeBag = DisposeBag()
     
     // MARK: - Functions
-    init(joinViewModel: JoinViewModel) {
-        self.joinViewModel = joinViewModel
-        super.init()
-    }
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -73,17 +69,17 @@ final class SetUpNicknameViewController: BaseViewController {
         
         
         let joinInput = JoinViewModel.Input(
-            email: joinViewModel.emailRelay.asObservable(),
-            password: joinViewModel.passwordRelay.asObservable(),
-            nickname: nickNameTextField.rx.text.asObservable(),
+            email: Observable.just(DefaultUDManager.shared.email),
+            password: Observable.just(DefaultUDManager.shared.password),
+            nickname: nickNameTextField.rx.text.asObservable() ,
             joinTap: nextBtn.rx.tap.asObservable()
         )
+        
         let joinOutput = joinViewModel.transform(input: joinInput)
         
         joinOutput.joinSuccess
             .drive(with: self) { owner, message in
                 owner.showAlert(title: "회원가입 성공", message: "로그인 해주세요!")
-                
             }
             .disposed(by: disposeBag)
         

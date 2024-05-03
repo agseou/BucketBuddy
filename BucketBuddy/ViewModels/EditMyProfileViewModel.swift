@@ -12,7 +12,9 @@ import RxCocoa
 class EditMyProfileViewModel: CommonViewModel {
     
     struct Input {
-        let editQuery: Observable<EditProfileQuery>
+        let nickname: Observable<String>
+        let profileImage: Observable<String>
+        let submitBtnTap: Observable<Void>
     }
     
     struct Output{
@@ -25,7 +27,14 @@ class EditMyProfileViewModel: CommonViewModel {
         
         let successResult = PublishRelay<Void>()
         
-        input.editQuery
+        let editProfileQuery = Observable.combineLatest(input.nickname, input.profileImage)
+            .map { (nickname, profileImage) in
+                return EditProfileQuery(nick: nickname, profileImage: profileImage)
+            }
+        
+        input.submitBtnTap
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .withLatestFrom(editProfileQuery)
             .flatMapLatest{ query in
                 ProfileNetworkManager.editMyProfile(query: query)
             }

@@ -13,7 +13,7 @@ struct uploadIamgeQuery: Encodable {
     let files: Data
 }
 
-struct uploadIamgeModel: Decodable {
+struct uploadImageModel: Decodable {
     let files: [String]
 }
 

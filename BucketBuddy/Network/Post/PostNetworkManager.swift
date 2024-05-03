@@ -13,30 +13,22 @@ import Alamofire
 struct PostNetworkManager {
     
     // 이미지업로드
-    static func uploadImage(query: uploadIamgeQuery) -> Single<UploadImageResult> {
-        return Single<UploadImageResult>.create { single in
+    static func uploadImage(query: uploadIamgeQuery) -> Single<uploadImageModel> {
+        return Single<uploadImageModel>.create { single in
             do {
                 let urlRequest = try PostRouter.uploadImage(query: query).asURLRequest()
-                AF.request(urlRequest)
-                    .responseDecodable(of: uploadIamgeModel.self) { response in
-                        switch response.result {
-                        case .success(let images):
-                            single(.success(.success(images)))
-                        case .failure(_):
-                            switch response.response?.statusCode {
-                            case 400:
-                                single(.success(.badRequest))
-                            case 401:
-                                single(.success(.unauthorized))
-                            case 403:
-                                single(.success(.forbidden))
-                            case 419:
-                                single(.success(.expiredAccessToken))
-                            default:
-                                single(.success(.error(.unknown)))
-                            }
-                        }
+                
+                AF.upload(multipartFormData: { multipartFormData in
+                    multipartFormData.append(query.files, withName: "file", fileName: "image.png", mimeType: "image/png")
+                }, with: urlRequest)
+                .responseDecodable(of: uploadImageModel.self) { response in
+                    switch response.result {
+                    case .success(let uploadModel):
+                        single(.success(uploadModel))
+                    case .failure(let error):
+                        single(.failure(error))
                     }
+                }
             } catch {
                 single(.failure(error))
             }
@@ -242,3 +234,4 @@ struct PostNetworkManager {
     }
     
 }
+

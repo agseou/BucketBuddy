@@ -73,15 +73,15 @@ extension UsersRouter: TargetType {
     var body: Data? {
         switch self {
         case .join(let query):
-            let encoder = JSONEncoder() //JsonType으로 전달!
+            let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
         case .validationEmail(let query):
-            let encoder = JSONEncoder() //JsonType으로 전달!
+            let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
         case .login(let query):
-            let encoder = JSONEncoder() //JsonType으로 전달!
+            let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
         case .refreshToken:
