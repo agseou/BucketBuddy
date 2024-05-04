@@ -103,10 +103,11 @@ struct UserNetworkManager {
             do {
                 let urlRequest = try UsersRouter.validationEmail(query: query).asURLRequest()
                 AF.request(urlRequest)
+                    .validate(statusCode: 200..<300)
                     .responseDecodable(of: validationModel.self) { response in
                         switch response.result {
-                        case .success(let vaildation):
-                            single(.success(vaildation))
+                        case .success(let value):
+                            single(.success(value))
                         case .failure(let error):
                             single(.failure(error))
                         }

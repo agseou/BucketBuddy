@@ -27,19 +27,25 @@ class SetupPasswordViewModel: CommonViewModel {
         
         let passwordVaildation = BehaviorRelay<Bool>(value: false)
         let checkPasswordVaildation = BehaviorRelay<Bool>(value: false)
+        let passwordRegex = "^(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*\\W).{6,}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES[c] %@", passwordRegex)
         
         Observable.combineLatest(input.password, input.checkPassword)
             .bind(with: self) { owner, password in
-                if password.0 == password.1 {
+                if password.0 == password.1 && !password.0.isEmpty && !password.1.isEmpty {
                     checkPasswordVaildation.accept(true)
+                } else {
+                    checkPasswordVaildation.accept(false)
                 }
             }
             .disposed(by: disposeBag)
         
         input.password
             .bind(with: self) { owner, password in
-                if password.count > 7 {
+                if passwordPredicate.evaluate(with: password) {
                     passwordVaildation.accept(true)
+                } else {
+                    passwordVaildation.accept(false)
                 }
             }
             .disposed(by: disposeBag)

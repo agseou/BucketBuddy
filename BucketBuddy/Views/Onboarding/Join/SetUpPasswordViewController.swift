@@ -1,8 +1,8 @@
 //
-//  SignUpViewController.swift
+//  SetupPasswordViewController.swift
 //  BucketBuddy
 //
-//  Created by eunseou on 4/14/24.
+//  Created by eunseou on 4/23/24.
 //
 
 import UIKit
@@ -11,45 +11,56 @@ import TextFieldEffects
 import RxSwift
 import RxCocoa
 
-final class SetUpNicknameViewController: BaseViewController {
-    
+final class SetUpPasswordViewController: BaseViewController {
+
     // MARK: - Components
     private let titleLabel = {
         let label = UILabel()
-        label.text = "닉네임을 입력해주세요"
+        label.text = "비밀번호를 입력해주세요"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
     }()
-    private let nickNameTextField = {
+    private let passwordTextField = {
         let view = HoshiTextField()
+        view.tintColor = .gray
         view.borderActiveColor = .customBlue
         view.borderInactiveColor = .gray
-        view.placeholder = "닉네임"
+        view.placeholder = "비밀번호"
+        return view
+    }()
+    private let checkPasswordTextField = {
+        let view = HoshiTextField()
+        view.tintColor = .gray
+        view.borderActiveColor = .customBlue
+        view.borderInactiveColor = .gray
+        view.placeholder = "비밀번호 확인"
         return view
     }()
     private let nextBtn = RegularButton(text: "다음")
-    
+
     // MARK: - Properties
-    private var joinViewModel = JoinViewModel()
-    private var setUpNicknameViewModel = SetUpNicknameViewModel()
+    private var setupPasswordViewModel = SetupPasswordViewModel()
     private let disposeBag = DisposeBag()
+
     
-    // MARK: - Functions
+    // MARK: - Functions    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideKeyboard()
         DispatchQueue.main.async {
-            self.nickNameTextField.becomeFirstResponder()
+            self.passwordTextField.becomeFirstResponder()
         }
         registerKeyboardNotifications()
     }
+    
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
         view.addSubview(titleLabel)
-        view.addSubview(nickNameTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(checkPasswordTextField)
         view.addSubview(nextBtn)
     }
     
@@ -60,8 +71,13 @@ final class SetUpNicknameViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(30)
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(50)
         }
-        nickNameTextField.snp.makeConstraints {
+        passwordTextField.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(30)
+            $0.height.equalTo(50)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(30)
+        }
+        checkPasswordTextField.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(30)
             $0.height.equalTo(50)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
@@ -75,40 +91,29 @@ final class SetUpNicknameViewController: BaseViewController {
     override func setupBind() {
         super.setupBind()
         
-        let nickInput = SetUpNicknameViewModel.Input(nickname: nickNameTextField.rx.text.orEmpty.asObservable())
-        let nickOutput = setUpNicknameViewModel.transform(input: nickInput)
+        let input = SetupPasswordViewModel.Input(
+            password: passwordTextField.rx.text.orEmpty.asObservable(),
+            checkPassword: checkPasswordTextField.rx.text.orEmpty.asObservable())
+        let output = setupPasswordViewModel.transform(input: input)
         
-        nickOutput.nicknameVaildation
+        output.passwordVaildation
             .drive(with: self) { owner, isEnabled in
                 owner.nextBtn.isEnabled = isEnabled
             }
             .disposed(by: disposeBag)
         
-        
-        let joinInput = JoinViewModel.Input(
-            email: Observable.just(DefaultUDManager.shared.email),
-            password: Observable.just(DefaultUDManager.shared.password),
-            nickname: nickNameTextField.rx.text.asObservable() ,
-            joinTap: nextBtn.rx.tap.asObservable()
-        )
-        
-        let joinOutput = joinViewModel.transform(input: joinInput)
-        
-        joinOutput.joinSuccess
-            .drive(with: self) { owner, message in
-                owner.showAlert(title: "회원가입 성공", message: "로그인 해주세요!") {
-                    owner.navigationController?.popToRootViewController(animated: true)
-                }
+        output.checkPasswordVaildation
+            .drive(with: self) { owner, isEnabled in
+                owner.nextBtn.isEnabled = isEnabled
             }
             .disposed(by: disposeBag)
         
-        joinOutput.errorMessage
-            .drive(with: self) { owner, message in
-                if let message = message {
-                    owner.showAlert(title: "회원가입 실패", message: message) {
-                        owner.navigationController?.popToRootViewController(animated: true)
-                    }
-                }
+        nextBtn.rx.tap
+            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+            .bind(with: self) { owner, _ in
+                DefaultUDManager.shared.password = owner.passwordTextField.text ?? ""
+                let vc = SetUpNicknameViewController()
+                owner.navigationController?.pushViewController(vc, animated: false)
             }
             .disposed(by: disposeBag)
     }

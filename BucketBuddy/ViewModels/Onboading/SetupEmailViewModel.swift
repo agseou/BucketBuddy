@@ -24,11 +24,16 @@ class SetUpEmailViewModel: CommonViewModel {
     func transform(input: Input) -> Output {
         
         let emailVaildation = BehaviorRelay<Bool>(value: false)
-        
+        let emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES[c] %@", emailRegex)
         
         input.email
-            .bind(with: self) { owner, nickname in
-                emailVaildation.accept(true)
+            .bind(with: self) { owner, email in
+                if emailPredicate.evaluate(with: email) {
+                    emailVaildation.accept(true)
+                } else {
+                    emailVaildation.accept(false)
+                }
             }
             .disposed(by: disposeBag)
         

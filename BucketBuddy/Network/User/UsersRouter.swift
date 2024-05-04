@@ -42,7 +42,7 @@ extension UsersRouter: TargetType {
         case .join:
             "users/join"
         case .validationEmail:
-            "validatoin/email"
+            "validation/email"
         case .login:
             "users/login"
         case .refreshToken:

@@ -111,7 +111,7 @@ class LoginViewController: BaseViewController {
         
         signUpBtn.rx.tap
             .bind(with: self) { owner, _ in
-                let vc = SetupEmailViewController()
+                let vc = SetUpEmailViewController()
                 owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)

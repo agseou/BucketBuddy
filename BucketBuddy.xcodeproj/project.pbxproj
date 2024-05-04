@@ -73,13 +73,15 @@
 		E2C515AD2BD7AB8C0021C172 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515AC2BD7AB8B0021C172 /* EditProfileViewController.swift */; };
 		E2C515AF2BD7AC590021C172 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */; };
 		E2C515B12BD7AED50021C172 /* FetchMyBucketListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */; };
-		E2C515B52BD7B4C20021C172 /* SetupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B42BD7B4C20021C172 /* SetupPasswordViewController.swift */; };
-		E2C515B72BD7B4CB0021C172 /* SetupEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B62BD7B4CB0021C172 /* SetupEmailViewController.swift */; };
+		E2C515B52BD7B4C20021C172 /* SetUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B42BD7B4C20021C172 /* SetUpPasswordViewController.swift */; };
+		E2C515B72BD7B4CB0021C172 /* SetUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B62BD7B4CB0021C172 /* SetUpEmailViewController.swift */; };
 		E2C515B92BD7B6050021C172 /* SetupEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */; };
 		E2C515BB2BD7B6130021C172 /* SetupPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */; };
 		E2C515C12BD84E180021C172 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C02BD84E180021C172 /* JoinViewModel.swift */; };
 		E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */; };
 		E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */; };
+		E2CADD9B2BE61CC10073FE7C /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = E2CADD9A2BE61CC10073FE7C /* TextFieldEffects */; };
+		E2CADD9E2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADD9D2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift */; };
 		E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */; };
 		E2F700102BE00627003A79B1 /* FetchFollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */; };
 		E2F700192BE07C2B003A79B1 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */; };
@@ -167,13 +169,14 @@
 		E2C515AC2BD7AB8B0021C172 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyBucketListViewModel.swift; sourceTree = "<group>"; };
-		E2C515B42BD7B4C20021C172 /* SetupPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewController.swift; sourceTree = "<group>"; };
-		E2C515B62BD7B4CB0021C172 /* SetupEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEmailViewController.swift; sourceTree = "<group>"; };
+		E2C515B42BD7B4C20021C172 /* SetUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPasswordViewController.swift; sourceTree = "<group>"; };
+		E2C515B62BD7B4CB0021C172 /* SetUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpEmailViewController.swift; sourceTree = "<group>"; };
 		E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEmailViewModel.swift; sourceTree = "<group>"; };
 		E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewModel.swift; sourceTree = "<group>"; };
 		E2C515C02BD84E180021C172 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewModel.swift; sourceTree = "<group>"; };
 		E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemBtn.swift; sourceTree = "<group>"; };
 		E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestInterceptor.swift; sourceTree = "<group>"; };
+		E2CADD9D2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailValidationViewModel.swift; sourceTree = "<group>"; };
 		E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListTableViewCell.swift; sourceTree = "<group>"; };
 		E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFollowerViewModel.swift; sourceTree = "<group>"; };
 		E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C513ED2BC7CE0A0021C172 /* Lottie in Frameworks */,
+				E2CADD9B2BE61CC10073FE7C /* TextFieldEffects in Frameworks */,
 				E2F7004B2BE2C403003A79B1 /* YPImagePicker in Frameworks */,
 				E2F700502BE3D906003A79B1 /* Kingfisher in Frameworks */,
 				E2C513E82BC7CDF10021C172 /* RxCocoa in Frameworks */,
@@ -483,8 +487,8 @@
 		E2C515A72BD7AB470021C172 /* Join */ = {
 			isa = PBXGroup;
 			children = (
-				E2C515B62BD7B4CB0021C172 /* SetupEmailViewController.swift */,
-				E2C515B42BD7B4C20021C172 /* SetupPasswordViewController.swift */,
+				E2C515B62BD7B4CB0021C172 /* SetUpEmailViewController.swift */,
+				E2C515B42BD7B4C20021C172 /* SetUpPasswordViewController.swift */,
 				E2C514752BCAF68F0021C172 /* SetUpNicknameViewController.swift */,
 			);
 			path = Join;
@@ -497,6 +501,19 @@
 				E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */,
 			);
 			path = Posts;
+			sourceTree = "<group>";
+		};
+		E2CADD9C2BE649040073FE7C /* Onboading */ = {
+			isa = PBXGroup;
+			children = (
+				E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */,
+				E2CADD9D2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift */,
+				E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */,
+				E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */,
+				E2C515C02BD84E180021C172 /* JoinViewModel.swift */,
+				E2C5146F2BCAF1140021C172 /* LoginViewModel.swift */,
+			);
+			path = Onboading;
 			sourceTree = "<group>";
 		};
 		E2F7000D2BE005C1003A79B1 /* PagingTabBar */ = {
@@ -528,12 +545,8 @@
 		E2F700442BE223DA003A79B1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				E2C515B82BD7B6050021C172 /* SetupEmailViewModel.swift */,
-				E2C515BA2BD7B6130021C172 /* SetupPasswordViewModel.swift */,
-				E2C514BD2BCEC8100021C172 /* SetUpNicknameViewModel.swift */,
+				E2CADD9C2BE649040073FE7C /* Onboading */,
 				E2F700472BE22BC4003A79B1 /* EditMyProfileViewModel.swift */,
-				E2C515C02BD84E180021C172 /* JoinViewModel.swift */,
-				E2C5146F2BCAF1140021C172 /* LoginViewModel.swift */,
 				E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */,
 				E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */,
 				E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */,
@@ -596,6 +609,7 @@
 				E2C513EC2BC7CE0A0021C172 /* Lottie */,
 				E2F7004A2BE2C403003A79B1 /* YPImagePicker */,
 				E2F7004F2BE3D906003A79B1 /* Kingfisher */,
+				E2CADD9A2BE61CC10073FE7C /* TextFieldEffects */,
 			);
 			productName = BucketBuddy;
 			productReference = E2C513C62BC7CD510021C172 /* BucketBuddy.app */;
@@ -632,6 +646,7 @@
 				E2C513EB2BC7CE0A0021C172 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				E2F700492BE2C403003A79B1 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
 				E2F7004E2BE3D906003A79B1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E2CADD992BE61CC10073FE7C /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = E2C513C72BC7CD510021C172 /* Products */;
 			projectDirPath = "";
@@ -685,6 +700,7 @@
 				E2C514652BCAE5F10021C172 /* HTTPHeader.swift in Sources */,
 				E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */,
 				E2C513F32BC7CE540021C172 /* BaseCollectionViewCell.swift in Sources */,
+				E2CADD9E2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift in Sources */,
 				E2F700312BE09B86003A79B1 /* DatePickerCollectionViewCell.swift in Sources */,
 				E2C514702BCAF1140021C172 /* LoginViewModel.swift in Sources */,
 				E2F7002D2BE090F3003A79B1 /* MemoCollectionViewCell.swift in Sources */,
@@ -724,11 +740,11 @@
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C515992BD7A36C0021C172 /* ProfileRouter.swift in Sources */,
 				E2C515B12BD7AED50021C172 /* FetchMyBucketListViewModel.swift in Sources */,
-				E2C515B52BD7B4C20021C172 /* SetupPasswordViewController.swift in Sources */,
+				E2C515B52BD7B4C20021C172 /* SetUpPasswordViewController.swift in Sources */,
 				E2C515932BD7A3440021C172 /* LikeNetworkManager.swift in Sources */,
 				E2C513CC2BC7CD510021C172 /* SceneDelegate.swift in Sources */,
 				E2C515A42BD7AAAE0021C172 /* SettingViewController.swift in Sources */,
-				E2C515B72BD7B4CB0021C172 /* SetupEmailViewController.swift in Sources */,
+				E2C515B72BD7B4CB0021C172 /* SetUpEmailViewController.swift in Sources */,
 				E2F7004D2BE2CB3D003A79B1 /* UploadImageViewModel.swift in Sources */,
 				E2C515972BD7A3620021C172 /* FollowNetworkManager.swift in Sources */,
 				E2F700462BE22417003A79B1 /* FetchMyProfileViewModel.swift in Sources */,
@@ -1012,6 +1028,14 @@
 				minimumVersion = 4.4.2;
 			};
 		};
+		E2CADD992BE61CC10073FE7C /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 		E2F700492BE2C403003A79B1 /* XCRemoteSwiftPackageReference "YPImagePicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Yummypets/YPImagePicker.git";
@@ -1055,6 +1079,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E2C513EB2BC7CE0A0021C172 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		E2CADD9A2BE61CC10073FE7C /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2CADD992BE61CC10073FE7C /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 		E2F7004A2BE2C403003A79B1 /* YPImagePicker */ = {
 			isa = XCSwiftPackageProductDependency;
