@@ -17,7 +17,7 @@ struct ProfileNetworkManager {
         return Single<ProfileModel>.create { single in
             do {
                 let urlRequest = try ProfileRouter.fetchMyProfile.asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .validate(statusCode: 200..<300)
                     .responseDecodable(of: ProfileModel.self) { response in
                         switch response.result {
@@ -39,7 +39,7 @@ struct ProfileNetworkManager {
         return Single<ProfileModel>.create { single in
             do {
                 let urlRequest = try ProfileRouter.editMyProfile(query: query).asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .validate(statusCode: 200..<300)
                     .responseDecodable(of: ProfileModel.self) { response in
                         switch response.result {

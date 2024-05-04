@@ -54,6 +54,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func showLoginScreen() {
+            let loginViewController = LoginViewController()
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }
 
 }
 

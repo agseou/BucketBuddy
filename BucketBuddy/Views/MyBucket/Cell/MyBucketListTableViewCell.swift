@@ -93,7 +93,7 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
             $0.leading.equalTo(container).offset(10)
         }
         editBtn.snp.makeConstraints {
-            $0.top.trailing.equalTo(container).offset(10)
+            $0.top.equalTo(container).offset(10)
             $0.trailing.equalTo(container).inset(10)
         }
         checkBtn.snp.makeConstraints {
@@ -127,6 +127,7 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
         
         output.successSignal
             .drive(with: self) { owner, _ in
+                print("tap")
                 owner.delegate?.reloadTableView()
             }
             .disposed(by: disposeBag)

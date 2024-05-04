@@ -41,7 +41,7 @@ struct PostNetworkManager {
         return Single<CreatePostResult>.create { single in
             do {
                 let urlRequest = try PostRouter.createPost(query: query).asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .responseDecodable(of: WritePostModel.self) { response in
                         print(response)
                         switch response.result {
@@ -97,7 +97,7 @@ struct PostNetworkManager {
         return Single<WritePostModel>.create { single in
             do {
                 let urlRequest = try PostRouter.editPost(query: query, id: id).asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .responseDecodable(of: WritePostModel.self) { response in
                         switch response.result {
                         case .success(let post):
@@ -119,7 +119,7 @@ struct PostNetworkManager {
         return Single<CompleteTogglePostResult>.create { single in
             do {
                 let urlRequest = try PostRouter.completeTogglePost(query: query, id: id).asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .responseDecodable(of: WritePostModel.self) { response in
                         switch response.result {
                         case .success(let post):
@@ -152,7 +152,7 @@ struct PostNetworkManager {
         return Single<FetchPostModel>.create { single in
             do {
                 let urlRequest = try PostRouter.fetchPostDetail(id: id).asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .responseDecodable(of: FetchPostModel.self) { response in
                         switch response.result {
                         case .success(let post):
@@ -175,7 +175,7 @@ struct PostNetworkManager {
         return Single<DeletePostResult>.create { single in
             do {
                 let urlRequest = try PostRouter.deletePost(id: postID).asURLRequest()
-                AF.request(urlRequest).response { response in
+                AF.request(urlRequest, interceptor: MyRequestInterceptor()).response { response in
                         switch response.result {
                         case .success(_):
                             single(.success(.success(())))
@@ -206,7 +206,7 @@ struct PostNetworkManager {
         return Single<UserProfileResult>.create { single in
             do {
                 let urlRequest = try PostRouter.fetchUserPost(query: query, id: userID).asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .responseDecodable(of: FetchPostModel.self) { response in
                         switch response.result {
                         case .success(let post):

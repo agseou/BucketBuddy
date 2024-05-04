@@ -69,26 +69,17 @@ struct UserNetworkManager {
     }
     
     // Refresh
-    static func refreshAcessToken() -> Single<RefreshTokenResult> {
-        return Single<RefreshTokenResult>.create { single in
+    static func refreshAcessToken() -> Single<RefreshTokenModel> {
+        return Single<RefreshTokenModel>.create { single in
             do {
                 let urlRequest = try UsersRouter.refreshToken.asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .responseDecodable(of: RefreshTokenModel.self) { response in
                         switch response.result {
-                        case .success(let refresh):
-                            single(.success(.success(refresh)))
-                        case .failure(_):
-                            switch response.response?.statusCode {
-                            case 401:
-                                single(.success(.unauthorized))
-                            case 403:
-                                single(.success(.forbidden))
-                            case 418:
-                                single(.success(.ReLogin))
-                            default:
-                                single(.success(.error(.unknown)))
-                            }
+                        case .success(let success):
+                            single(.success(success))
+                        case .failure(let error):
+                            single(.failure(error))
                         }
                     }
             } catch {
@@ -123,7 +114,7 @@ struct UserNetworkManager {
         return Single<Void>.create { single in
             do {
                 let urlRequest = try UsersRouter.withdraw.asURLRequest()
-                AF.request(urlRequest)
+                AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .validate(statusCode: 200..<300)
                     .responseDecodable(of: JoinModel.self) { response in
                         switch response.result {
