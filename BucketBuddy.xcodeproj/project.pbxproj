@@ -938,7 +938,7 @@
 				DEVELOPMENT_TEAM = 47VP7M3T34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BucketBuddy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "버킷버디";
+				INFOPLIST_KEY_CFBundleDisplayName = "은서우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -972,7 +972,7 @@
 				DEVELOPMENT_TEAM = 47VP7M3T34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BucketBuddy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "버킷버디";
+				INFOPLIST_KEY_CFBundleDisplayName = "은서우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

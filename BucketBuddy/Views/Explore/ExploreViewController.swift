@@ -104,9 +104,12 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
             let item = postList[indexPath.row]
-            let detailVC = DetailPostViewController()
-            detailVC.postID = item.post_id
-            navigationController?.pushViewController(detailVC, animated: true)
+            let vc = DetailPostViewController()
+            vc.postID = item.post_id
+            vc.titles = item.title
+            vc.date = item.content1
+            vc.memo = item.content2
+            navigationController?.pushViewController(vc, animated: true)
         }
     
 }

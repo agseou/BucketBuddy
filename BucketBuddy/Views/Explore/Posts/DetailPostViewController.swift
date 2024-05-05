@@ -40,9 +40,13 @@ final class DetailPostViewController: BaseViewController {
     var commentList: [comment] = [] {
         didSet { commentTableView.reloadData()}
     }
+    var titles: String?
+    var date: String?
+    var memo: String?
     var postID: String?
     private let writeCommentsViewModel = WriteCommentsViewModel()
     private let fetchPostIDViewModel = FetchPostIDViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,7 +184,7 @@ extension DetailPostViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostHeaderView", for: indexPath) as! PostHeaderView
             
-            cell.configure(with: "제목", memo: "ㅁㅇ", date: "Date", imageUrl: "ad")
+            cell.configure(with: titles!, memo: memo!, date: date!, imageUrl: "")
             
             return cell
         } else {
