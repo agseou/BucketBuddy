@@ -42,10 +42,12 @@ struct ProfileNetworkManager {
                 AF.request(urlRequest, interceptor: MyRequestInterceptor())
                     .validate(statusCode: 200..<300)
                     .responseDecodable(of: ProfileModel.self) { response in
+                        print(response)
                         switch response.result {
                         case .success(let profile):
                             single(.success((profile)))
                         case .failure(let error):
+                            print(error)
                             single(.failure(error))
                         }
                     }

@@ -24,15 +24,9 @@ extension UsersRouter: TargetType {
     
     var method: HTTPMethod {
         switch self {
-        case .join:
+        case .join, .validationEmail, .login:
                 .post
-        case .validationEmail:
-                .post
-        case .login:
-                .post
-        case .refreshToken:
-                .get
-        case .withdraw:
+        case .refreshToken, .withdraw:
                 .get
         }
     }
@@ -57,6 +51,10 @@ extension UsersRouter: TargetType {
         case .withdraw :
             [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,
                  HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
+        case .refreshToken :
+                [HTTPHeader.authorization.rawValue: TokenUDManager.shared.accessToken,
+                HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue,
+                 HTTPHeader.refresh.rawValue: TokenUDManager.shared.refreshToken]
         default: [HTTPHeader.contentType.rawValue: HTTPHeader.json.rawValue,
              HTTPHeader.secretKey.rawValue: APIKey.secretKey.rawValue]
         }
@@ -84,9 +82,7 @@ extension UsersRouter: TargetType {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(query)
-        case .refreshToken:
-            return nil
-        case .withdraw:
+        case .refreshToken, .withdraw:
             return nil
         }
     }

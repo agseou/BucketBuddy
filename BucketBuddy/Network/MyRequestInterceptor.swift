@@ -18,34 +18,26 @@ final class MyRequestInterceptor: RequestInterceptor {
         var adaptedRequest = urlRequest
         let accessToken = TokenUDManager.shared.accessToken
         if !accessToken.isEmpty {
-            adaptedRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+            adaptedRequest.setValue(accessToken, forHTTPHeaderField: HTTPHeader.authorization.rawValue)
         }
         completion(.success(adaptedRequest))
     }
     
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
-        guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 418 else {
+        guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 419 else {
             completion(.doNotRetryWithError(error))
             return
         }
-        switch response.statusCode {
-        case 419:
             UserNetworkManager.refreshAcessToken()
                 .subscribe(onSuccess: { result in
                     TokenUDManager.shared.accessToken = result.accessToken
                     completion(.retry)
                 }, onFailure: { error in
+                    handleLogout()
                     completion(.doNotRetryWithError(error))
                 })
                 .disposed(by: disposeBag)
-            
-        case 418:
-            handleLogout()
-            completion(.doNotRetryWithError(error))
-            
-        default:
-            completion(.doNotRetryWithError(error))
-        }
+      
     }
 }
 

@@ -14,6 +14,7 @@ class DefaultUDManager {
     enum Key: String {
         case isAccessed
         case userID
+        case profileURL
         case nickname
         case email
         case password
@@ -24,6 +25,9 @@ class DefaultUDManager {
     
     @UserDefault(key: Key.userID.rawValue, defaultValue: "")
     var userID: String
+    
+    @UserDefault(key: Key.profileURL.rawValue, defaultValue: "")
+    var profileURL: String
     
     @UserDefault(key: Key.nickname.rawValue, defaultValue: "끼끼")
     var nickname: String

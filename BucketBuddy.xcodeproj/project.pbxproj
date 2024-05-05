@@ -82,6 +82,7 @@
 		E2C515CA2BDA0C300021C172 /* MyRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */; };
 		E2CADD9B2BE61CC10073FE7C /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = E2CADD9A2BE61CC10073FE7C /* TextFieldEffects */; };
 		E2CADD9E2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADD9D2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift */; };
+		E2CADDA02BE71E970073FE7C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADD9F2BE71E970073FE7C /* UIImage+Extension.swift */; };
 		E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */; };
 		E2F700102BE00627003A79B1 /* FetchFollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */; };
 		E2F700192BE07C2B003A79B1 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */; };
@@ -177,6 +178,7 @@
 		E2C515C22BD93E140021C172 /* ProfileItemBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemBtn.swift; sourceTree = "<group>"; };
 		E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestInterceptor.swift; sourceTree = "<group>"; };
 		E2CADD9D2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailValidationViewModel.swift; sourceTree = "<group>"; };
+		E2CADD9F2BE71E970073FE7C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListTableViewCell.swift; sourceTree = "<group>"; };
 		E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFollowerViewModel.swift; sourceTree = "<group>"; };
 		E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 			children = (
 				E2C514C22BCED9470021C172 /* UIViewController+Extension.swift */,
 				E2F7003E2BE0C773003A79B1 /* String+Extension.swift */,
+				E2CADD9F2BE71E970073FE7C /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				E2F700482BE22BC4003A79B1 /* EditMyProfileViewModel.swift in Sources */,
 				E2C5153E2BD38E640021C172 /* AddNewBucketViewController.swift in Sources */,
 				E2C513FA2BC7CF2E0021C172 /* UsersRouter.swift in Sources */,
+				E2CADDA02BE71E970073FE7C /* UIImage+Extension.swift in Sources */,
 				E2F7FF672BDE3090003A79B1 /* PagingTabBarCell.swift in Sources */,
 				E2C5146E2BCAEE670021C172 /* LoginTextField.swift in Sources */,
 				E2C514792BCBF9E70021C172 /* TokenUDManager.swift in Sources */,

@@ -35,30 +35,6 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
     
-    func unauthorized() {
-        
-        let disposeBag = DisposeBag()
-        
-        UserNetworkManager.refreshAcessToken()
-            .subscribe(with: self) { [weak self] _, result in
-                switch result {
-                case .success(let success):
-                    TokenUDManager.shared.accessToken = success.accessToken
-                case .unauthorized:
-                    print("401: 유효하지 않은 토큰입니다.")
-                case .forbidden:
-                    print("403: 접근권한이 없습니다")
-                case .ReLogin:
-                    DispatchQueue.main.async {
-                        self?.showReLoginAlert()
-                    }
-                case .error(let error):
-                    print("에러 발생: \(error.localizedDescription)")
-                }
-            }
-            .disposed(by: disposeBag)
-        
-    }
     
     func showReLoginAlert() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {

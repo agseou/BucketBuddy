@@ -40,6 +40,7 @@ class EditProfileViewController: BaseViewController {
     private let submitBtn = RegularButton(text: "완료")
     
     private var disposeBag = DisposeBag()
+    private var imageUrl = BehaviorRelay<String?>(value: nil)
     private let uploadImagesViewModel = UploadImagesViewModel()
     private let editMyProfileViewModel = EditMyProfileViewModel()
     
@@ -102,7 +103,7 @@ class EditProfileViewController: BaseViewController {
         
         let input = EditMyProfileViewModel.Input(
             nickname:nicknameTextField.rx.text.orEmpty.asObservable(),
-            profileImage: Observable.just(""),
+            profileImage: imageUrl.asObservable(),
             submitBtnTap: submitBtn.rx.tap.asObservable())
         
         let output = editMyProfileViewModel.transform(input: input)
@@ -112,6 +113,8 @@ class EditProfileViewController: BaseViewController {
                 owner.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
+        
+       
     }
     
     @objc private func profileImageTapped() {
@@ -119,34 +122,33 @@ class EditProfileViewController: BaseViewController {
     }
     
     private func showImagePicker() {
-            var config = YPImagePickerConfiguration()
-            config.screens = [.library, .photo] // 앨범 카메라 접근
-            config.library.mediaType = .photo
-            config.showsCrop = .rectangle(ratio: 1.0) // 1:1 비율 크롭
-
-            let picker = YPImagePicker(configuration: config)
-            picker.didFinishPicking { [weak self, unowned picker] items, _ in
-                if let photo = items.singlePhoto {
-                    self?.profileImage.image = photo.image
-                    self?.uploadImage(photo.image) // 이미지 업로드 함수 호출
-                }
-                picker.dismiss(animated: true, completion: nil)
-            }
-            present(picker, animated: true, completion: nil)
-        }
+        var config = YPImagePickerConfiguration()
+        config.screens = [.library, .photo] // 앨범 카메라 접근
+        config.library.mediaType = .photo
+        config.showsCrop = .rectangle(ratio: 1.0) // 1:1 비율 크롭
         
-    private func uploadImage(_ image: UIImage) {
-        guard let imageData = image.pngData() else { return } // PNG 데이터로
-
+        let picker = YPImagePicker(configuration: config)
+        picker.didFinishPicking { [weak self, unowned picker] items, _ in
+            if let photo = items.singlePhoto, let compressedImageData = photo.image.compressTo2MB() {
+                self?.profileImage.image = photo.image
+                self?.uploadImage(compressedImageData)
+            }
+            picker.dismiss(animated: true, completion: nil)
+        }
+        present(picker, animated: true, completion: nil)
+    }
+    
+    
+    private func uploadImage(_ image: Data) {
+        
         let uploadVM = UploadImagesViewModel()
-           let uploadInput = UploadImagesViewModel.Input(uploadData: Observable.just(imageData))
-           let uploadOutput = uploadVM.transform(input: uploadInput)
-
-           uploadOutput.profileResult
+        let uploadInput = UploadImagesViewModel.Input(uploadData: Observable.just(image))
+        let uploadOutput = uploadVM.transform(input: uploadInput)
+        
+        uploadOutput.profileResult
             .drive(with: self) { owner, uploadModel in
-                //여기서받아오는 uploadModel의 값을 setBind의 input의 profileImage에 넣고싶어
-                
+                owner.imageUrl.accept(uploadModel.files.first)
             }.disposed(by: disposeBag)
     }
- 
+    
 }

@@ -13,7 +13,7 @@ class EditMyProfileViewModel: CommonViewModel {
     
     struct Input {
         let nickname: Observable<String>
-        let profileImage: Observable<String>
+        let profileImage: Observable<String?>
         let submitBtnTap: Observable<Void>
     }
     
@@ -35,12 +35,21 @@ class EditMyProfileViewModel: CommonViewModel {
         input.submitBtnTap
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(editProfileQuery)
-            .flatMapLatest{ query in
+            .flatMapLatest { query -> Observable<Void> in
                 ProfileNetworkManager.editMyProfile(query: query)
+                    .asObservable()
+                    .map { profile -> Void in
+                        DefaultUDManager.shared.nickname = profile.nick
+                        if let imageURL = profile.profileImage {
+                            DefaultUDManager.shared.profileURL = imageURL
+                        }
+                        return Void()
+                    }
+                    .catchAndReturn(Void())  // 에러
             }
-            .subscribe(with: self) { owner, profile in
-                DefaultUDManager.shared.nickname = profile.nick
-            }
+            .subscribe(onNext: {
+                successResult.accept(())  // 성공
+            })
             .disposed(by: disposeBag)
         
         return Output(successResult: successResult.asDriver(onErrorJustReturn: ()))

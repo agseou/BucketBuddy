@@ -15,23 +15,28 @@ struct PostNetworkManager {
     // 이미지업로드
     static func uploadImage(query: uploadIamgeQuery) -> Single<uploadImageModel> {
         return Single<uploadImageModel>.create { single in
+            let urlRequest: URLRequest
             do {
-                let urlRequest = try PostRouter.uploadImage(query: query).asURLRequest()
-                
-                AF.upload(multipartFormData: { multipartFormData in
-                    multipartFormData.append(query.files, withName: "file", fileName: "image.png", mimeType: "image/png")
-                }, with: urlRequest)
-                .responseDecodable(of: uploadImageModel.self) { response in
-                    switch response.result {
-                    case .success(let uploadModel):
-                        single(.success(uploadModel))
-                    case .failure(let error):
-                        single(.failure(error))
-                    }
-                }
+                // URLRequest 생성
+                urlRequest = try PostRouter.uploadImage(query: query).asURLRequest()
             } catch {
                 single(.failure(error))
+                return Disposables.create()
             }
+            
+            AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(query.files, withName: "files", fileName: "image.png", mimeType: "image/png")
+            }, with: urlRequest)
+            .responseDecodable(of: uploadImageModel.self) { response in
+                switch response.result {
+                case .success(let uploadModel):
+                    dump(uploadModel)
+                    single(.success(uploadModel))
+                case .failure(let error):
+                    single(.failure(error))
+                }
+            }
+            
             return Disposables.create()
         }
     }
@@ -80,7 +85,7 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                                single(.failure(error))
+                            single(.failure(error))
                             
                         }
                     }
@@ -103,7 +108,7 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                                single(.failure(error))
+                            single(.failure(error))
                             
                         }
                     }
@@ -158,7 +163,7 @@ struct PostNetworkManager {
                         case .success(let post):
                             single(.success(post))
                         case .failure(let error):
-                                single(.failure(error))
+                            single(.failure(error))
                             
                         }
                     }
@@ -176,24 +181,24 @@ struct PostNetworkManager {
             do {
                 let urlRequest = try PostRouter.deletePost(id: postID).asURLRequest()
                 AF.request(urlRequest, interceptor: MyRequestInterceptor()).response { response in
-                        switch response.result {
-                        case .success(_):
-                            single(.success(.success(())))
-                        case .failure(let error):
-                            switch response.response?.statusCode {
-                            case 401:
-                                single(.success(.unauthorized))
-                            case 403:
-                                single(.success(.forbidden))
-                            case 410:
-                                single(.success(.nonePost))
-                            case 419:
-                                single(.success(.expiredAccessToken))
-                            default:
-                                single(.success(.error(.unknown)))
-                            }
+                    switch response.result {
+                    case .success(_):
+                        single(.success(.success(())))
+                    case .failure(let error):
+                        switch response.response?.statusCode {
+                        case 401:
+                            single(.success(.unauthorized))
+                        case 403:
+                            single(.success(.forbidden))
+                        case 410:
+                            single(.success(.nonePost))
+                        case 419:
+                            single(.success(.expiredAccessToken))
+                        default:
+                            single(.success(.error(.unknown)))
                         }
                     }
+                }
             } catch {
                 single(.failure(error))
             }
