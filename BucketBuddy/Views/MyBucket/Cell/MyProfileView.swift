@@ -18,12 +18,6 @@ final class MyProfileView: BaseCollectionViewCell {
         label.text = "끼끼"
         return label
     }()
-    private let followUserBtn = {
-        let btn = UIButton()
-        btn.setTitle("팔로우", for: .normal)
-        btn.backgroundColor = .black
-        return btn
-    }()
     let followerBtn = ProfileItemBtn(number: 0, description: "팔로워")
     let followingBtn = ProfileItemBtn(number: 0, description: "팔로잉")
     
@@ -38,7 +32,6 @@ final class MyProfileView: BaseCollectionViewCell {
         
         addSubview(profileImage)
         addSubview(userName)
-        addSubview(followUserBtn)
         addSubview(followerBtn)
         addSubview(followingBtn)
     }
@@ -55,10 +48,6 @@ final class MyProfileView: BaseCollectionViewCell {
             $0.left.equalTo(profileImage.snp.right).offset(15)
             $0.top.equalTo(profileImage.snp.top).offset(10)
             $0.width.equalTo(100)
-        }
-        followUserBtn.snp.makeConstraints {
-            $0.left.equalTo(userName.snp.right).offset(10)
-            $0.top.equalTo(profileImage.snp.top).offset(10)
         }
         followerBtn.snp.makeConstraints {
             $0.width.greaterThanOrEqualTo(50)

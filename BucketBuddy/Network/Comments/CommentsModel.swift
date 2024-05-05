@@ -14,9 +14,9 @@ struct CommentQuery: Encodable {
 }
 
 struct CommnentModel: Decodable {
-    let commnet_id: String
+    let comment_id: String
     let content: String
     let createdAt: String
-    let creator: JoinModel
+    let creator: UserModel
 }
 

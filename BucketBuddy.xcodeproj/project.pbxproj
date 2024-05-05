@@ -83,6 +83,11 @@
 		E2CADD9B2BE61CC10073FE7C /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = E2CADD9A2BE61CC10073FE7C /* TextFieldEffects */; };
 		E2CADD9E2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADD9D2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift */; };
 		E2CADDA02BE71E970073FE7C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADD9F2BE71E970073FE7C /* UIImage+Extension.swift */; };
+		E2CADDA42BE784DC0073FE7C /* FetchExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADDA32BE784DC0073FE7C /* FetchExploreViewModel.swift */; };
+		E2CADDA62BE7871B0073FE7C /* BucketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADDA52BE7871B0073FE7C /* BucketListTableViewCell.swift */; };
+		E2CADDA82BE793C70073FE7C /* WriteCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADDA72BE793C70073FE7C /* WriteCommentsViewModel.swift */; };
+		E2CADDAA2BE79CE00073FE7C /* FetchPostIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADDA92BE79CE00073FE7C /* FetchPostIDViewModel.swift */; };
+		E2CADDAC2BE7BC9B0073FE7C /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CADDAB2BE7BC9B0073FE7C /* PostHeaderView.swift */; };
 		E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */; };
 		E2F700102BE00627003A79B1 /* FetchFollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */; };
 		E2F700192BE07C2B003A79B1 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */; };
@@ -179,6 +184,11 @@
 		E2C515C92BDA0C300021C172 /* MyRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestInterceptor.swift; sourceTree = "<group>"; };
 		E2CADD9D2BE64CF30073FE7C /* CheckEmailValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailValidationViewModel.swift; sourceTree = "<group>"; };
 		E2CADD9F2BE71E970073FE7C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		E2CADDA32BE784DC0073FE7C /* FetchExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchExploreViewModel.swift; sourceTree = "<group>"; };
+		E2CADDA52BE7871B0073FE7C /* BucketListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTableViewCell.swift; sourceTree = "<group>"; };
+		E2CADDA72BE793C70073FE7C /* WriteCommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentsViewModel.swift; sourceTree = "<group>"; };
+		E2CADDA92BE79CE00073FE7C /* FetchPostIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPostIDViewModel.swift; sourceTree = "<group>"; };
+		E2CADDAB2BE7BC9B0073FE7C /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
 		E2F7000B2BDFC860003A79B1 /* FollowerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListTableViewCell.swift; sourceTree = "<group>"; };
 		E2F7000F2BE00627003A79B1 /* FetchFollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFollowerViewModel.swift; sourceTree = "<group>"; };
 		E2F700182BE07C2B003A79B1 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -397,6 +407,7 @@
 			children = (
 				E2C515A82BD7AB580021C172 /* Posts */,
 				E2C515642BD766140021C172 /* ExploreViewController.swift */,
+				E2CADDA52BE7871B0073FE7C /* BucketListTableViewCell.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -502,6 +513,7 @@
 			children = (
 				E2C515A52BD7AAF60021C172 /* DetailPostViewController.swift */,
 				E2C515AE2BD7AC590021C172 /* CommentsTableViewCell.swift */,
+				E2CADDAB2BE7BC9B0073FE7C /* PostHeaderView.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -551,10 +563,13 @@
 				E2CADD9C2BE649040073FE7C /* Onboading */,
 				E2F700472BE22BC4003A79B1 /* EditMyProfileViewModel.swift */,
 				E2C515722BD789720021C172 /* AddNewBucketViewModel.swift */,
+				E2CADDA32BE784DC0073FE7C /* FetchExploreViewModel.swift */,
 				E2C515B02BD7AED50021C172 /* FetchMyBucketListViewModel.swift */,
 				E2F700422BE206B5003A79B1 /* CompleteToggleViewModel.swift */,
 				E2F700452BE22417003A79B1 /* FetchMyProfileViewModel.swift */,
 				E2F7004C2BE2CB3D003A79B1 /* UploadImageViewModel.swift */,
+				E2CADDA72BE793C70073FE7C /* WriteCommentsViewModel.swift */,
+				E2CADDA92BE79CE00073FE7C /* FetchPostIDViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -724,6 +739,7 @@
 				E2C515262BD244340021C172 /* MyBucketViewController.swift in Sources */,
 				E2C5147D2BCC04590021C172 /* RegularButton.swift in Sources */,
 				E2F7003F2BE0C773003A79B1 /* String+Extension.swift in Sources */,
+				E2CADDAC2BE7BC9B0073FE7C /* PostHeaderView.swift in Sources */,
 				E2C514732BCAF1470021C172 /* ViewModelType.swift in Sources */,
 				E2C514672BCAEA2D0021C172 /* UserModel.swift in Sources */,
 				E2C5159D2BD7A3810021C172 /* HashtagRouter.swift in Sources */,
@@ -735,12 +751,15 @@
 				E2C515232BD241570021C172 /* BaseTableViewCell.swift in Sources */,
 				E2C5158D2BD79ECB0021C172 /* CommentsRouter.swift in Sources */,
 				E2C515952BD7A3580021C172 /* FollowRouter.swift in Sources */,
+				E2CADDA62BE7871B0073FE7C /* BucketListTableViewCell.swift in Sources */,
 				E2C513F42BC7CE540021C172 /* BaseView.swift in Sources */,
 				E2C515282BD244520021C172 /* MyBucketListTableViewCell.swift in Sources */,
 				E2C515652BD766140021C172 /* ExploreViewController.swift in Sources */,
+				E2CADDAA2BE79CE00073FE7C /* FetchPostIDViewModel.swift in Sources */,
 				E2C515822BD79DB40021C172 /* CommentsModel.swift in Sources */,
 				E2C514FD2BD14DFA0021C172 /* HandleError.swift in Sources */,
 				E2C515C32BD93E140021C172 /* ProfileItemBtn.swift in Sources */,
+				E2CADDA42BE784DC0073FE7C /* FetchExploreViewModel.swift in Sources */,
 				E2C513CA2BC7CD510021C172 /* AppDelegate.swift in Sources */,
 				E2C515992BD7A36C0021C172 /* ProfileRouter.swift in Sources */,
 				E2C515B12BD7AED50021C172 /* FetchMyBucketListViewModel.swift in Sources */,
@@ -762,6 +781,7 @@
 				E2F7000C2BDFC860003A79B1 /* FollowerListTableViewCell.swift in Sources */,
 				E2C514C02BCED1E80021C172 /* NetworkStatusManager.swift in Sources */,
 				E2C513F52BC7CE540021C172 /* BaseViewController.swift in Sources */,
+				E2CADDA82BE793C70073FE7C /* WriteCommentsViewModel.swift in Sources */,
 				E2C515BB2BD7B6130021C172 /* SetupPasswordViewModel.swift in Sources */,
 				E2C5159B2BD7A3750021C172 /* ProfileNetworkManager.swift in Sources */,
 			);

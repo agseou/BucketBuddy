@@ -89,9 +89,13 @@ struct PostModel: Decodable {
     let comments: [comment]
 }
 
+extension PostModel { static var defaultPostModel: PostModel { return PostModel(post_id: "", product_id: nil, title: nil, content: nil, content1: nil, content2: nil, content3: nil, content4: nil, content5: nil, createdAt: "", creator: UserModel.defaultUserModel, files: [], likes: [], hashTags: [], comments: []) }
+}
+
+
 struct comment: Decodable {
     let comment_id: String
     let content: String
     let createdAt: String
-    let creator: [UserModel]
+    let creator: UserModel
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileImageView: UIImageView {
     
@@ -35,6 +36,12 @@ class ProfileImageView: UIImageView {
     
     func setImage(_ image: UIImage) {
         self.image = image
+    }
+    
+    func loadImage(from url: String) {
+        if let completeURL = URL(string: APIKey.baseURL.rawValue + url) {
+            self.kf.setImage(with: completeURL, placeholder: UIImage(resource: .monkey), options: [.transition(.fade(0.2))])
+        }
     }
     
     @available(*, unavailable)

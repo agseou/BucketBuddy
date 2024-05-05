@@ -32,6 +32,7 @@ class CommentsTableViewCell: BaseTableViewCell {
         
         contentView.addSubview(profileImage)
         contentView.addSubview(nickname)
+        contentView.addSubview(comments)
         contentView.addSubview(date)
     }
     
@@ -40,21 +41,32 @@ class CommentsTableViewCell: BaseTableViewCell {
         super.setConstraints()
         
         profileImage.snp.makeConstraints {
-            $0.top.left.equalTo(contentView)
+            $0.top.left.equalTo(contentView).offset(10)
             $0.size.equalTo(50)
+            $0.bottom.lessThanOrEqualTo(contentView).offset(-10).priority(.high)
         }
         nickname.snp.makeConstraints {
-            $0.left.equalTo(profileImage.snp.right)
-            $0.right.equalTo(contentView).inset(10)
-            $0.height.equalTo(30)
-            $0.top.equalTo(contentView)
-        }
-        comments.snp.makeConstraints {
             $0.left.equalTo(profileImage.snp.right).offset(10)
             $0.right.equalTo(contentView).inset(10)
+            $0.top.equalTo(profileImage)
+        }
+        comments.snp.makeConstraints {
+            $0.left.equalTo(nickname)
+            $0.right.equalTo(contentView).inset(10)
             $0.top.equalTo(nickname.snp.bottom).offset(5)
-            $0.bottom.equalTo(contentView)
+            $0.bottom.lessThanOrEqualTo(contentView).offset(-10).priority(.high)
+        }
+        date.snp.makeConstraints {
+            $0.left.equalTo(nickname)
+            $0.top.equalTo(comments.snp.bottom).offset(5)
+            $0.bottom.equalTo(contentView).offset(-10)
         }
     }
     
+    func configureCell(nickname: String, comment: String, date: String, profileImageURL: String) {
+        self.nickname.text = nickname
+        self.comments.text = comment
+        self.date.text = date
+        self.profileImage.loadImage(from: profileImageURL)
+    }
 }

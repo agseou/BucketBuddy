@@ -254,15 +254,15 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
             .disposed(by: self.disposeBag)
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader else {
-            return UICollectionReusableView()
-        }
-        
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SegmentControlCollectionReusableView", for: indexPath) as! SegmentControlCollectionReusableView
-        
-        return header
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        guard kind == UICollectionView.elementKindSectionHeader else {
+//            return UICollectionReusableView()
+//        }
+//        
+//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SegmentControlCollectionReusableView", for: indexPath) as! SegmentControlCollectionReusableView
+//        
+//        return header
+//    }
     
     private func fetchData() {
         print("========fetchData==========")

@@ -143,12 +143,12 @@ struct PostNetworkManager {
     
     
     // 특정 포스트 조회
-    static func fetchUserPost(id: String) -> Single<FetchPostModel> {
-        return Single<FetchPostModel>.create { single in
+    static func fetchPostDetail(id: String) -> Single<PostModel> {
+        return Single<PostModel>.create { single in
             do {
                 let urlRequest = try PostRouter.fetchPostDetail(id: id).asURLRequest()
                 AF.request(urlRequest, interceptor: MyRequestInterceptor())
-                    .responseDecodable(of: FetchPostModel.self) { response in
+                    .responseDecodable(of: PostModel.self) { response in
                         switch response.result {
                         case .success(let post):
                             single(.success(post))

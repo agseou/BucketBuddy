@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import RxSwift
 import RxCocoa
 
@@ -57,8 +58,9 @@ final class MyBucketListTableViewCell: BaseCollectionViewCell {
     
     // MARK: - Functions
     override func prepareForReuse() {
-        disposeBag = DisposeBag()
+        super.prepareForReuse()
         
+        disposeBag = DisposeBag()
     }
     
     override func configureHierarchy() {
