@@ -93,6 +93,7 @@ class LoginViewController: BaseViewController {
         
         output.loginSuccess
             .drive(with: self) { owner, _ in
+                DefaultUDManager.shared.isAccessed = true
                 guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                 let sceneDelegate = scene.delegate as? SceneDelegate else { return }
                 let vc = TabBarViewController()

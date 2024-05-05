@@ -41,6 +41,8 @@ final class MyBucketViewController: BaseViewController {
     }
     
     private let fetchTrigger = PublishSubject<Void>()
+    
+    private let viewModel = CompleteToggleViewModel()
     private let fetchMyBucketViewModel = FetchMyBucketListViewModel()
     private let fetchMyProfileViewModel = FetchMyProfileViewModel()
     private var nickname: String = DefaultUDManager.shared.nickname
@@ -95,20 +97,21 @@ final class MyBucketViewController: BaseViewController {
             .drive(with: self) { owner, fetchPostModel in
                 dump(fetchPostModel)
                 owner.postList = fetchPostModel.data
+                owner.collectionView.reloadData()
             }
             .disposed(by: disposeBag)
-            
+        
         let fetchMyProfileInput = FetchMyProfileViewModel.Input(fetchTrigger: fetchTrigger)
         let fetchMyProfileOutput = fetchMyProfileViewModel.transform(input: fetchMyProfileInput)
         
         fetchMyProfileOutput.profileResult
-               .drive(with: self) { owner, profile in
-                   DefaultUDManager.shared.nickname = profile.nick
-                   DefaultUDManager.shared.email = profile.email
-                   owner.nickname = profile.nick
-                   owner.followCnt = (profile.followers.count, profile.following.count)
-               }
-               .disposed(by: disposeBag)
+            .drive(with: self) { owner, profile in
+                DefaultUDManager.shared.nickname = profile.nick
+                DefaultUDManager.shared.email = profile.email
+                owner.nickname = profile.nick
+                owner.followCnt = (profile.followers.count, profile.following.count)
+            }
+            .disposed(by: disposeBag)
         
         fetchTrigger.onNext(())
         
@@ -184,25 +187,71 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
             
             cell.configureCell(nickname: nickname, followerCnt: followCnt.0, followingCnt: followCnt.1)
             Observable.merge( cell.followerBtn.rx.tap.asObservable(), cell.followingBtn.rx.tap.asObservable())
-            .subscribe(with: self) { owner, _ in
-                let vc = FollowViewController()
-                owner.navigationController?.pushViewController(vc, animated: true)
-            }
-            .disposed(by: cell.disposeBag)
+                .subscribe(with: self) { owner, _ in
+                    let vc = FollowViewController()
+                    owner.navigationController?.pushViewController(vc, animated: true)
+                }
+                .disposed(by: cell.disposeBag)
             
             return cell
-            
+
         case .myBuckets:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyBucketListTableViewCell", for: indexPath) as! MyBucketListTableViewCell
-            
-            cell.delegate = self
             let item = postList[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyBucketListTableViewCell", for: indexPath) as! MyBucketListTableViewCell
             cell.configureCell(title: item.title ?? "none", deadline: item.content2 ?? "없음", postID: item.post_id, productID: item.product_id!)
-            
+            cell.onCompleteTapped = { [weak self] productID, postID in
+                print("tap")
+                self?.toggleCompletionStatus(productID: productID, postID: postID)
+            }
+            cell.onEditTapped = { [weak self] postID in
+                self?.editPost(postID: postID)
+            }
+            cell.onDeleteTapped = { [weak self] postID in
+                
+                self?.deletePost(postID: postID)
+            }
             return cell
         case .none:
             return UICollectionViewCell()
         }
+    }
+    
+    private func toggleCompletionStatus(productID: String, postID: String) {
+        let input = CompleteToggleViewModel.Input(trigger: Observable.just((productID, postID)))
+        let output = viewModel.transform(input: input)
+        
+        output.successSignal
+            .drive(with: self) { owner,_ in
+                owner.fetchData()
+            }
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func editPost(postID: String) {
+        let vc = AddNewBucketViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func deletePost(postID: String) {
+        PostNetworkManager.deletePost(postID: postID)
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success():
+                    owner.fetchData()
+                case .unauthorized:
+                    print("유효하지 않은 액세스 토큰")
+                case .forbidden:
+                    print("접근권한 없음")
+                case .nonePost:
+                    print("이미 삭제된 포스트 입니다.")
+                case .expiredAccessToken:
+                    print("에러 발생: 엑세스 토큰 만료")
+                case .error(let error):
+                    print("에러 발생: \(error.localizedDescription)")
+                }
+            }
+            .disposed(by: self.disposeBag)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -215,14 +264,9 @@ extension MyBucketViewController: UICollectionViewDelegate, UICollectionViewData
         return header
     }
     
-}
-
-extension MyBucketViewController: MyBucketListTableViewCellDelegate {
-    func displayErrorMessage(_ message: String) {
-        showAlert(title: "에러발생", message: message)
-    }
-    
-    func reloadTableView() {
+    private func fetchData() {
+        print("========fetchData==========")
         fetchTrigger.onNext(())
     }
+    
 }

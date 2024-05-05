@@ -30,20 +30,7 @@ class FetchMyBucketListViewModel: CommonViewModel {
                return PostNetworkManager.fetchUserPost(query: FetchPostQuery(next: nil, limit: nil, product_id: ""), userID: DefaultUDManager.shared.userID)
             }
             .subscribe(with: self) { owner, result in
-                switch result {
-                case .success(let success):
-                    postResult.accept(success)
-                case .badRequest:
-                    print("잘못된 요청값입니다.")
-                case .unauthorized:
-                    print("유효하지 않은 액세스 토큰")
-                case .forbidden:
-                    print("접근권한 없음")
-                case .expiredAccessToken:
-                    print("에러 발생: 엑세스 토큰 만료")
-                case .error(let error):
-                    print("!!!에러 발생: \(error.localizedDescription)")
-                }
+                postResult.accept(result)
             }
             .disposed(by: disposeBag)
         
